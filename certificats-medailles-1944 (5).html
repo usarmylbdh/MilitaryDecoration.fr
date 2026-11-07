@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bureau des Décorations — 1944</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Courier+Prime:wght@400;700&family=Mr+Dafoe&family=EB+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#26251a;color:#e8dfc4;font-family:"Courier Prime","Courier New",monospace;min-height:100vh}
+header{text-align:center;padding:24px 16px 16px;border-bottom:4px double #8a8460;background:rgba(0,0,0,.25)}
+header h1{margin:0;font-family:Cinzel,Georgia,serif;letter-spacing:.25em;text-transform:uppercase;font-size:clamp(18px,3vw,28px);color:#f1e7c6}
+header p{margin:6px 0 0;font-size:12px;letter-spacing:.2em;color:#b9b08a;text-transform:uppercase}
+main{display:grid;grid-template-columns:340px 1fr;gap:22px;max-width:1560px;margin:22px auto;padding:0 16px}
+@media(max-width:1000px){main{grid-template-columns:1fr}}
+.panel{background:#3b3a26;border:3px solid #8a8460;padding:18px;box-shadow:0 0 0 4px #1a190f,0 8px 24px rgba(0,0,0,.5);align-self:start}
+.panel h2{margin:0 0 12px;font-size:14px;letter-spacing:.2em;text-transform:uppercase;border-bottom:2px dashed #8a8460;padding-bottom:8px;color:#f1e7c6}
+label{display:block;margin:11px 0 4px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#cfc6a0}
+input,select,textarea{width:100%;padding:8px 9px;background:#ece3c8;color:#1d1a12;border:2px solid #1a190f;font-family:inherit;font-size:14px;border-radius:0}
+textarea{min-height:120px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{margin-top:12px;width:100%;padding:11px;background:#7a1f1a;color:#f6ecd0;border:2px solid #1a190f;font-family:inherit;font-weight:bold;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-size:13px}
+button:hover{background:#932620}
+button.alt{background:#4a4a30}
+.hint{font-size:11px;color:#a59f7c;margin-top:6px;line-height:1.4}
+.stage{overflow:auto;display:flex;justify-content:center;align-items:flex-start}
+#box{flex:none;position:relative;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+
+/* ===== CERTIFICAT (paysage, 1123x794 = A4) ===== */
+.cert{width:1123px;height:794px;position:absolute;left:0;top:0;transform-origin:top left;overflow:hidden;color:#16130c;text-align:center;
+  background-color:var(--paper,#f4efd8);
+  background-image:
+   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.018' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .25  0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E"),
+   radial-gradient(ellipse at 50% 45%,rgba(255,255,255,.55),transparent 70%)}
+.bow{position:absolute;left:50%;top:14px;width:430px;height:250px;margin-left:-215px}
+.c-title1{position:absolute;left:0;right:0;top:262px;font-family:Cinzel,"Engravers MT",Georgia,serif;font-weight:700;font-size:45px;letter-spacing:.01em;line-height:1;white-space:nowrap}
+.c-sub{position:absolute;left:0;right:0;top:318px;font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:13.5px;line-height:1.35;text-transform:uppercase}
+.c-title2{position:absolute;left:0;right:0;top:365px;font-family:Cinzel,"Engravers MT",Georgia,serif;font-weight:500;font-size:56px;line-height:1;white-space:nowrap;text-transform:uppercase}
+.c-title2.long{font-size:28px;top:384px}
+.c-to{position:absolute;left:0;right:0;top:442px;font-family:"Courier Prime",monospace;font-size:17px}
+.c-name{position:absolute;left:0;right:0;top:474px;font-family:"Courier Prime",monospace;font-weight:700;font-size:19px;letter-spacing:.04em;text-transform:uppercase}
+.c-unit{position:absolute;left:0;right:0;top:502px;font-family:"Courier Prime",monospace;font-weight:700;font-size:15.5px;letter-spacing:.04em;text-transform:uppercase}
+.c-for{position:absolute;left:92px;right:92px;top:532px;text-align:left;font-family:"Courier Prime",monospace;font-weight:700;font-size:15.2px;line-height:1.45;text-transform:uppercase;white-space:pre-wrap}
+.c-for .lab{font-size:19px;margin-right:12px}
+.c-foot-l{position:absolute;left:92px;top:678px;text-align:left;font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:12.5px;text-transform:uppercase;line-height:1.7}
+.c-foot-l b{font-family:"Courier Prime",monospace;font-size:13px}
+.c-seal{position:absolute;left:50%;top:644px;width:112px;height:112px;margin-left:-56px}
+.c-sig{position:absolute;right:86px;top:628px;width:300px;text-align:center}
+.c-sig .sg{font-family:"Mr Dafoe","Brush Script MT",cursive;font-size:44px;line-height:1;color:#0b0b14;transform:rotate(-4deg);white-space:nowrap}
+.c-sig .pn{border-top:1px solid #16130c;margin-top:2px;padding-top:2px;font-family:"Courier Prime",monospace;font-size:10px;text-transform:uppercase}
+.c-tag{position:absolute;left:0;right:0;bottom:18px;text-align:center;font-family:"Courier Prime",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#6b1a15}
+.c-wm{position:absolute;left:50%;top:52%;width:1200px;margin-left:-600px;margin-top:-60px;text-align:center;font-family:Cinzel,Georgia,serif;font-weight:700;font-size:68px;letter-spacing:.05em;color:rgba(122,31,26,.11);transform:rotate(-17deg);white-space:nowrap;pointer-events:none}
+.cert::before{content:"";position:absolute;inset:14px;border:3px double #6b4a22;pointer-events:none}
+
+nav{margin-top:12px}
+nav button{width:auto;margin:0 5px;padding:8px 18px;background:#4a4a30;font-size:12px}
+nav button.on{background:#7a1f1a}
+#people{margin-top:10px;max-height:60vh;overflow:auto}
+.person{padding:9px 10px;margin-bottom:6px;background:#2d2c1c;border:2px solid #1a190f;cursor:pointer}
+.person:hover{background:#44432b}
+.person.sel{border-color:#d9c07a;background:#4d4a2c}
+.person b{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#f1e7c6}
+.person small{display:block;color:#b9b08a;font-size:11px;margin-top:2px}
+.person .n{float:right;background:#7a1f1a;color:#f6ecd0;font-size:11px;padding:1px 7px}
+.chip{display:inline-block;width:44px;height:14px;border:1px solid #111;margin:0 3px 3px 0;vertical-align:middle}
+.rack{margin:8px 0 14px;line-height:1}
+.rec{background:#2d2c1c;border:2px solid #1a190f;padding:12px;margin-bottom:10px}
+.rec h3{margin:0 0 4px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#f1e7c6}
+.rec .meta{font-size:11px;color:#b9b08a;margin-bottom:6px}
+.rec p{margin:0 0 4px;font-size:12.5px;line-height:1.45;text-transform:uppercase}
+.rec .acts{display:flex;gap:8px;margin-top:8px}
+.rec .acts button{margin:0;padding:7px;font-size:11px}
+.empty{color:#a59f7c;font-size:13px}
+.legal h3{margin:18px 0 6px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#f1e7c6}
+.legal p{margin:0;font-size:13.5px;line-height:1.6;color:#e2d9ba}
+.legal b{color:#f6ecd0}
+.locked .adm{display:none!important}
+.panel p.p{margin:0 0 10px;font-size:13px;line-height:1.5;color:#e2d9ba}
+.chk{display:flex;align-items:center;gap:6px;margin:0;font-size:12px;text-transform:none;letter-spacing:0}
+.chk input{width:auto}
+.rbar{position:absolute;left:58px;top:34px;width:170px;height:50px}
+.c-dev{position:absolute;left:0;right:0;top:422px;font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase}
+.panel h3.sub{margin:16px 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#f1e7c6;border-bottom:1px dashed #6d6a4a;padding-bottom:4px}
+.ev{font-size:12.5px;padding:4px 0;border-bottom:1px dashed #55533a}
+.ev small{color:#b9b08a}
+.mini{width:auto!important;margin:0 0 0 6px!important;padding:0 7px!important;font-size:12px!important}
+.chip{display:inline-flex;align-items:center;justify-content:center;gap:2px}
+.dv{display:inline-block;width:6px;height:9px;border-radius:50%;border:1px solid #222}
+.dv.gd{background:#d9b13a}.dv.bz{background:#b5763a}.dv.sv{background:#d8dce2}
+.dv.ar{width:0;height:0;border:4px solid transparent;border-bottom:9px solid #b5763a;border-top:0;border-radius:0}
+.dv.cl{width:14px;height:6px;border-radius:1px;background:#b5763a}
+.st{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:1px 7px;border:1px solid #111;margin-right:4px;color:#1d1a12}
+.st-pending{background:#d9c07a}.st-approved{background:#8fae6a}.st-refused{background:#c1675c}
+.subnav{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.subnav button{width:auto;margin:0;padding:8px 14px}
+.subnav button.on{background:#d9c07a;color:#1d1a12}
+.mrow{display:grid;grid-template-columns:1.2fr 2fr 1.3fr 70px;gap:10px;align-items:center;background:#2d2c1c;border:2px solid #1a190f;padding:8px 10px;margin-bottom:6px;font-size:12.5px}
+.mrow .mm{font-size:11px;color:#b9b08a}
+@media(max-width:800px){.mrow{grid-template-columns:1fr}}
+.locked .adm{display:none!important}
+@media print{
+  body{background:#fff}
+  header,.panel,#tabReg,#tabLegal,#tabAcces,#tabTab,#tabEff{display:none!important}
+  main{display:block;margin:0;padding:0;max-width:none}
+  .stage{display:block;overflow:visible}
+  #box{box-shadow:none;width:1123px!important;height:794px!important}
+  .cert{transform:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4 landscape;margin:0}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Bureau des Décorations</h1>
+  <p>Commandement allié · Serveur RP WW2 · 1944 — œuvre de fiction</p>
+  <nav id="nav"><button data-t="gen" class="on adm" type="button">Générateur</button><button data-t="reg" type="button">Récipiendaires <span id="cnt"></span></button><button data-t="acces" id="navAcces" type="button">Accès EM 🔒</button><button data-t="eff" type="button">Effectifs</button><button data-t="tab" id="navTab" type="button">Tableau d'avancement 🔒</button><button data-t="legal" type="button">Mentions légales</button></nav>
+</header>
+
+<main id="tabGen">
+  <section class="panel">
+    <h2>▸ Fiche de citation</h2>
+
+    <input id="org" type="hidden" value="Allied Theater Command">
+
+    <label for="medal">Décoration décernée</label>
+    <select id="medal"></select>
+
+    <div id="whoBox">
+      <label for="gReg">Régiment du récipiendaire</label>
+      <select id="gReg"></select>
+      <label for="gMem">Militaire (grade — nom)</label>
+      <select id="gMem"></select>
+      <div class="hint" id="gHint">Le récipiendaire doit figurer dans l'onglet Effectifs.</div>
+    </div>
+    <input id="prenom" type="hidden"><input id="nom" type="hidden">
+    <label for="grade">Grade du récipiendaire</label>
+    <select id="grade"></select>
+
+    <label for="unit" id="unitLabel">Branche / unité</label>
+    <input id="unit" value="Allied Army">
+
+    <div id="devBox">
+      <div id="devTypeWrap"><label for="devType">Type de device</label>
+        <select id="devType"><option value="auto">Auto (selon médaille et branche)</option><option value="olc">Oak leaf cluster (Army)</option><option value="gold">Étoile or / argent (Navy, Marine Corps)</option><option value="service">Étoile bronze / argent (service star)</option></select></div>
+      <label for="extra" id="extraLabel">Attributions supplémentaires</label>
+      <div class="row">
+        <input id="extra" type="number" min="0" max="30" value="0">
+        <label class="chk" id="arrowWrap"><input type="checkbox" id="arrow"> Arrowhead</label>
+      </div>
+      <div class="hint" id="devHint"></div>
+    </div>
+
+    <label for="reason">Motif (« FOR: »)</label>
+    <textarea id="reason" placeholder="Motif de la citation…"></textarea>
+    <button class="alt" id="tpl" type="button" style="margin-top:6px">Insérer un modèle de motif</button>
+
+    <div class="row">
+      <div><label for="date">Date</label><input id="date" type="date" value="1944-06-06"></div>
+      <div><label for="place">Lieu</label><input id="place" value="Allied Headquarters"></div>
+    </div>
+
+    <label for="signataire">Signataire (nom, grade)</label>
+    <input id="signataire" placeholder="ex : John Doe, Colonel, AGD">
+
+    <button id="save" type="button">＋ Enregistrer dans le registre</button>
+    <button id="pdf" type="button">⬇ Télécharger en PDF</button>
+    <button class="alt" id="print" type="button">🖨 Imprimer</button>
+    <button class="alt" id="reset" type="button">Réinitialiser</button>
+    <div class="hint">Document de jeu — usage roleplay uniquement. Noms et signatures fictifs. Le certificat reste en anglais, comme les modèles.</div>
+  </section>
+
+  <section class="stage" id="stage">
+    <div id="box">
+      <article class="cert" id="cert">
+        <svg class="rbar" id="rbar" viewBox="0 0 170 50" style="display:none"></svg>
+        <svg class="bow" id="bow" viewBox="0 0 460 270"></svg>
+        <div class="c-title1" id="cOrg"></div>
+        <div class="c-sub" id="cSub"></div>
+        <div class="c-title2" id="cTitle"></div>
+        <div class="c-dev" id="cDev"></div>
+        <div class="c-to" id="cTo">TO</div>
+        <div class="c-name" id="cName"></div>
+        <div class="c-unit" id="cUnit"></div>
+        <div class="c-for" id="cFor"></div>
+        <div class="c-foot-l" id="cFoot"></div>
+        <svg class="c-seal" id="seal" viewBox="0 0 120 120"></svg>
+        <div class="c-sig"><div class="sg" id="sg">&nbsp;</div><div class="pn" id="pn">&nbsp;</div></div>
+        <div class="c-tag">Document fictif — Serveur RP · WW2 · Aucune valeur officielle</div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<main id="tabReg" style="display:none">
+  <section class="panel">
+    <h2>▸ Récipiendaires</h2>
+    <input id="q" placeholder="Rechercher un nom…">
+    <div id="people"></div>
+    <button class="alt adm" id="exp" type="button">Exporter le registre (.json)</button>
+    <button class="alt adm" id="imp" type="button">Importer un registre</button>
+    <input type="file" id="impf" accept=".json,application/json" hidden>
+    <h2 class="adm" style="margin-top:18px">▸ Publication</h2>
+    <button id="pub" class="adm" type="button">Générer la page de consultation</button>
+    <label class="chk adm" style="margin-top:8px"><input type="checkbox" id="pubReasons" checked> Inclure les motifs des décorations</label>
+    <div class="hint adm">Crée un fichier HTML autonome et en lecture seule (liste des récipiendaires, grades, barrettes de rubans), sans certificats ni bouton de modification. Régénère-le après chaque mise à jour du registre.</div>
+    <button class="alt adm" id="wipe" type="button">Tout effacer</button>
+    <div class="hint adm">Le registre est enregistré dans ce navigateur. Utilisez « Exporter » pour le sauvegarder ou le partager avec l'état-major.</div>
+  </section>
+  <section class="panel" id="detail"></section>
+</main>
+
+<main id="tabAcces" style="display:none">
+  <section class="panel" id="acc" style="grid-column:1/-1;max-width:640px;margin:0 auto;width:100%"></section>
+</main>
+
+<main id="tabEff" style="display:none">
+  <section class="panel adm" style="grid-column:1/-1;max-width:900px;margin:0 auto 18px;width:100%"><h2>▸ Ajouter un militaire (état-major)</h2>
+    <div class="row"><div><label for="ad_prenom">Prénom</label><input id="ad_prenom"></div><div><label for="ad_nom">Nom</label><input id="ad_nom"></div></div>
+    <div class="row"><div><label for="ad_grade">Grade</label><select id="ad_grade"></select></div><div><label for="ad_fn">Fonction</label><input id="ad_fn" placeholder="Ex. : Chef de section"></div></div>
+    <div class="row"><div><label for="ad_reg">Régiment</label><select id="ad_reg"></select></div><div><label for="ad_date">Date de dernière promotion</label><input id="ad_date" type="date"></div></div>
+    <button id="ad_btn" type="button">Ajouter le militaire</button><button class="alt" id="ad_cancel" type="button" style="display:none">Annuler la modification</button>
+    <div class="hint" id="ad_msg" style="color:#f1e7c6;min-height:16px"></div>
+  </section>
+  <section class="panel" style="grid-column:1/-1;max-width:900px;margin:0 auto;width:100%"><h2>▸ Effectifs par régiment</h2><label for="eff_reg">Régiment à consulter</label><select id="eff_reg"></select><div id="effView" style="margin-top:12px"></div></section>
+</main>
+
+<main id="tabTab" style="display:none">
+  <section class="panel" id="tbLock" style="grid-column:1/-1;max-width:640px;margin:0 auto;width:100%"></section>
+  <section id="tbApp" style="grid-column:1/-1;max-width:1000px;margin:0 auto;width:100%">
+    <div class="subnav" id="tbSub"><button data-s="req" type="button">Demande de promotion / médaille</button><button data-s="board" type="button">Tableau par régiment</button><button class="alt" id="tbLockBtn" type="button">Verrouiller</button></div>
+    <div id="sReq">
+      <section class="panel"><h2>▸ Nouvelle demande</h2>
+        <label for="rq_reg">Régiment</label><select id="rq_reg"></select>
+        <label for="rq_mem">Militaire</label><select id="rq_mem"></select>
+        <label class="chk"><input type="checkbox" id="rq_promo"> Demander une promotion</label>
+        <div id="rq_promoBox" style="display:none"><label for="rq_tograde">Grade demandé</label><select id="rq_tograde"></select></div>
+        <label class="chk"><input type="checkbox" id="rq_medalchk"> Demander une médaille</label>
+        <div id="rq_medalBox" style="display:none"><label for="rq_medal">Médaille</label><select id="rq_medal"></select></div>
+        <label for="rq_reason">Motif</label><textarea id="rq_reason" placeholder="Justification de la demande…"></textarea>
+        <label for="rq_by">Demandeur</label><input id="rq_by" placeholder="Nom du demandeur">
+        <label for="rq_date">Date</label><input id="rq_date" type="date">
+        <button id="rq_send" type="button">Envoyer la demande</button>
+        <div class="hint" id="rq_msg" style="color:#f1e7c6;min-height:16px"></div>
+      </section>
+      <section class="panel" style="margin-top:18px"><h2>▸ Demandes</h2>
+        <div class="row"><select id="rl_status"><option value="">Tous les statuts</option><option value="pending">En attente</option><option value="approved">Approuvées</option><option value="refused">Refusées</option></select><select id="rl_reg"></select></div>
+        <button class="alt adm" id="rl_clear" type="button" style="margin-top:10px">Supprimer toutes les demandes approuvées / refusées</button>
+        <div id="reqItems" style="margin-top:10px"></div>
+      </section>
+    </div>
+    <div id="sBoard" style="display:none">
+      <section class="panel"><h2>▸ Tableau d'avancement par régiment</h2><div id="boardView"></div></section>
+    </div>
+  </section>
+</main>
+
+<main id="tabLegal" style="display:none">
+  <section class="panel legal" style="grid-column:1/-1;max-width:900px;margin:0 auto;width:100%">
+    <h2>▸ Mentions légales &amp; avertissement</h2>
+
+    <h3>1. Œuvre de fiction — jeu de rôle</h3>
+    <p>Ce site est un outil de <b>jeu de rôle (RP)</b> conçu pour un serveur de jeu vidéo se déroulant pendant la Seconde Guerre mondiale. Les certificats qu'il génère sont des <b>accessoires de jeu fictifs</b>, destinés uniquement à l'ambiance et à la mise en scène de personnages imaginaires.</p>
+
+    <h3>2. Aucune valeur officielle</h3>
+    <p>Les documents produits <b>n'ont aucune valeur officielle, administrative ou juridique</b>. Ils ne sont ni émis, ni validés, ni approuvés par l'armée, le gouvernement ou toute autre institution des États-Unis, ni par aucune autre autorité civile ou militaire. Ils ne prouvent l'attribution d'aucune décoration réelle.</p>
+
+    <h3>3. Données fictives</h3>
+    <p>Les noms, grades, unités, motifs, dates, lieux et signatures saisis ou affichés sont <b>fictifs</b>. Toute ressemblance avec des personnes, des unités ou des faits réels serait fortuite. N'utilisez pas le nom d'une personne réelle sans son accord.</p>
+
+    <h3>4. Usages interdits</h3>
+    <p>Il est interdit de présenter ces documents comme authentiques, de les utiliser comme justificatif (candidature, démarche administrative, vente, cérémonie, etc.), de se prévaloir d'une décoration ou d'un grade que l'on n'a pas reçu, ou d'usurper l'identité d'une personne ou d'une institution. Les décorations réelles ne sont décernées que par les autorités compétentes.</p>
+
+    <h3>5. Inspiration historique et marques</h3>
+    <p>Les certificats sont émis par une <b>autorité fictive</b> (« Allied Theater Command »). Ils n'utilisent aucun sceau officiel, ni signature, ni numéro de formulaire, ni référence à une loi ou à un décret réels. Chaque certificat porte la mention « Document fictif — Serveur RP · WW2 · Aucune valeur officielle », qui ne doit pas être retirée. Les noms de décorations s'inspirent de l'époque et appartiennent à leurs propriétaires respectifs ; ce projet n'est ni affilié ni sponsorisé par eux.</p>
+
+    <h3>6. Données et vie privée</h3>
+    <p>Le registre des récipiendaires est enregistré <b>uniquement dans le navigateur</b> de l'appareil utilisé (stockage local). Aucune donnée saisie n'est envoyée à un serveur par ce site. Les polices (Google Fonts) et les bibliothèques d'export PDF (cdnjs) sont chargées depuis internet : leurs fournisseurs peuvent donc recevoir votre adresse IP lors du chargement de la page. Vous pouvez effacer le registre à tout moment depuis l'onglet « Récipiendaires ».</p>
+
+    <h3>7. Responsabilité</h3>
+    <p>L'outil est fourni « en l'état », sans garantie, pour un usage de loisir. L'éditeur du serveur et l'auteur de l'outil déclinent toute responsabilité en cas d'usage contraire à ces mentions.</p>
+
+    <h3>8. Contact</h3>
+    <p>Pour toute question ou demande de retrait : <i>[à compléter par l'éditeur du serveur — nom du serveur / contact Discord]</i>.</p>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const NAVY="#1c2b5c", RED="#b3222a", WHITE="#f7f4ea", PURPLE="#5a2a82", CRIM="#8e1b27", GREEN="#2f5a3a", BLUE="#2f58a5", LBLUE="#79a6dc", BROWN="#6a4a2a", YEL="#e4b52f", ORANGE="#e07a1f";
+// stops : [couleur, fin%]
+const S = {
+  moh:[[LBLUE,100]],
+  dsc:[[RED,12],[WHITE,18],[NAVY,82],[WHITE,88],[RED,100]],
+  ss:[[NAVY,24],[WHITE,31],[RED,69],[WHITE,76],[NAVY,100]],
+  lom:[[CRIM,9],[WHITE,13],[CRIM,87],[WHITE,91],[CRIM,100]],
+  sm:[[NAVY,28],[WHITE,34],[RED,66],[WHITE,72],[NAVY,100]],
+  bsm:[[RED,14],[WHITE,19],[NAVY,81],[WHITE,86],[RED,100]],
+  ph:[[WHITE,9],[PURPLE,91],[WHITE,100]],
+  acm:[[GREEN,16],[WHITE,22],[GREEN,100]],
+  gcm:[[RED,28],[WHITE,36],[RED,64],[WHITE,72],[RED,100]],
+  acam:[[BLUE,28],[WHITE,34],[RED,44],[BLUE,56],[WHITE,66],[BLUE,100]],
+  eame:[[GREEN,18],[WHITE,23],[RED,36],[BLUE,64],[RED,77],[WHITE,82],[GREEN,100]],
+  wwii:[[RED,10],[WHITE,14],[NAVY,86],[WHITE,90],[RED,100]],
+  dsm:[[RED,16],[WHITE,24],[NAVY,76],[WHITE,84],[RED,100]],
+  dfc:[[NAVY,36],[WHITE,42],[RED,58],[WHITE,64],[NAVY,100]],
+  am:[[ORANGE,12],[NAVY,88],[ORANGE,100]],
+  cib1:[[BLUE,100]],cib2:[[BLUE,100]],cib3:[[BLUE,100]],
+  cmb1:[[CRIM,100]],cmb2:[[CRIM,100]],cmb3:[[CRIM,100]],
+  para:[[LBLUE,100]],
+  exp:[["#6b6a44",100]],shp:[["#6b6a44",100]],mrk:[["#6b6a44",100]],
+  dmt:[["#6c6f75",100]],dm:[["#6c6f75",100]],
+  puc:[[BLUE,100]],
+  muc:[[CRIM,100]],
+  com:[[BROWN,100]]
+};
+// shape : star | cross | heart | legion | octagon | disc | unit | eagle ; metal : gold|silver|bronze|purple
+const MEDALS = [
+ {id:"moh",name:"Medal of Honor",title:"MEDAL OF HONOR",shape:"mohstar",metal:"gold",paper:"#f4efd6",seal:["MEDAL OF HONOR","VALOR"],tpl:"CONSPICUOUS GALLANTRY AND INTREPIDITY AT THE RISK OF HIS LIFE ABOVE AND BEYOND THE CALL OF DUTY, IN ACTION AGAINST THE ENEMY ON {DATE}."},
+ {id:"dsc",name:"Distinguished Service Cross",title:"DISTINGUISHED SERVICE CROSS",shape:"cross",metal:"bronze",paper:"#ebe6cb",seal:["DISTINGUISHED SERVICE CROSS","FOR VALOR"],tpl:"EXTRAORDINARY HEROISM IN CONNECTION WITH MILITARY OPERATIONS AGAINST AN ARMED ENEMY ON {DATE}. HIS GALLANTRY AND DEVOTION TO DUTY REFLECT THE HIGHEST CREDIT UPON HIMSELF AND THE ALLIED FORCES."},
+ {id:"dsm",name:"Distinguished Service Medal",title:"DISTINGUISHED SERVICE MEDAL",shape:"dsm",metal:"gold",paper:"#f1ead2",seal:["DISTINGUISHED SERVICE MEDAL","FOR EXCEPTIONALLY MERITORIOUS SERVICE"],tpl:"EXCEPTIONALLY MERITORIOUS SERVICE TO THE ALLIED COMMAND IN A DUTY OF GREAT RESPONSIBILITY FROM {DATE}. HIS OUTSTANDING LEADERSHIP AND DEVOTION TO DUTY REFLECT THE HIGHEST CREDIT UPON HIMSELF AND THE ALLIED FORCES."},
+ {id:"ss",name:"Silver Star",title:"SILVER STAR MEDAL",shape:"star",metal:"gold",paper:"#f3ecd8",seal:["SILVER STAR","FOR GALLANTRY IN ACTION"],tpl:"HEROIC ACHIEVEMENT AND CONSPICUOUS GALLANTRY IN COMBAT ACTION AGAINST HOSTILE ENEMY FORCES ON {DATE}. YOUR COURAGE AND LOYAL DEVOTION TO DUTY IN THE FACE OF OVERWHELMING ODDS WERE IN KEEPING WITH THE HIGHEST TRADITIONS OF THE ARMY AND THE MILITARY SERVICE."},
+ {id:"lom",name:"Legion of Merit",title:"LEGION OF MERIT",shape:"legion",metal:"gold",paper:"#f5e7dd",seal:["LEGION OF MERIT","EXCEPTIONALLY MERITORIOUS CONDUCT"],tpl:"EXCEPTIONALLY MERITORIOUS CONDUCT IN THE PERFORMANCE OF OUTSTANDING SERVICES TO THE ALLIED COMMAND FROM {DATE}."},
+ {id:"dfc",name:"Distinguished Flying Cross",title:"DISTINGUISHED FLYING CROSS",shape:"dfc",metal:"bronze",paper:"#e9ebe1",seal:["DISTINGUISHED FLYING CROSS","FOR HEROISM OR EXTRAORDINARY ACHIEVEMENT"],tpl:"HEROISM AND EXTRAORDINARY ACHIEVEMENT WHILE PARTICIPATING IN AERIAL FLIGHT ON {DATE}. THE SKILL AND COURAGE DISPLAYED BY HIM REFLECT THE HIGHEST CREDIT UPON HIMSELF AND THE ARMY AIR FORCES."},
+ {id:"sm",name:"Soldier's Medal",title:"SOLDIER'S MEDAL",shape:"octagon",metal:"silver",paper:"#dedcd3",seal:["SOLDIER'S MEDAL","FOR HEROISM"],tpl:"HEROISM NOT INVOLVING ACTUAL CONFLICT WITH AN ENEMY ON {DATE}. DISREGARDING HIS OWN SAFETY, HE RISKED HIS LIFE TO SAVE THAT OF A FELLOW SOLDIER."},
+ {id:"bsm",name:"Bronze Star Medal",title:"BRONZE STAR MEDAL",shape:"star",metal:"bronze",paper:"#f7f1de",seal:["BRONZE STAR","HEROIC OR MERITORIOUS ACHIEVEMENT"],tpl:"HEROIC AND MERITORIOUS ACHIEVEMENT IN CONNECTION WITH MILITARY OPERATIONS AGAINST AN ARMED ENEMY ON {DATE}."},
+ {id:"am",name:"Air Medal",title:"AIR MEDAL",shape:"air",metal:"bronze",paper:"#e8edf1",seal:["AIR MEDAL","MERITORIOUS ACHIEVEMENT IN AERIAL FLIGHT"],tpl:"MERITORIOUS ACHIEVEMENT WHILE PARTICIPATING IN SUSTAINED AERIAL FLIGHT OPERATIONS AGAINST THE ENEMY ON {DATE}. THE COURAGE, COOLNESS AND SKILL DISPLAYED REFLECT CREDIT UPON HIMSELF AND THE ARMY AIR FORCES."},
+ {id:"ph",name:"Purple Heart",title:"PURPLE HEART",shape:"heart",metal:"purple",paper:"#e6e4dc",seal:["PURPLE HEART","FOR MILITARY MERIT"],tpl:"WOUNDS RECEIVED IN ACTION AGAINST THE ENEMY ON {DATE}."},
+ {id:"acm",name:"Army Commendation Medal",title:"THE ARMY COMMENDATION MEDAL",long:1,shape:"disc",metal:"bronze",paper:"#f8f3de",seal:["ARMY COMMENDATION","FOR MERITORIOUS SERVICE"],tpl:"OUTSTANDING ACHIEVEMENT AND MERITORIOUS SERVICE DURING THE PERIOD ENDING {DATE}. HIS PROFESSIONAL COMPETENCE AND DEVOTION TO DUTY REFLECT GREAT CREDIT UPON HIMSELF AND THE ARMY."},
+ {id:"gcm",name:"Good Conduct Medal",title:"GOOD CONDUCT MEDAL",shape:"disc",metal:"bronze",paper:"#f4e0d3",seal:["GOOD CONDUCT","EFFICIENCY · HONOR · FIDELITY"],tpl:"EXEMPLARY BEHAVIOR, EFFICIENCY AND FIDELITY IN ACTIVE FEDERAL MILITARY SERVICE DURING THE PERIOD ENDING {DATE}."},
+ {id:"acam",name:"American Campaign Medal",title:"AMERICAN CAMPAIGN MEDAL",shape:"disc",metal:"bronze",paper:"#f6f1d9",seal:["AMERICAN CAMPAIGN","1941 — 1945"],tpl:"SERVICE WITHIN THE AMERICAN THEATER OF OPERATIONS DURING THE PERIOD ENDING {DATE}."},
+ {id:"eame",name:"European-African-Middle Eastern Campaign Medal",title:"EUROPEAN-AFRICAN-MIDDLE EASTERN CAMPAIGN MEDAL",long:1,shape:"disc",metal:"bronze",paper:"#ece4c8",seal:["EUROPEAN-AFRICAN-M.E. CAMPAIGN","1941 — 1945"],tpl:"SERVICE WITHIN THE EUROPEAN-AFRICAN-MIDDLE EASTERN THEATER OF OPERATIONS DURING THE PERIOD ENDING {DATE}."},
+ {id:"wwii",name:"World War II Victory Medal",title:"WORLD WAR II VICTORY MEDAL",shape:"disc",metal:"bronze",paper:"#f6f1d9",seal:["WORLD WAR II","VICTORY MEDAL"],tpl:"HONORABLE ACTIVE FEDERAL MILITARY SERVICE DURING THE SECOND WORLD WAR."},
+ {id:"cib1",name:"Combat Infantry Badge (1st Award)",title:"COMBAT INFANTRY BADGE",badge:1,awardLine:"FIRST AWARD",stars:0,shape:"cib",metal:"silver",paper:"#e2e6ee",seal:["COMBAT INFANTRY BADGE", "FIRST AWARD"],tpl:"SATISFACTORY PERFORMANCE OF DUTY WHILE ENGAGED IN ACTUAL GROUND COMBAT AGAINST THE ENEMY AS AN INFANTRYMAN ON {DATE}."},
+ {id:"cib2",name:"Combat Infantry Badge (2nd Award)",title:"COMBAT INFANTRY BADGE",badge:1,awardLine:"SECOND AWARD",stars:1,shape:"cib",metal:"silver",paper:"#e2e6ee",seal:["COMBAT INFANTRY BADGE", "SECOND AWARD"],tpl:"SATISFACTORY PERFORMANCE OF DUTY WHILE ENGAGED IN ACTUAL GROUND COMBAT AGAINST THE ENEMY AS AN INFANTRYMAN ON {DATE}, IN A SECOND QUALIFYING CAMPAIGN."},
+ {id:"cib3",name:"Combat Infantry Badge (3rd Award)",title:"COMBAT INFANTRY BADGE",badge:1,awardLine:"THIRD AWARD",stars:2,shape:"cib",metal:"silver",paper:"#e2e6ee",seal:["COMBAT INFANTRY BADGE", "THIRD AWARD"],tpl:"SATISFACTORY PERFORMANCE OF DUTY WHILE ENGAGED IN ACTUAL GROUND COMBAT AGAINST THE ENEMY AS AN INFANTRYMAN ON {DATE}, IN A THIRD QUALIFYING CAMPAIGN."},
+ {id:"cmb1",name:"Combat Medical Badge (1st Award)",title:"COMBAT MEDICAL BADGE",badge:1,awardLine:"FIRST AWARD",stars:0,shape:"cmb",metal:"silver",paper:"#ece3e3",seal:["COMBAT MEDICAL BADGE", "FIRST AWARD"],tpl:"SATISFACTORY PERFORMANCE OF DUTY AS A MEDICAL AIDMAN ASSIGNED TO AN INFANTRY UNIT ENGAGED IN ACTUAL GROUND COMBAT ON {DATE}."},
+ {id:"cmb2",name:"Combat Medical Badge (2nd Award)",title:"COMBAT MEDICAL BADGE",badge:1,awardLine:"SECOND AWARD",stars:1,shape:"cmb",metal:"silver",paper:"#ece3e3",seal:["COMBAT MEDICAL BADGE", "SECOND AWARD"],tpl:"SATISFACTORY PERFORMANCE OF DUTY AS A MEDICAL AIDMAN ASSIGNED TO AN INFANTRY UNIT ENGAGED IN ACTUAL GROUND COMBAT ON {DATE}, IN A SECOND QUALIFYING CAMPAIGN."},
+ {id:"cmb3",name:"Combat Medical Badge (3rd Award)",title:"COMBAT MEDICAL BADGE",badge:1,awardLine:"THIRD AWARD",stars:2,shape:"cmb",metal:"silver",paper:"#ece3e3",seal:["COMBAT MEDICAL BADGE", "THIRD AWARD"],tpl:"SATISFACTORY PERFORMANCE OF DUTY AS A MEDICAL AIDMAN ASSIGNED TO AN INFANTRY UNIT ENGAGED IN ACTUAL GROUND COMBAT ON {DATE}, IN A THIRD QUALIFYING CAMPAIGN."},
+ {id:"para",name:"Parachutist Badge",title:"PARACHUTIST BADGE",badge:1,shape:"para",metal:"silver",paper:"#e4e8ec",seal:["PARACHUTIST BADGE", "AIRBORNE"],tpl:"SUCCESSFUL COMPLETION OF THE PRESCRIBED COURSE OF PARACHUTE TRAINING AND THE REQUIRED QUALIFYING JUMPS, ENDING {DATE}."},
+ {id:"exp",name:"Expert Marksman Badge",title:"EXPERT MARKSMAN BADGE",badge:1,label:"EXPERT",k:.52,shape:"marks",metal:"silver",paper:"#ebe8dc",seal:["EXPERT MARKSMAN BADGE", "RIFLE QUALIFICATION"],tpl:"QUALIFICATION AS EXPERT MARKSMAN ON THE PRESCRIBED COURSE OF FIRE ON {DATE}."},
+ {id:"shp",name:"Sharpshooter Badge",title:"SHARPSHOOTER BADGE",badge:1,label:"SHARPSHOOTER",k:.44,shape:"marks",metal:"silver",paper:"#ebe8dc",seal:["SHARPSHOOTER BADGE", "RIFLE QUALIFICATION"],tpl:"QUALIFICATION AS SHARPSHOOTER ON THE PRESCRIBED COURSE OF FIRE ON {DATE}."},
+ {id:"mrk",name:"Marksman Badge",title:"MARKSMAN BADGE",badge:1,label:"MARKSMAN",k:.36,shape:"marks",metal:"bronze",paper:"#ebe8dc",seal:["MARKSMAN BADGE", "RIFLE QUALIFICATION"],tpl:"QUALIFICATION AS MARKSMAN ON THE PRESCRIBED COURSE OF FIRE ON {DATE}."},
+ {id:"dmt",name:"Driver and Mechanic Badge (Tank)",title:"DRIVER AND MECHANIC BADGE (TANK)",badge:1,tank:1,shape:"dm",metal:"silver",paper:"#e6e6e0",seal:["DRIVER AND MECHANIC (TANK)", "QUALIFICATION"],tpl:"QUALIFICATION AS A DRIVER AND MECHANIC OF TANKS, COMPLETED ON {DATE}."},
+ {id:"dm",name:"Driver and Mechanic Badge",title:"DRIVER AND MECHANIC BADGE",badge:1,shape:"dm",metal:"silver",paper:"#e6e6e0",seal:["DRIVER AND MECHANIC", "QUALIFICATION"],tpl:"QUALIFICATION AS A DRIVER AND MECHANIC OF MOTOR VEHICLES, COMPLETED ON {DATE}."},
+ {id:"puc",name:"Presidential Unit Citation",title:"PRESIDENTIAL UNIT CITATION",unit:1,shape:"unit",metal:"gold",paper:"#e0e0dc",seal:["PRESIDENTIAL UNIT CITATION","EXTRAORDINARY HEROISM"],tpl:"EXTRAORDINARY HEROISM IN ACTION AGAINST AN ARMED ENEMY ON {DATE}. THE GALLANTRY, DETERMINATION AND ESPRIT DE CORPS OF THE MEMBERS OF THIS UNIT REFLECT GREAT CREDIT UPON THEMSELVES AND THE ALLIED FORCES."},
+ {id:"muc",name:"Meritorious Unit Citation",title:"MERITORIOUS UNIT CITATION",unit:1,shape:"unit",metal:"gold",paper:"#dedada",seal:["MERITORIOUS UNIT","EXCEPTIONAL CONDUCT"],tpl:"EXCEPTIONALLY MERITORIOUS CONDUCT IN THE PERFORMANCE OF OUTSTANDING SERVICES IN SUPPORT OF MILITARY OPERATIONS DURING THE PERIOD ENDING {DATE}."},
+ {id:"com",name:"Commission Letter",title:"COMMISSION",com:1,shape:"eagle",metal:"gold",paper:"#e9dfe6",seal:["THE FIELD ARMY","COMMISSION"],tpl:"REPOSING SPECIAL TRUST AND CONFIDENCE IN THE PATRIOTISM, VALOR, FIDELITY AND ABILITIES OF THE ABOVE NAMED, I DO APPOINT HIM AN OFFICER IN THE FIELD ARMY, TO RANK AS SUCH FROM {DATE}."}
+];
+const GRADE_GROUPS=[["Enlisted Men",["Private First Class","Corporal"]],["Technicians",["Technician Grade 5","Technician Grade 4","Technician Grade 3"]],["NCO's",["Sergeant","Staff Sergeant","Technical Sergeant","First Sergeant","Master Sergeant"]],["CO's",["Second Lieutenant","First Lieutenant","Captain","Major","Lieutenant Colonel","Colonel"]],["General Officers",["Brigadier General","Major General","Lieutenant General","General"]]];
+const GRADES=[].concat(...GRADE_GROUPS.map(g=>g[1]));
+const GRADE_ALIAS={"Private":"Private First Class","Technician Fifth Grade":"Technician Grade 5","Technician Fourth Grade":"Technician Grade 4","Technician Third Grade":"Technician Grade 3"};
+function gradeOpts(sel){return GRADE_GROUPS.map(([l,a])=>`<optgroup label="${l.replace(/'/g,"&#39;")}">${a.map(g=>`<option${g===sel?" selected":""}>${g}</option>`).join("")}</optgroup>`).join("");}
+(function(){["reg1944_v1","reg1944_prom_v1","reg1944_roster_v1","reg1944_req_v1"].forEach(k=>{try{const a=JSON.parse(localStorage.getItem(k));if(!Array.isArray(a))return;let ch=false;a.forEach(x=>{["grade","fromGrade","toGrade"].forEach(f=>{if(x&&GRADE_ALIAS[x[f]]){x[f]=GRADE_ALIAS[x[f]];ch=true;}});});if(ch)localStorage.setItem(k,JSON.stringify(a));}catch(e){}});})();
+$("medal").innerHTML=MEDALS.map(m=>`<option value="${m.id}">${m.name}</option>`).join("");
+$("grade").innerHTML=gradeOpts();
+
+const METAL={
+ gold:["#f6e19a","#c9a23a","#8a6a1e"],
+ silver:["#f5f5f5","#b9bdc3","#7b8087"],
+ bronze:["#e2ad75","#ad6b30","#6f4119"],
+ purple:["#9a5cc8","#5a2a82","#331650"]
+};
+function stopsSvg(id,list,dir){
+  let p=0,out="";
+  list.forEach(([c,e])=>{out+=`<stop offset="${p}%" stop-color="${c}"/><stop offset="${e}%" stop-color="${c}"/>`;p=e;});
+  const d=dir==="v"?'x1="0" y1="0" x2="0" y2="1"':'x1="0" y1="0" x2="1" y2="0"';
+  return `<linearGradient id="${id}" ${d}>${out}</linearGradient>`;
+}
+function star(R,r,n=5,rot=-90){let p=[];for(let i=0;i<n*2;i++){const a=(rot+i*180/n)*Math.PI/180,rr=i%2?r:R;p.push((Math.cos(a)*rr).toFixed(1)+","+(Math.sin(a)*rr).toFixed(1));}return p.join(" ");}
+function metalDefs(k){const [a,b,c]=METAL[k];return `<linearGradient id="mt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".5" stop-color="${b}"/><stop offset="1" stop-color="${c}"/></linearGradient>`;}
+function shapeSvg(m){
+  const st=`fill="url(#mt)" stroke="#3a2a0c" stroke-width="2" stroke-linejoin="round"`;
+  switch(m.shape){
+    case "star": return `<polygon points="${star(58,24)}" ${st}/><circle r="18" fill="none" stroke="#3a2a0c" stroke-width="1.5"/><circle r="13" fill="none" stroke="#3a2a0c" stroke-width="1" opacity=".6"/><polygon points="${star(9,3.6)}" fill="#e8e8e8" stroke="#3a2a0c" stroke-width=".8"/>`;
+    case "mohstar": return `<g transform="rotate(180)"><polygon points="${star(60,26)}" ${st}/></g><circle r="22" fill="none" stroke="#3a2a0c" stroke-width="2.5"/><circle r="17" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1.5"/><polygon points="${star(9,3.6)}" fill="#3a2a0c" opacity=".6"/>`;
+    case "cross": return `<path d="M-15 -56 H15 L19 -19 L56 -15 V15 L19 19 L15 56 H-15 L-19 19 L-56 15 V-15 L-19 -19Z" ${st}/><circle r="17" fill="url(#mt)" stroke="#3a2a0c" stroke-width="2"/><polygon points="${star(10,4)}" fill="#3a2a0c" opacity=".7"/>`;
+    case "heart": return `<path d="M0 56 C-70 6 -38 -44 0 -14 C38 -44 70 6 0 56Z" ${st}/><path d="M0 44 C-52 6 -30 -32 0 -10 C30 -32 52 6 0 44Z" fill="#6c3a99" stroke="#d9b94f" stroke-width="3"/><circle cy="2" r="9" fill="#d9b94f" opacity=".85"/><path d="M-14 24 C-8 14 8 14 14 24Z" fill="#d9b94f" opacity=".85"/>`;
+    case "legion": return [0,1,2,3,4].map(i=>`<ellipse cx="0" cy="-34" rx="17" ry="30" transform="rotate(${i*72})" ${st}/>`).join("")+`<circle r="17" fill="url(#mt)" stroke="#3a2a0c" stroke-width="2"/><circle r="11" fill="#7a1b1b" stroke="#3a2a0c" stroke-width="1.5"/><polygon points="${star(7,3)}" fill="#e8e8e8"/>`;
+    case "octagon": return `<polygon points="${star(54,54,8,-67.5)}" ${st}/><polygon points="${star(44,44,8,-67.5)}" fill="none" stroke="#3a2a0c" stroke-width="1.2"/><path d="M0 -20 l8 8 22-14 -8 20 14 4 -20 8 -6 14 -10-6 -10 6 -6-14 -20-8 14-4 -8-20 22 14z" fill="#3a2a0c" opacity=".75"/>`;
+    case "disc": return `<circle r="50" ${st}/><circle r="42" fill="none" stroke="#3a2a0c" stroke-width="1.5"/><circle r="36" fill="none" stroke="#3a2a0c" stroke-width="1" opacity=".5"/><polygon points="${star(20,8)}" fill="#3a2a0c" opacity=".7"/>`;
+    case "unit": return `<rect x="-62" y="-26" width="124" height="52" rx="3" fill="url(#mt)" stroke="#3a2a0c" stroke-width="2"/><rect x="-54" y="-18" width="108" height="36" fill="url(#ribH)" stroke="#3a2a0c" stroke-width="1"/>`;
+    case "dsm": return `<circle r="56" ${st}/><circle r="47" fill="none" stroke="#3a2a0c" stroke-width="1.5"/><circle r="42" fill="none" stroke="#3a2a0c" stroke-width="5" stroke-dasharray="5 3" opacity=".55"/><circle r="32" fill="none" stroke="#3a2a0c" stroke-width="1.2"/><path d="M0 -22 l8 8 22-14 -8 20 14 4 -20 8 -6 14 -10-6 -10 6 -6-14 -20-8 14-4 -8-20 22 14z" fill="#3a2a0c" opacity=".7" transform="scale(.8)"/>`;
+    case "dfc": return `<polygon points="${star(60,32,16)}" ${st}/><path d="M-13 -44 H13 L15 -15 L44 -13 V13 L15 15 L13 44 H-13 L-15 15 L-44 13 V-13 L-15 -15Z" ${st}/><ellipse rx="5.5" ry="32" fill="#3a2a0c" opacity=".7"/><circle r="5" fill="#e8e8e8" stroke="#3a2a0c" stroke-width="1"/>`;
+    case "air": return `<polygon points="${star(60,26,8,-90)}" ${st}/><circle r="28" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1.8"/><path d="M0 -20 l6 6 18-10 -6 16 10 4 -16 6 -4 10 -8-4 -8 4 -4-10 -16-6 10-4 -6-16 18 10z" fill="#3a2a0c" opacity=".75" transform="scale(.8)"/>`;
+    case "cib": case "cmb": {
+      const med=m.shape==="cmb",bg=med?"#7a1f1a":"#2f58a5",ns=m.stars||0;
+      let stars="";
+      for(let i=0;i<ns;i++)stars+=`<polygon points="${star(6.5,2.7)}" transform="translate(${(i-(ns-1)/2)*15},-30)" fill="url(#mt)" stroke="#3a2a0c" stroke-width=".8"/>`;
+      const emblem=med
+        ?`<path d="M0 -17V17" stroke="#e8e8e8" stroke-width="3"/><path d="M0 -13C-11 -8 11 -2 0 3C-11 8 11 13 0 17" fill="none" stroke="#cfd3d9" stroke-width="2"/><path d="M-3 -14C-14 -20 -22 -14 -26 -12C-18 -9 -10 -9 -3 -10ZM3 -14C14 -20 22 -14 26 -12C18 -9 10 -9 3 -10Z" fill="#e8e8e8"/>`
+        :`<path d="M-40 11L38 -9" stroke="#e8e8e8" stroke-width="3"/><path d="M-46 12L-34 16L-30 9Z" fill="#e8e8e8"/><path d="M30 -11L40 -13L40 -7Z" fill="#e8e8e8"/>`;
+      return `<rect x="-60" y="-22" width="120" height="44" fill="${bg}" stroke="url(#mt)" stroke-width="3.5"/><ellipse rx="44" ry="15" fill="none" stroke="#cfd3d9" stroke-width="5" stroke-dasharray="5 3"/>${emblem}${stars}`;
+    }
+    case "para": {
+      const wing=`<path d="M-8 14L-54 6L-58 14L-48 16L-52 24L-40 22L-36 30L-26 26L-22 34L-8 26Z" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1.4"/>`;
+      return `${wing}<g transform="scale(-1,1)">${wing}</g><path d="M-24 -4C-24 -34 24 -34 24 -4C16 -9 8 -9 0 -4C-8 -9 -16 -9 -24 -4Z" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1.6"/><path d="M-24 -4L0 22M24 -4L0 22M0 -6L0 22" stroke="#3a2a0c" stroke-width="1.2" fill="none"/>`;
+    }
+    case "marks": {
+      const k=m.k||.5,lab=m.label||"";
+      return `<rect x="-54" y="-36" width="108" height="22" rx="2" fill="url(#mt)" stroke="#3a2a0c" stroke-width="2"/><text y="-20" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="${lab.length>8?11:13}" fill="#2a2010" letter-spacing="1.5">${lab}</text><g transform="translate(0,14) scale(${k})"><path d="M-15 -56H15L19 -19L56 -15V15L19 19L15 56H-15L-19 19L-56 15V-15L-19 -19Z" fill="url(#mt)" stroke="#3a2a0c" stroke-width="${(2/k).toFixed(1)}"/><circle r="17" fill="none" stroke="#3a2a0c" stroke-width="${(2/k).toFixed(1)}"/><circle r="6" fill="#3a2a0c" opacity=".7"/></g>`;
+    }
+    case "dm": {
+      const piece=m.tank
+        ?`<rect x="-36" y="6" width="72" height="14" rx="7" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1.6"/><path d="M-22 6L-16 -6H14L20 6Z" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1.6"/><rect x="14" y="-5" width="30" height="4" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1"/><circle cx="-24" cy="13" r="3" fill="#3a2a0c" opacity=".6"/><circle cx="0" cy="13" r="3" fill="#3a2a0c" opacity=".6"/><circle cx="24" cy="13" r="3" fill="#3a2a0c" opacity=".6"/>`
+        :`<circle r="22" fill="none" stroke="url(#mt)" stroke-width="5"/><circle r="5" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1"/><path d="M-22 0H22M0-22V22" stroke="url(#mt)" stroke-width="3.5"/><path d="M-30 20L30 -20" stroke="#3a2a0c" stroke-width="6" stroke-linecap="round"/><path d="M-30 20L30 -20" stroke="url(#mt)" stroke-width="3.5" stroke-linecap="round"/>`;
+      return `<rect x="-54" y="-40" width="108" height="22" rx="2" fill="url(#mt)" stroke="#3a2a0c" stroke-width="2"/><text y="-24" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="13" fill="#2a2010" letter-spacing="1.5">DRIVER</text><g transform="translate(0,${m.tank?18:12})">${piece}</g>`;
+    }
+    case "eagle": return `<path d="M0 -50 l10 10 36-22 -12 34 24 6 -34 12 -10 24 -14-10 -14 10 -10-24 -34-12 24-6 -12-34 36 22z" ${st}/><circle r="10" fill="#3a2a0c" opacity=".5"/>`;
+  }
+  return "";
+}
+function bowSvg(m){
+  const list=S[m.id];
+  const rib=stopsSvg("ribV",list,"v")+stopsSvg("ribH",list,"h");
+  const wing=`<path d="M230 62 C190 28 110 22 22 62 C34 82 30 100 24 120 C110 86 190 90 230 118Z" fill="url(#ribV)" stroke="#2a2a2a" stroke-width="1.2"/><path d="M230 62 C190 28 110 22 22 62" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/><path d="M230 118 C190 90 110 86 24 120 C60 130 150 126 230 118Z" fill="#000" opacity=".16"/>`;
+  const com=m.com||m.badge;
+  let hang="";
+  if(!com){
+    hang=`<circle cx="230" cy="94" r="8" fill="none" stroke="#7a5a14" stroke-width="3"/><rect x="222" y="100" width="16" height="22" rx="2" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1.4"/><g transform="translate(230,${m.shape==='unit'?172:180}) scale(${m.shape==='unit'?.95:.95})">${shapeSvg(m)}</g>`;
+  } else {
+    hang=`<g transform="translate(230,${m.badge?138:150}) scale(${m.badge?2.1:1.5})">${shapeSvg(m)}</g>`;
+  }
+  const bowParts = com ? "" : `<g>${wing}</g><g transform="translate(460,0) scale(-1,1)">${wing}</g><rect x="212" y="62" width="36" height="52" rx="6" fill="url(#ribV)" stroke="#2a2a2a" stroke-width="1.2"/>`;
+  return `<defs>${rib}${metalDefs(m.metal)}</defs>${bowParts}${hang}`;
+}
+function sealSvg(m){
+  const ring = m.metal==="purple" ? "#3a1a58" : "#1b2547";
+  const t=m.seal[0],b="UNITED STATES ARMED FORCES";
+  const core = `<circle cx="60" cy="60" r="30" fill="url(#mt2)" stroke="#d9c07a" stroke-width="1.5"/>`;
+  let centre;
+  if(m.shape==="heart") centre=`<path d="M60 84 C28 62 42 38 60 52 C78 38 92 62 60 84Z" fill="#6c3a99" stroke="#d9b94f" stroke-width="2.4"/>`;
+  else if(m.shape==="cross") centre=`<path d="M54 36 H66 L67 53 L84 54 V66 L67 67 L66 84 H54 L53 67 L36 66 V54 L53 53Z" fill="#6a4a2a" stroke="#d9b94f" stroke-width="1.5"/>`;
+  else if(m.shape==="eagle"||m.shape==="octagon") centre=`<g transform="translate(60,60) scale(.45)"><path d="M0 -50 l10 10 36-22 -12 34 24 6 -34 12 -10 24 -14-10 -14 10 -10-24 -34-12 24-6 -12-34 36 22z" fill="#3a2a0c" opacity=".8"/></g>`;
+  else if(m.shape==="unit") centre=`<rect x="38" y="46" width="44" height="28" fill="url(#ribH)" stroke="#d9b94f" stroke-width="2"/>`;
+  else centre=`<polygon points="${star(24,10).split(" ").map(p=>{const [x,y]=p.split(",");return (+x+60)+","+(+y+60);}).join(" ")}" fill="url(#mt)" stroke="#3a2a0c" stroke-width="1.2"/>`;
+  return `<defs>${metalDefs(m.metal)}<linearGradient id="mt2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9d9a8"/><stop offset="1" stop-color="#b79a50"/></linearGradient>${stopsSvg("ribH",S[m.id],"h")}
+   <path id="arcT" d="M 20,60 a40,40 0 1,1 80,0"/><path id="arcB" d="M 10,60 a50,50 0 0,0 100,0"/></defs>
+   <circle cx="60" cy="60" r="58" fill="${ring}" stroke="#0c1020" stroke-width="2"/><circle cx="60" cy="60" r="31.5" fill="none" stroke="#d9c07a" stroke-width="1"/>
+   <text font-family="Cinzel,serif" font-weight="700" font-size="${t.length>20?6.2:8.2}" fill="#f1ecd8" letter-spacing="1"><textPath href="#arcT" startOffset="50%" text-anchor="middle">${t}</textPath></text>
+   <text font-family="Cinzel,serif" font-weight="700" font-size="${b.length>22?5.2:6.6}" fill="#f1ecd8" letter-spacing=".8"><textPath href="#arcB" startOffset="50%" text-anchor="middle">${b}</textPath></text>
+   ${core}${centre}`;
+}
+const MONTHS=["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
+function ord(n){const s=["TH","ST","ND","RD"],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);}
+function dateParts(v){if(!v)return null;const [y,mo,d]=v.split("-").map(Number);return {d,m:MONTHS[mo-1],y};}
+function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+function scriptName(s){const n=s.split(",")[0].trim().split(/\s+/);return n.length?n[0][0]+". "+n.slice(-1)[0]:"";}
+
+/* ===== DEVICES (oak leaf clusters, étoiles or/argent/bronze, clasps) ===== */
+const BRZ="#b5763a", SLV="#cfd3d9", GLD="#d9b13a";
+const COL={bz:BRZ,sv:SLV,gd:GLD};
+const DEVK={cib1:"none",cib2:"none",cib3:"none",cmb1:"none",cmb2:"none",cmb3:"none",para:"none",exp:"none",shp:"none",mrk:"none",dmt:"none",dm:"none",acam:"service",eame:"service",gcm:"clasp",wwii:"none",com:"none"};
+function devBase(m){return DEVK[m.id]||"olc";}
+function devKind(m,dev,unit){
+  const base=devBase(m);
+  if(base==="none"||base==="clasp")return base;
+  if(dev&&dev!=="auto")return dev;
+  if(base==="olc"&&/navy|marine|coast guard/i.test(unit||""))return "gold";
+  return base;
+}
+function devicesFor(m,n,arrow,dev,unit){
+  n=Math.max(0,Math.min(30,parseInt(n)||0));const k=devKind(m,dev,unit),out=[];
+  if(k==="olc"||k==="gold"||k==="service"){
+    const shape=k==="olc"?"olc":"star",low=k==="gold"?"gd":"bz";
+    for(let i=0;i<Math.floor(n/5);i++)out.push({t:shape,c:"sv"});
+    for(let i=0;i<n%5;i++)out.push({t:shape,c:low});
+    if(k==="service"&&arrow)out.push({t:"arrow"});
+  } else if(k==="clasp"&&n>0)out.push({t:"clasp",n:Math.min(n,5)});
+  return out;
+}
+const CARD=["ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE","TEN"];
+const ORDW=["","FIRST","SECOND","THIRD","FOURTH","FIFTH","SIXTH","SEVENTH","EIGHTH","NINTH","TENTH"];
+function devText(m,n,arrow,dev,unit){
+  if(m.awardLine)return m.awardLine;
+  n=Math.max(0,Math.min(30,parseInt(n)||0));const k=devKind(m,dev,unit);
+  if(k==="olc"&&n>0)return (ORDW[n]||ord(n))+" OAK LEAF CLUSTER";
+  if(k==="gold"&&n>0)return (n%5===0?"SILVER":"GOLD")+" STAR IN LIEU OF "+(ORDW[n+1]||ord(n+1))+" AWARD";
+  if(k==="service"){
+    const s=Math.floor(n/5),b=n%5,p=[];
+    if(s)p.push((CARD[s]||s)+" SILVER SERVICE STAR"+(s>1?"S":""));
+    if(b)p.push(CARD[b]+" BRONZE SERVICE STAR"+(b>1?"S":""));
+    if(arrow)p.push("ARROWHEAD");
+    return p.length?"WITH "+p.join(" AND "):"";
+  }
+  if(k==="clasp"&&n>0){const c=Math.min(n,5);return "CLASP WITH "+CARD[c]+" LOOP"+(c>1?"S":"");}
+  return "";
+}
+const DW={olc:24,star:20,arrow:20,clasp:48};
+function devSvg(d,x){
+  const f=COL[d.c]||BRZ,st='stroke="#222" stroke-width=".7"';
+  if(d.t==="olc")return `<g transform="translate(${x},0)"><path d="M0 12V-6" stroke="${f}" stroke-width="1.6"/><g fill="${f}" ${st}><ellipse cx="-6" cy="-3" rx="3.2" ry="6" transform="rotate(-35 -6 -3)"/><ellipse cx="6" cy="-3" rx="3.2" ry="6" transform="rotate(35 6 -3)"/><ellipse cx="-6" cy="4" rx="3" ry="5.5" transform="rotate(-50 -6 4)"/><ellipse cx="6" cy="4" rx="3" ry="5.5" transform="rotate(50 6 4)"/><ellipse cx="0" cy="-8" rx="3" ry="5"/><circle cx="-2.5" cy="9" r="2"/><circle cx="2.5" cy="9" r="2"/><circle cx="0" cy="11" r="2"/></g></g>`;
+  if(d.t==="star")return `<g transform="translate(${x},0)"><polygon points="${star(9.5,3.9)}" fill="${f}" ${st}/></g>`;
+  if(d.t==="arrow")return `<g transform="translate(${x},0)"><path d="M0 -11 L7 10 L0 5 L-7 10Z" fill="${BRZ}" ${st}/></g>`;
+  let loops="";for(let i=0;i<d.n;i++)loops+=`<circle cx="${-((d.n-1)*8)/2+i*8}" cy="0" r="2.6" fill="none" stroke="#5a3a18" stroke-width="1.2"/>`;
+  return `<g transform="translate(${x},0)"><rect x="-22" y="-6" width="44" height="12" rx="2" fill="${BRZ}" ${st}/>${loops}</g>`;
+}
+function renderDevices(m){
+  const dev=$("devType").value,unit=$("unit").value,base=devBase(m),k=devKind(m,dev,unit);
+  $("devBox").style.display=base==="none"?"none":"";
+  $("devTypeWrap").style.display=(base==="none"||base==="clasp")?"none":"";
+  $("arrowWrap").style.display=k==="service"?"":"none";
+  $("extraLabel").textContent=k==="service"?"Service stars (campagnes)":k==="clasp"?"Boucles du clasp (attributions en plus)":k==="gold"?"Étoiles or / argent (attributions en plus)":"Oak leaf clusters (attributions en plus)";
+  $("devHint").textContent=k==="service"?"Étoile de bronze = 1 campagne, étoile d'argent = 5 campagnes. Arrowhead = assaut amphibie ou aéroporté.":k==="clasp"?"Une boucle par attribution supplémentaire (5 affichées au maximum).":k==="gold"?"Navy / Marine Corps : étoile d'or = 1 attribution en plus, étoile d'argent = 5. Rempli d'après le registre.":"Army : oak leaf cluster de bronze = 1 attribution en plus, d'argent = 5. Rempli d'après le registre.";
+  const n=base==="none"?0:$("extra").value,arrow=k==="service"&&$("arrow").checked;
+  const devs=devicesFor(m,n,arrow,dev,unit),txt=devText(m,n,arrow,dev,unit);
+  $("cDev").textContent=txt?"("+txt+")":"";
+  const bar=$("rbar");
+  if(!devs.length){bar.innerHTML="";bar.style.display="none";return;}
+  bar.style.display="";
+  const total=devs.reduce((a,d)=>a+DW[d.t],0)+(devs.length-1)*4,sc=Math.min(1,156/total);
+  let x=-total/2,items="";
+  devs.forEach(d=>{items+=devSvg(d,x+DW[d.t]/2);x+=DW[d.t]+4;});
+  bar.innerHTML=`<defs>${stopsSvg("rbG",S[m.id],"h")}</defs><rect x="2" y="4" width="166" height="42" fill="url(#rbG)" stroke="#222" stroke-width="1.2"/><g transform="translate(85,25) scale(${sc})">${items}</g>`;
+}
+
+function render(){
+  const m=MEDALS.find(x=>x.id===$("medal").value);
+  $("cert").style.setProperty("--paper",m.paper);
+  $("bow").innerHTML=bowSvg(m);
+  $("seal").innerHTML=sealSvg(m);
+  const org=($("org").value.trim()||"Allied Theater Command").toUpperCase();
+  $("cOrg").textContent=org;
+  $("cOrg").style.fontSize=(org.length>30?Math.max(22,Math.floor(45*30/org.length)):45)+"px";
+  const l1=m.com?org:"BY AUTHORITY OF THE "+org;
+  const l2=m.com?"TO ALL WHO SHALL SEE THESE PRESENTS, GREETING:":m.unit?"TAKES PLEASURE IN PRESENTING THE":"HAS ON THIS DAY AWARDED THE";
+  $("cSub").innerHTML=esc(l1)+"<br>"+esc(l2);
+  $("cTitle").textContent=m.title;
+  $("cTitle").className="c-title2"+(m.long?" long":"");
+  const fs=Math.min(56,Math.floor(980/(m.title.length*0.78)));
+  $("cTitle").style.fontSize=fs+"px";$("cTitle").style.top=(365+Math.round((56-fs)/2))+"px";
+  $("unitLabel").textContent=m.unit?"Nom de l'unité":"Branche / unité";
+  $("whoBox").style.display=m.unit?"none":"";
+  $("unitLabel").style.display=$("unit").style.display=m.unit?"":"none";
+  const grade=$("grade").value, prenom=$("prenom").value.trim(), nom=$("nom").value.trim(), unit=$("unit").value.trim();
+  if(m.unit){
+    $("cTo").textContent="";
+    $("cName").textContent=unit||"—";
+    $("cUnit").textContent="";
+  } else {
+    $("cTo").textContent=m.com?"":"TO";
+    $("cName").textContent=[grade,prenom,nom].filter(Boolean).join(" ");
+    $("cUnit").textContent=unit;
+  }
+  const reason=$("reason").value.trim()||"…";
+  $("cFor").innerHTML=m.com?esc(reason):`<span class="lab">FOR:</span>${esc(reason)}`;
+  const dp=dateParts($("date").value);
+  const place=($("place").value.trim()||"Allied Headquarters").toUpperCase();
+  $("cFoot").innerHTML=`GIVEN UNDER MY HAND AT ${esc(place)}<br>THIS <b>${dp?ord(dp.d):"__"}</b> DAY OF <b>${dp?dp.m+" "+dp.y:"________"}</b>`;
+  const s=$("signataire").value.trim();
+  $("sg").textContent=s?scriptName(s):"\u00a0";
+  $("pn").textContent=s||"\u00a0";
+  renderDevices(m);
+}
+["medal","grade","prenom","nom","unit","reason","date","place","signataire","extra","arrow","devType","org"].forEach(i=>$(i).addEventListener("input",render));
+$("tpl").onclick=()=>{
+  const m=MEDALS.find(x=>x.id===$("medal").value);
+  const dp=dateParts($("date").value);
+  $("reason").value=m.tpl.replace("{DATE}",dp?`${dp.d} ${dp.m} ${dp.y}`:"________");
+  render();
+};
+$("reset").onclick=()=>{["prenom","nom","reason","signataire"].forEach(i=>$(i).value="");if(typeof fillGenMembers==="function")fillGenMembers();$("unit").value="Allied Army";$("org").value="Allied Theater Command";$("place").value="Allied Headquarters";$("date").value="1944-06-06";$("grade").selectedIndex=0;$("extra").value=0;$("extra").dataset.manual="";$("arrow").checked=false;$("devType").value="auto";editingId=null;updateSaveLabel();render();};
+$("print").onclick=()=>window.print();
+
+function fit(){
+  const stage=$("stage"),box=$("box"),cert=$("cert");
+  if(stage.clientWidth<50)return;
+  const s=Math.min(1,(stage.clientWidth-4)/1123);
+  cert.style.transform=`scale(${s})`;
+  box.style.width=1123*s+"px";box.style.height=794*s+"px";
+}
+window.addEventListener("resize",fit);
+
+async function exportPdf(){
+  const btn=$("pdf"),old=btn.textContent;btn.textContent="Génération…";
+  const cert=$("cert"),prev=cert.style.transform,swapped=[];
+  try{
+    if(document.fonts&&document.fonts.ready) await document.fonts.ready;
+    cert.style.transform="none";
+    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+    // html2canvas dessine mal les SVG en ligne : on les convertit d'abord en images PNG à la taille réelle
+    for(const svg of cert.querySelectorAll("svg")){
+      const r=svg.getBoundingClientRect();
+      if(r.width<2||r.height<2||!svg.innerHTML.trim())continue;
+      const w=Math.round(r.width),h=Math.round(r.height),clone=svg.cloneNode(true);
+      clone.setAttribute("xmlns","http://www.w3.org/2000/svg");
+      clone.setAttribute("xmlns:xlink","http://www.w3.org/1999/xlink");
+      clone.setAttribute("width",w);clone.setAttribute("height",h);clone.removeAttribute("style");
+      const src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(new XMLSerializer().serializeToString(clone));
+      const im=new Image();
+      await new Promise((res,rej)=>{im.onload=res;im.onerror=()=>rej(new Error("SVG illisible"));im.src=src;});
+      const c=document.createElement("canvas");c.width=w*3;c.height=h*3;
+      c.getContext("2d").drawImage(im,0,0,c.width,c.height);
+      const out=new Image();out.src=c.toDataURL("image/png");out.className=svg.getAttribute("class")||"";
+      await new Promise(res=>{out.onload=res;});
+      svg.replaceWith(out);swapped.push([svg,out]);
+    }
+    const canvas=await html2canvas(cert,{scale:3,backgroundColor:null,useCORS:true,width:1123,height:794,windowWidth:1400});
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF({orientation:"landscape",unit:"mm",format:"a4"});
+    pdf.addImage(canvas.toDataURL("image/jpeg",0.95),"JPEG",0,0,297,210);
+    const m=MEDALS.find(x=>x.id===$("medal").value);
+    const who=[$("prenom").value,$("nom").value].filter(Boolean).join("_")||$("unit").value||"certificat";
+    pdf.save(`${m.name.replace(/[^\w]+/g,"_")}_${who.replace(/[^\w]+/g,"_")}.pdf`);
+  }catch(e){alert("Échec de la génération du PDF : "+e.message);}
+  swapped.forEach(([svg,out])=>out.replaceWith(svg));
+  cert.style.transform=prev;btn.textContent=old;
+}
+$("pdf").onclick=()=>{saveRecord(true);exportPdf();};
+
+/* ===== REGISTRE ===== */
+const KEY="reg1944_v1", KEYP="reg1944_prom_v1";
+let selKey=null, editingId=null;
+function loadArr(k){try{const a=JSON.parse(localStorage.getItem(k));return Array.isArray(a)?a:[];}catch(e){return [];}}
+function storeArr(k,a){try{localStorage.setItem(k,JSON.stringify(a));return true;}catch(e){alert("Stockage du navigateur indisponible : utilisez « Exporter » pour sauvegarder.");return false;}}
+const loadReg=()=>loadArr(KEY), storeReg=a=>storeArr(KEY,a), loadProm=()=>loadArr(KEYP), storeProm=a=>storeArr(KEYP,a);
+function curRecord(){return {org:$("org").value.trim(),medal:$("medal").value,grade:$("grade").value,prenom:$("prenom").value.trim(),nom:$("nom").value.trim(),unit:$("unit").value.trim(),extra:Math.max(0,Math.min(30,parseInt($("extra").value)||0)),arrow:$("arrow").checked,dev:$("devType").value,reason:$("reason").value.trim(),date:$("date").value,place:$("place").value.trim(),sig:$("signataire").value.trim()};}
+function medalOf(id){return MEDALS.find(x=>x.id===id);}
+function keyOf(r){const m=medalOf(r.medal);return m&&m.unit?"u:"+(r.unit||"").toLowerCase():"p:"+((r.prenom||"")+" "+(r.nom||"")).trim().toLowerCase();}
+function labelOf(r){const m=medalOf(r.medal);return m&&m.unit?r.unit:[(r.nom||"").toUpperCase(),r.prenom].filter(Boolean).join(" ").trim();}
+function saveLabel(){return editingId?"✔ Mettre à jour l'enregistrement":"＋ Enregistrer dans le registre";}
+function updateSaveLabel(){$("save").textContent=saveLabel();}
+function flash(t){$("save").textContent=t;setTimeout(updateSaveLabel,1500);}
+
+function saveRecord(silent){
+  if(!isAdmin())return false;
+  const r=curRecord(),m=medalOf(r.medal);
+  const who=m.unit?r.unit:(r.prenom+r.nom).trim();
+  if(!who){if(!silent)flash("Choisissez un militaire");return false;}
+  if(!m.unit&&!editingId&&!(typeof rosterFind==="function"&&rosterFind(r.prenom,r.nom))){if(!silent)flash("Militaire absent des effectifs");return false;}
+  const reg=loadReg();
+  const id=[r.medal,keyOf(r),r.date,r.reason,r.extra].join("|");
+  if(editingId){
+    const i=reg.findIndex(x=>x.id===editingId);
+    if(i>=0){
+      if(reg.some((x,j)=>j!==i&&x.id===id)){if(!silent)flash("Doublon au registre");return false;}
+      reg[i]=Object.assign({},r,{id,created:reg[i].created});
+      if(storeReg(reg)){editingId=id;updateSaveLabel();updateCount();if(!silent)flash("✔ Mis à jour");return true;}
+      return false;
+    }
+    editingId=null;
+  }
+  if(reg.some(x=>x.id===id)){if(!silent)flash("Déjà au registre");return false;}
+  reg.push(Object.assign({},r,{id,created:Date.now()}));
+  if(storeReg(reg)){updateCount();if(!silent)flash("✔ Ajouté au registre");return true;}
+  return false;
+}
+
+/* --- grades au fil du temps --- */
+function eventsOf(key,recs){
+  const ev=[];
+  recs.forEach(r=>ev.push({date:r.date||"",grade:r.grade,src:medalOf(r.medal).name,o:0}));
+  loadProm().filter(p=>p.key===key).forEach(p=>ev.push({date:p.date||"",grade:p.grade,src:"Changement de grade",pid:p.id,o:1}));
+  return ev.sort((a,b)=>a.date.localeCompare(b.date)||a.o-b.o);
+}
+function gradeAt(key,date){
+  const recs=loadReg().filter(r=>keyOf(r)===key);
+  if(!recs.length&&!loadProm().some(p=>p.key===key))return null;
+  const ev=eventsOf(key,recs).filter(e=>e.date&&e.date<=date);
+  return ev.length?ev[ev.length-1].grade:null;
+}
+function groups(){
+  const g={};
+  loadReg().forEach(r=>{const k=keyOf(r);(g[k]=g[k]||[]).push(r);});
+  return Object.keys(g).map(k=>{
+    const recs=g[k].sort((a,b)=>(a.date||"").localeCompare(b.date||""));
+    const last=recs[recs.length-1],ev=eventsOf(k,recs);
+    return {key:k,recs,last,label:labelOf(last),grade:ev.length?ev[ev.length-1].grade:last.grade,ev};
+  }).sort((a,b)=>a.label.localeCompare(b.label));
+}
+function updateCount(){const n=groups().length;$("cnt").textContent=n?`(${n})`:"";}
+function cssStops(list){let p=0;return "linear-gradient(90deg,"+list.map(([c,e])=>{const s=`${c} ${p}% ${e}%`;p=e;return s;}).join(",")+")";}
+function devBadges(r){return devicesFor(medalOf(r.medal),r.extra,r.arrow,r.dev,r.unit).map(d=>d.t==="arrow"?'<i class="dv ar"></i>':d.t==="clasp"?'<i class="dv cl"></i>':`<i class="dv ${d.c}"></i>`).join("");}
+function chip(r){const m=medalOf(r.medal);return `<span class="chip" title="${esc((m.name+" "+devText(m,r.extra,r.arrow,r.dev,r.unit)).trim())}" style="background:${cssStops(S[r.medal])}">${devBadges(r)}</span>`;}
+function fdate(v){const d=dateParts(v);return d?`${d.d} ${d.m} ${d.y}`:"";}
+
+function renderPeople(){
+  const q=$("q").value.trim().toLowerCase();
+  const list=groups().filter(g=>!q||g.label.toLowerCase().includes(q));
+  $("people").innerHTML=list.length?list.map(g=>`<div class="person${g.key===selKey?" sel":""}" data-k="${encodeURIComponent(g.key)}"><span class="n">${g.recs.length}</span><b>${esc(g.label)}</b><small>${esc(medalOf(g.last.medal).unit?"Unité":g.grade)}</small></div>`).join(""):`<div class="empty">Aucun récipiendaire. Enregistrez un certificat depuis le générateur.</div>`;
+  updateCount();
+}
+function renderDetail(){
+  const g=groups().find(x=>x.key===selKey),box=$("detail");
+  if(!g){box.innerHTML=`<h2>▸ Dossier</h2><div class="empty">Sélectionnez un récipiendaire dans la liste.</div>`;return;}
+  const isUnit=!!medalOf(g.last.medal).unit;
+  let html=`<h2>▸ ${esc(g.label)}</h2>
+    <div class="meta" style="font-size:12px;color:#cfc6a0">${isUnit?"Unité":esc(g.grade)} — ${g.recs.length} décoration${g.recs.length>1?"s":""}</div>
+    <div class="rack">${g.recs.map(chip).join("")}</div>`;
+  if(!isUnit){
+    let prev=null;
+    const rows=g.ev.filter(e=>{const keep=e.pid||e.grade!==prev;prev=e.grade;return keep;});
+    const lastDate=g.ev.length&&g.ev[g.ev.length-1].date?g.ev[g.ev.length-1].date:"1944-06-06";
+    html+=`<h3 class="sub">Évolution du grade</h3>`+
+      rows.map(e=>`<div class="ev"><b>${esc(fdate(e.date)||"—")}</b> ${esc(e.grade)} <small>· ${esc(e.src)}</small>${e.pid?`<button class="alt mini" data-a="delp" data-pid="${encodeURIComponent(e.pid)}" type="button" title="Supprimer ce changement">×</button>`:""}</div>`).join("")+
+      `<div class="row" style="margin-top:8px"><select id="pgrade">${gradeOpts(g.grade)}</select><input type="date" id="pdate" value="${esc(lastDate)}"></div>
+       <button class="alt" data-a="addp" type="button" style="margin-top:6px">Enregistrer le changement de grade</button>`;
+  }
+  html+=`<h3 class="sub">Décorations</h3>`+g.recs.slice().reverse().map(r=>{
+    const m=medalOf(r.medal),dt=devText(m,r.extra,r.arrow,r.dev,r.unit);
+    return `<div class="rec"><h3>${chip(r)} ${esc(m.name)}${dt?` <small style="color:#b9b08a">(${esc(dt)})</small>`:""}</h3><div class="meta">${esc(fdate(r.date))} · ${esc((r.place||"").toUpperCase())} · ${esc(r.grade)}${r.sig?" · "+esc(r.sig):""}</div><p>${esc(r.reason||"")}</p><div class="acts" data-id="${encodeURIComponent(r.id)}"><button data-a="open" type="button">Modifier</button><button data-a="pdf" type="button">PDF</button><button class="alt" data-a="del" type="button">Supprimer</button></div></div>`;
+  }).join("")+
+  `<button class="alt" data-a="delperson" type="button" style="margin-top:14px">Supprimer ce récipiendaire et tout son dossier</button>`;
+  box.innerHTML=html;
+  if(!isAdmin()){box.querySelectorAll(".acts,[data-a=delperson],[data-a=addp],[data-a=delp]").forEach(n=>n.remove());const pg=$("pgrade");if(pg)pg.parentElement.remove();}
+}
+function loadRecord(r){
+  $("org").value=r.org||"Allied Theater Command";
+  $("medal").value=r.medal;$("grade").value=r.grade;$("prenom").value=r.prenom;$("nom").value=r.nom;$("unit").value=r.unit;
+  $("reason").value=r.reason;$("date").value=r.date;$("place").value=r.place;$("signataire").value=r.sig;
+  $("extra").value=r.extra||0;$("extra").dataset.manual="1";$("arrow").checked=!!r.arrow;$("devType").value=r.dev||"auto";
+  editingId=r.id;updateSaveLabel();if(typeof syncGen==="function")syncGen();render();
+}
+function showTab(t){
+  if(t==="gen"&&!isAdmin())t="reg";
+  $("tabGen").style.display=t==="gen"?"":"none";
+  $("tabReg").style.display=t==="reg"?"":"none";
+  $("tabLegal").style.display=t==="legal"?"":"none";
+  $("tabTab").style.display=t==="tab"?"":"none";
+  $("tabEff").style.display=t==="eff"?"":"none";
+  $("tabAcces").style.display=t==="acces"?"":"none";
+  document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.t===t));
+  if(t==="gen")fit();else if(t==="reg"){renderPeople();renderDetail();}else if(t==="acces")renderAcces();else if(t==="tab")renderTab();else if(t==="eff")renderEff();
+}
+document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>showTab(b.dataset.t));
+$("save").onclick=()=>saveRecord(false);
+$("q").addEventListener("input",renderPeople);
+$("people").addEventListener("click",e=>{const p=e.target.closest(".person");if(!p)return;selKey=decodeURIComponent(p.dataset.k);renderPeople();renderDetail();});
+
+$("detail").addEventListener("click",async e=>{
+  if(!isAdmin())return;
+  const b=e.target.closest("button[data-a]");if(!b)return;
+  const a=b.dataset.a;
+  if(a==="addp"){
+    const grade=$("pgrade").value,date=$("pdate").value;
+    if(!date){alert("Indiquez la date du changement de grade.");return;}
+    const pr=loadProm();pr.push({id:Date.now()+"-"+Math.random().toString(36).slice(2,6),key:selKey,grade,date});
+    storeProm(pr);renderPeople();renderDetail();return;
+  }
+  if(a==="delp"){storeProm(loadProm().filter(p=>p.id!==decodeURIComponent(b.dataset.pid)));renderPeople();renderDetail();return;}
+  if(a==="delperson"){
+    if(!confirm("Supprimer ce récipiendaire, toutes ses décorations et son historique de grades ?"))return;
+    storeReg(loadReg().filter(r=>keyOf(r)!==selKey));storeProm(loadProm().filter(p=>p.key!==selKey));
+    selKey=null;renderPeople();renderDetail();return;
+  }
+  const id=decodeURIComponent(b.parentElement.dataset.id);
+  const reg=loadReg(),r=reg.find(x=>x.id===id);if(!r)return;
+  if(a==="open"){loadRecord(r);showTab("gen");}
+  else if(a==="pdf"){loadRecord(r);showTab("gen");await new Promise(res=>setTimeout(res,150));await exportPdf();showTab("reg");}
+  else if(a==="del"){
+    if(!confirm("Supprimer cette décoration du registre ?"))return;
+    storeReg(reg.filter(x=>x.id!==id));
+    if(editingId===id){editingId=null;updateSaveLabel();}
+    if(!groups().some(g=>g.key===selKey)){storeProm(loadProm().filter(p=>p.key!==selKey));selKey=null;}
+    renderPeople();renderDetail();
+  }
+});
+
+/* --- remplissage automatique : attributions supplémentaires et grade à la date --- */
+function formKey(){return keyOf({medal:$("medal").value,prenom:$("prenom").value.trim(),nom:$("nom").value.trim(),unit:$("unit").value.trim()});}
+function autoExtra(){
+  const m=medalOf($("medal").value),k=devKind(m,$("devType").value,$("unit").value);
+  if($("extra").dataset.manual==="1"||k==="service"||k==="none")return;
+  const key=formKey();
+  $("extra").value=loadReg().filter(r=>r.medal===m.id&&keyOf(r)===key&&r.id!==editingId).length;
+  render();
+}
+function autoGrade(){
+  const m=medalOf($("medal").value),d=$("date").value;
+  if(m.unit||!d)return;
+  const g=gradeAt(formKey(),d);
+  if(g&&GRADES.includes(g)){$("grade").value=g;render();}
+}
+["medal","prenom","nom","unit","date","devType"].forEach(i=>$(i).addEventListener("input",()=>{autoExtra();autoGrade();}));
+$("extra").addEventListener("input",()=>{$("extra").dataset.manual="1";});
+
+/* --- publication : page de consultation en lecture seule --- */
+const PUB_TPL=`<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Registre des décorations</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#26251a;color:#e8dfc4;font-family:"Courier New",Courier,monospace;min-height:100vh}
+header{text-align:center;padding:24px 16px 16px;border-bottom:4px double #8a8460;background:rgba(0,0,0,.25)}
+header h1{margin:0;font-family:Georgia,"Times New Roman",serif;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(18px,3vw,28px);color:#f1e7c6}
+header p{margin:6px 0 0;font-size:12px;letter-spacing:.15em;color:#b9b08a;text-transform:uppercase}
+main{display:grid;grid-template-columns:340px 1fr;gap:22px;max-width:1200px;margin:22px auto;padding:0 16px}
+@media(max-width:800px){main{grid-template-columns:1fr}}
+.panel{background:#3b3a26;border:3px solid #8a8460;padding:18px;box-shadow:0 0 0 4px #1a190f,0 8px 24px rgba(0,0,0,.5);align-self:start}
+.panel h2{margin:0 0 12px;font-size:14px;letter-spacing:.2em;text-transform:uppercase;border-bottom:2px dashed #8a8460;padding-bottom:8px;color:#f1e7c6}
+input{width:100%;padding:8px 9px;background:#ece3c8;color:#1d1a12;border:2px solid #1a190f;font-family:inherit;font-size:14px;border-radius:0}
+#people{margin-top:10px;max-height:65vh;overflow:auto}
+.person{padding:9px 10px;margin-bottom:6px;background:#2d2c1c;border:2px solid #1a190f;cursor:pointer}
+.person:hover{background:#44432b}
+.person.sel{border-color:#d9c07a;background:#4d4a2c}
+.person b{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#f1e7c6}
+.person small{display:block;color:#b9b08a;font-size:11px;margin-top:2px}
+.person .n{float:right;background:#7a1f1a;color:#f6ecd0;font-size:11px;padding:1px 7px}
+.chip{display:inline-flex;align-items:center;justify-content:center;gap:2px;width:44px;height:14px;border:1px solid #111;margin:0 3px 3px 0;vertical-align:middle}
+.dv{display:inline-block;width:6px;height:9px;border-radius:50%;border:1px solid #222}
+.dv.gd{background:#d9b13a}.dv.bz{background:#b5763a}.dv.sv{background:#d8dce2}
+.dv.ar{width:0;height:0;border:4px solid transparent;border-bottom:9px solid #b5763a;border-top:0;border-radius:0}
+.dv.cl{width:14px;height:6px;border-radius:1px;background:#b5763a}
+.rack{margin:8px 0 14px;line-height:1}
+.meta{font-size:12px;color:#cfc6a0}
+h3.sub{margin:16px 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#f1e7c6;border-bottom:1px dashed #6d6a4a;padding-bottom:4px}
+.ev{font-size:12.5px;padding:4px 0;border-bottom:1px dashed #55533a}
+.ev small{color:#b9b08a}
+.rec{background:#2d2c1c;border:2px solid #1a190f;padding:12px;margin-bottom:10px}
+.rec h3{margin:0 0 4px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#f1e7c6}
+.rec h3 small{color:#b9b08a}
+.rec .meta{font-size:11px;color:#b9b08a;margin-bottom:6px}
+.rec p{margin:0;font-size:12.5px;line-height:1.45;text-transform:uppercase}
+.empty{color:#a59f7c;font-size:13px}
+footer{text-align:center;padding:18px 16px 30px;font-size:11px;color:#a59f7c;letter-spacing:.08em}
+</style></head><body>
+<header><h1 id="t"></h1><p id="st"></p></header>
+<main>
+  <section class="panel"><h2>▸ Récipiendaires</h2><input id="q" placeholder="Rechercher un nom…"><div id="people"></div></section>
+  <section class="panel" id="detail"></section>
+</main>
+<footer>Œuvre de fiction — serveur de jeu de rôle WW2. Aucune valeur officielle. Page en lecture seule.</footer>
+<script>
+var D=__DATA__;
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+document.title="Registre des décorations — "+D.org;
+document.getElementById("t").textContent="Registre des décorations";
+document.getElementById("st").textContent=D.org+" · "+D.people.length+" récipiendaire"+(D.people.length>1?"s":"")+" · mis à jour le "+D.updated;
+var sel=-1;
+function list(){
+  var q=document.getElementById("q").value.trim().toLowerCase(),h="";
+  D.people.forEach(function(p,i){
+    if(q&&p.label.toLowerCase().indexOf(q)<0)return;
+    h+='<div class="person'+(i===sel?' sel':'')+'" data-i="'+i+'"><span class="n">'+p.recs.length+'</span><b>'+esc(p.label)+'</b><small>'+esc(p.grade)+'</small></div>';
+  });
+  document.getElementById("people").innerHTML=h||'<div class="empty">Aucun résultat.</div>';
+}
+function detail(){
+  var box=document.getElementById("detail");
+  if(sel<0){box.innerHTML='<h2>▸ Dossier</h2><div class="empty">Sélectionnez un récipiendaire dans la liste.</div>';return;}
+  var p=D.people[sel];
+  var h='<h2>▸ '+esc(p.label)+'</h2><div class="meta">'+esc(p.grade)+' — '+p.recs.length+' décoration'+(p.recs.length>1?'s':'')+'</div><div class="rack">'+p.rack.join("")+'</div>';
+  if(p.ev.length){h+='<h3 class="sub">Évolution du grade</h3>';p.ev.forEach(function(e){h+='<div class="ev"><b>'+esc(e.d||"—")+'</b> '+esc(e.g)+' <small>· '+esc(e.s)+'</small></div>';});}
+  h+='<h3 class="sub">Décorations</h3>';
+  p.recs.forEach(function(r){
+    h+='<div class="rec"><h3>'+r.chip+' '+esc(r.name)+(r.dev?' <small>('+esc(r.dev)+')</small>':'')+'</h3><div class="meta">'+esc(r.date)+(r.place?' · '+esc(r.place.toUpperCase()):'')+' · '+esc(r.grade)+(r.sig?' · '+esc(r.sig):'')+'</div>'+(r.reason?'<p>'+esc(r.reason)+'</p>':'')+'</div>';
+  });
+  box.innerHTML=h;
+}
+document.getElementById("q").addEventListener("input",list);
+document.getElementById("people").addEventListener("click",function(e){
+  var el=e.target.closest(".person");if(!el)return;
+  sel=parseInt(el.getAttribute("data-i"),10);list();detail();
+});
+list();detail();
+<\/script></body></html>`;
+
+function publicData(withReasons){
+  const orgs=loadReg().map(r=>r.org).filter(Boolean);
+  return {
+    org:orgs.length?orgs[orgs.length-1]:"Allied Theater Command",
+    updated:new Date().toLocaleDateString("fr-FR"),
+    people:groups().map(g=>{
+      const isUnit=!!medalOf(g.last.medal).unit;
+      let prev=null;
+      const ev=isUnit?[]:g.ev.filter(e=>{const keep=e.pid||e.grade!==prev;prev=e.grade;return keep;}).map(e=>({d:fdate(e.date),g:e.grade,s:e.src}));
+      return {
+        label:g.label,grade:isUnit?"Unité":g.grade,rack:g.recs.map(r=>chip(r)),ev,
+        recs:g.recs.slice().reverse().map(r=>{const m=medalOf(r.medal);return {chip:chip(r),name:m.name,dev:devText(m,r.extra,r.arrow,r.dev,r.unit),date:fdate(r.date),place:r.place||"",grade:r.grade,sig:r.sig||"",reason:withReasons?(r.reason||""):""};})
+      };
+    })
+  };
+}
+$("pub").onclick=()=>{
+  if(!isAdmin())return;
+  if(!groups().length){alert("Le registre est vide : enregistrez d'abord des décorations.");return;}
+  const json=JSON.stringify(publicData($("pubReasons").checked)).replace(/</g,"\\u003c");
+  const html=PUB_TPL.split("__DATA__").join(json);
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([html],{type:"text/html"}));
+  a.download="registre-consultation-1944.html";a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+};
+
+/* --- verrou par mot de passe (état-major / consultation) --- */
+const PW={salt:"c09438c170cc24cf6341ff980d218d87",iter:150000,hash:"07697400957445c844c47f74b9299b452f7e88e4dd0f89a4ed85d0fbbe922774"};
+let admin=false;
+function hasPw(){return true;}
+function isAdmin(){return admin;}
+function hexOf(b){return Array.from(b).map(x=>x.toString(16).padStart(2,"0")).join("");}
+function unhex(h){const a=new Uint8Array(h.length/2);for(let i=0;i<a.length;i++)a[i]=parseInt(h.substr(i*2,2),16);return a;}
+async function derive(pw,saltHex,iter){
+  const key=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveBits"]);
+  const bits=await crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt:unhex(saltHex),iterations:iter},key,256);
+  return hexOf(new Uint8Array(bits));
+}
+async function verifyPw(pw){
+  const h=await derive(pw,PW.salt,PW.iter);
+  let d=h.length^PW.hash.length;
+  for(let i=0;i<h.length;i++)d|=h.charCodeAt(i)^(PW.hash.charCodeAt(i)||0);
+  return d===0;
+}
+function remember(v){try{if(v)sessionStorage.setItem("reg1944_admin","1");else sessionStorage.removeItem("reg1944_admin");}catch(e){}}
+function applyMode(){
+  document.body.classList.toggle("locked",!isAdmin());
+  $("navAcces").textContent=admin?"Accès EM 🔓":"Accès EM 🔒";
+  if(typeof refreshTabNav==="function"){refreshTabNav();renderEff();}
+  renderPeople();renderDetail();
+}
+function renderAcces(note){
+  let h="<h2>▸ Accès état-major</h2>";
+  if(!admin){
+    h+=`<p class="p">Mode consultation : seuls les récipiendaires sont visibles. Entrez le mot de passe de l'état-major pour accéder à la gestion (certificats, modifications, suppressions, grades, export, publication).</p>
+    <label for="pwin">Mot de passe</label><input type="password" id="pwin" autocomplete="current-password">
+    <button data-x="login" type="button">Déverrouiller</button>`;
+  } else {
+    h+=`<p class="p">Mode état-major actif : vous pouvez créer des certificats, modifier et supprimer.</p>
+    <button class="alt" data-x="logout" type="button">Verrouiller maintenant</button>`;
+  }
+  h+=`<div id="accMsg" class="hint" style="color:#f1e7c6;min-height:16px">${esc(note||"")}</div>
+    <div class="hint">Ce verrou évite les modifications par erreur ou par un joueur peu technique ; ce n'est pas une sécurité forte, car il fonctionne dans le navigateur. Il ne partage pas le registre entre appareils : pour les joueurs, diffusez la page de consultation générée depuis l'onglet Récipiendaires.</div>`;
+  $("acc").innerHTML=h;
+}
+$("tabAcces").addEventListener("click",async e=>{
+  const b=e.target.closest("button[data-x]");if(!b)return;
+  const x=b.dataset.x;
+  try{
+    if(x==="login"){
+      if(!(window.crypto&&crypto.subtle)){renderAcces("Chiffrement indisponible dans ce navigateur.");return;}
+      if(await verifyPw($("pwin").value)){admin=true;remember(true);applyMode();renderAcces("Déverrouillé.");}
+      else renderAcces("Mot de passe incorrect.");
+    } else if(x==="logout"){
+      admin=false;remember(false);applyMode();showTab("reg");
+    }
+  }catch(err){renderAcces("Erreur : "+err.message);}
+});
+$("tabAcces").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="pwin"){const b=$("tabAcces").querySelector("[data-x=login]");if(b)b.click();}});
+
+/* ===== TABLEAU D'AVANCEMENT (demandes + tableau par régiment) ===== */
+const TPW={salt:"7c226adef6b4489a964e8b2c35106235",iter:150000,hash:"1e4294bc2f20db23d13659430abd3375b117cb150b011816901dff6fa63404b0"};
+const REGS=["41st Armored Infantry Regiment","67th Armored Regiment","2nd Military Police Platoon","9th Air Force Centrale","Headquarter"];
+const KR="reg1944_roster_v1",KQ="reg1944_req_v1";
+let tabOk=false,tabSub="req";
+const loadRoster=()=>loadArr(KR),storeRoster=a=>storeArr(KR,a),loadReqs=()=>loadArr(KQ),storeReqs=a=>storeArr(KQ,a);
+function canTab(){return tabOk||isAdmin();}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function gradeIdx(g){return GRADES.indexOf(g);}
+function byRank(a,b){return gradeIdx(b.grade)-gradeIdx(a.grade)||(a.nom||"").localeCompare(b.nom||"");}
+function memLabel(m){return [m.grade,m.prenom,m.nom].filter(Boolean).join(" ")+(m.fonction?" — "+m.fonction:"");}
+function memKey(m){return "p:"+((m.prenom||"")+" "+(m.nom||"")).trim().toLowerCase();}
+function todayIso(){return new Date().toISOString().slice(0,10);}
+async function verifyTab(pw){
+  const h=await derive(pw,TPW.salt,TPW.iter);
+  let d=h.length^TPW.hash.length;
+  for(let i=0;i<h.length;i++)d|=h.charCodeAt(i)^(TPW.hash.charCodeAt(i)||0);
+  return d===0;
+}
+function rememberTab(v){try{if(v)sessionStorage.setItem("reg1944_tab","1");else sessionStorage.removeItem("reg1944_tab");}catch(e){}}
+function refreshTabNav(){
+  $("navTab").textContent="Tableau d'avancement "+(canTab()?"🔓":"🔒");
+  if($("tabTab").style.display!=="none")renderTab();
+}
+function renderTab(note){
+  const ok=canTab();
+  $("tbApp").style.display=ok?"":"none";
+  $("tbLock").style.display=ok?"none":"";
+  if(!ok){
+    $("tbLock").innerHTML=`<h2>▸ Tableau d'avancement</h2>
+      <p class="p">Accès protégé. Entrez le mot de passe du tableau d'avancement pour consulter le tableau par régiment et déposer des demandes de promotion ou de médaille.</p>
+      <label for="tbpw">Mot de passe</label><input type="password" id="tbpw" autocomplete="current-password">
+      <button data-x="tbunlock" type="button">Déverrouiller</button>
+      <div class="hint" id="tbMsg" style="color:#f1e7c6;min-height:16px">${esc(note||"")}</div>`;
+    return;
+  }
+  document.querySelectorAll("#tbSub button[data-s]").forEach(b=>b.classList.toggle("on",b.dataset.s===tabSub));
+  $("tbLockBtn").style.display=tabOk&&!isAdmin()?"":"none";
+  $("sReq").style.display=tabSub==="req"?"":"none";
+  $("sBoard").style.display=tabSub==="board"?"":"none";
+  fillMembers();renderReqs();renderBoard();
+}
+function fillMembers(){
+  const reg=$("rq_reg").value,keep=$("rq_mem").value;
+  const list=loadRoster().filter(m=>m.regiment===reg).sort(byRank);
+  $("rq_mem").innerHTML=list.length?list.map(m=>`<option value="${esc(m.id)}">${esc(memLabel(m))}</option>`).join(""):`<option value="">— aucun militaire dans ce régiment —</option>`;
+  if(list.some(m=>m.id===keep))$("rq_mem").value=keep;
+  fillToGrade();
+}
+function fillToGrade(){
+  const m=loadRoster().find(x=>x.id===$("rq_mem").value);
+  const up=m?GRADES.filter((g,i)=>i>gradeIdx(m.grade)):[];
+  $("rq_tograde").innerHTML=up.length?up.map(g=>`<option>${esc(g)}</option>`).join(""):`<option value="">— aucun grade supérieur —</option>`;
+}
+function stChip(s){return `<span class="st st-${s}">${s==="pending"?"En attente":s==="approved"?"Approuvée":"Refusée"}</span>`;}
+function renderReqs(){
+  if(!canTab())return;
+  const st=$("rl_status").value,rg=$("rl_reg").value,adm=isAdmin();
+  const byId={};loadRoster().forEach(m=>{byId[m.id]=m;});
+  const list=loadReqs().filter(r=>(!st||r.status===st)&&(!rg||r.regiment===rg)).sort((a,b)=>b.created-a.created);
+  $("reqItems").innerHTML=list.length?list.map(r=>{
+    const m=byId[r.member],md=r.kind==="medal"?medalOf(r.medal):null;
+    const what=r.kind==="promo"?`Promotion : ${esc(r.fromGrade||"")} → <b>${esc(r.toGrade||"")}</b>`:`Médaille : <b>${esc(md?md.name:r.medal)}</b>`;
+    let acts="";
+    if(adm){
+      if(r.status==="pending")acts+=`<button data-a="ok" type="button">Approuver</button><button class="alt" data-a="no" type="button">Refuser</button>`;
+      if(r.status==="approved"&&r.kind==="medal"&&m)acts+=`<button data-a="cert" type="button">Créer le certificat</button>`;
+      acts+=`<button class="alt" data-a="rm" type="button">Supprimer</button>`;
+    }
+    return `<div class="rec"><h3>${stChip(r.status)} ${esc(m?memLabel(m):"(militaire supprimé)")}</h3>
+      <div class="meta">${esc(r.regiment)} · ${esc(fdate(r.date))} · demandé par ${esc(r.by||"?")}</div>
+      <p style="text-transform:none">${what}</p>
+      <p style="text-transform:none;color:#cfc6a0">${esc(r.reason||"")}</p>
+      ${r.note?`<p style="text-transform:none;color:#d9b6b0">Réponse : ${esc(r.note)}</p>`:""}
+      ${acts?`<div class="acts" data-id="${esc(r.id)}">${acts}</div>`:""}</div>`;
+  }).join(""):`<div class="empty">Aucune demande.</div>`;
+}
+function renderBoard(){
+  if(!canTab())return;
+  const roster=loadRoster(),pend=loadReqs().filter(r=>r.status==="pending"),recs=loadReg(),adm=isAdmin();
+  $("boardView").innerHTML=REGS.map(reg=>{
+    const list=roster.filter(m=>m.regiment===reg).sort(byRank);
+    const rows=list.map(m=>{
+      const k=memKey(m),mine=recs.filter(r=>keyOf(r)===k).sort((a,b)=>(a.date||"").localeCompare(b.date||""));
+      const pr=pend.filter(q=>q.member===m.id).map(q=>q.kind==="promo"?`<span class="st st-pending">⏳ ${esc(q.toGrade)}</span>`:`<span class="st st-pending">⏳ ${esc((medalOf(q.medal)||{name:q.medal}).name)}</span>`).join(" ");
+      return `<div class="mrow"><div><b>${esc(m.grade)}</b><br>${esc((m.prenom+" "+m.nom).trim())}<br><span class="mm">${esc(m.fonction||"")}</span></div>
+        <div>${mine.length?mine.map(r=>chip(r)).join(""):`<span class="empty">—</span>`}</div>
+        <div class="mm">${m.gradeDate?`Dernière promotion : ${esc(fdate(m.gradeDate))}`:"Dernière promotion : —"}<br>${pr||""}</div>
+        </div>`;
+    }).join("")||`<div class="empty">Aucun militaire.</div>`;
+    return `<h3 class="sub">${esc(reg)} <small style="color:#b9b08a">(${list.length})</small></h3>${rows}`;
+  }).join("");
+}
+function renderEff(){
+  const ro=loadRoster(),adm=isAdmin(),sel=$("eff_reg").value;
+  $("effView").innerHTML=REGS.filter(r=>!sel||r===sel).map(reg=>{
+    const list=ro.filter(m=>m.regiment===reg).sort(byRank);
+    const rows=list.map(m=>`<div class="mrow"><div><b>${esc(m.grade)}</b><br>${esc((m.prenom+" "+m.nom).trim())}</div><div>${esc(m.fonction||"—")}</div><div class="mm">${m.gradeDate?"Dernière promotion : "+esc(fdate(m.gradeDate)):"Dernière promotion : —"}</div><div>${adm?`<button class="alt mini" data-a="edm" data-id="${esc(m.id)}" type="button" title="Modifier">✎</button><button class="alt mini" data-a="rmm" data-id="${esc(m.id)}" type="button" title="Supprimer">×</button>`:""}</div></div>`).join("")||`<div class="empty">Aucun militaire.</div>`;
+    return `<h3 class="sub">${esc(reg)} <small style="color:#b9b08a">(${list.length})</small></h3>${rows}`;
+  }).join("");
+}
+/* --- sélection du récipiendaire depuis les effectifs --- */
+function rosterFind(prenom,nom){const k=memKey({prenom,nom});return loadRoster().find(m=>memKey(m)===k);}
+function fillGenMembers(){
+  const reg=$("gReg").value,curK=memKey({prenom:$("prenom").value,nom:$("nom").value});
+  const list=loadRoster().filter(m=>m.regiment===reg).sort(byRank);
+  let o=list.map(m=>`<option value="${esc(m.id)}">${esc(m.grade+" — "+(m.prenom+" "+m.nom).trim())}</option>`).join("");
+  const has=list.find(m=>memKey(m)===curK);
+  const legacy=!has&&($("prenom").value||$("nom").value);
+  if(legacy)o=`<option value="">(hors effectifs) ${esc(($("prenom").value+" "+$("nom").value).trim())}</option>`+o;
+  else o=`<option value="">— choisir un militaire —</option>`+o;
+  $("gMem").innerHTML=o;
+  $("gMem").value=has?has.id:"";
+}
+function applyGen(){
+  const m=loadRoster().find(x=>x.id===$("gMem").value);
+  if(!m){$("prenom").value="";$("nom").value="";$("unit").value=$("gReg").value;$("extra").dataset.manual="";autoExtra();render();return;}
+  $("prenom").value=m.prenom;$("nom").value=m.nom;$("grade").value=m.grade;$("unit").value=m.regiment;
+  $("extra").dataset.manual="";
+  autoGrade();autoExtra();render();
+}
+function syncGen(){
+  const m=rosterFind($("prenom").value,$("nom").value);
+  if(m)$("gReg").value=m.regiment;
+  fillGenMembers();
+}
+let effEditing=null;
+function resetEffForm(){
+  effEditing=null;["ad_prenom","ad_nom","ad_fn","ad_date"].forEach(i=>{$(i).value="";});
+  $("ad_btn").textContent="Ajouter le militaire";$("ad_cancel").style.display="none";
+}
+function refreshRoster(){renderEff();fillMembers();renderReqs();renderBoard();fillGenMembers();}
+function initTab(){
+  $("gReg").innerHTML=REGS.map(r=>`<option>${esc(r)}</option>`).join("");
+  $("gReg").addEventListener("input",()=>{$("prenom").value="";$("nom").value="";fillGenMembers();applyGen();});
+  $("gMem").addEventListener("input",applyGen);
+  fillGenMembers();
+  $("eff_reg").innerHTML=`<option value="">Tous les régiments</option>`+REGS.map(r=>`<option>${esc(r)}</option>`).join("");
+  $("eff_reg").addEventListener("input",renderEff);
+  $("rq_reg").innerHTML=REGS.map(r=>`<option>${esc(r)}</option>`).join("");
+  $("ad_reg").innerHTML=REGS.map(r=>`<option>${esc(r)}</option>`).join("");
+  $("rl_reg").innerHTML=`<option value="">Tous les régiments</option>`+REGS.map(r=>`<option>${esc(r)}</option>`).join("");
+  $("ad_grade").innerHTML=gradeOpts();
+  $("rq_medal").innerHTML=MEDALS.map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join("");
+  $("rq_date").value="1944-06-06";
+  $("rq_reg").addEventListener("input",fillMembers);
+  $("rq_mem").addEventListener("input",fillToGrade);
+  $("rq_promo").addEventListener("input",()=>{$("rq_promoBox").style.display=$("rq_promo").checked?"":"none";});
+  $("rq_medalchk").addEventListener("input",()=>{$("rq_medalBox").style.display=$("rq_medalchk").checked?"":"none";});
+  $("rl_clear").onclick=()=>{
+    if(!isAdmin())return;
+    const rq=loadReqs(),n=rq.filter(r=>r.status!=="pending").length;
+    if(!n){alert("Aucune demande traitée à supprimer.");return;}
+    if(!confirm("Supprimer les "+n+" demande(s) approuvée(s) ou refusée(s) ?"))return;
+    storeReqs(rq.filter(r=>r.status==="pending"));renderReqs();renderBoard();
+  };
+  $("rl_status").addEventListener("input",renderReqs);
+  $("rl_reg").addEventListener("input",renderReqs);
+  document.querySelectorAll("#tbSub button[data-s]").forEach(b=>b.onclick=()=>{tabSub=b.dataset.s;renderTab();});
+  $("tbLockBtn").onclick=()=>{tabOk=false;rememberTab(false);refreshTabNav();renderTab();};
+
+  $("tbLock").addEventListener("click",async e=>{
+    const b=e.target.closest("button[data-x=tbunlock]");if(!b)return;
+    try{
+      if(!(window.crypto&&crypto.subtle)){renderTab("Chiffrement indisponible dans ce navigateur.");return;}
+      if(await verifyTab($("tbpw").value)){tabOk=true;rememberTab(true);refreshTabNav();renderTab();}
+      else renderTab("Mot de passe incorrect.");
+    }catch(err){renderTab("Erreur : "+err.message);}
+  });
+  $("tbLock").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="tbpw"){const b=$("tbLock").querySelector("[data-x=tbunlock]");if(b)b.click();}});
+
+  $("ad_cancel").onclick=()=>{resetEffForm();$("ad_msg").textContent="";};
+  $("ad_btn").onclick=()=>{
+    if(!isAdmin())return;
+    const prenom=$("ad_prenom").value.trim(),nom=$("ad_nom").value.trim(),msg=t=>{$("ad_msg").textContent=t;};
+    if(!nom||!prenom){msg("Indiquez le nom et le prénom.");return;}
+    const ro=loadRoster(),reg=$("ad_reg").value,grade=$("ad_grade").value,date=$("ad_date").value,fn=$("ad_fn").value.trim();
+    const nk=memKey({prenom,nom});
+    if(ro.some(m=>memKey(m)===nk&&m.id!==effEditing)){msg("Ce militaire existe déjà.");return;}
+    if(effEditing){
+      const m=ro.find(x=>x.id===effEditing);if(!m){resetEffForm();return;}
+      const ok=memKey(m),oldGrade=m.grade;
+      Object.assign(m,{prenom,nom,grade,fonction:fn,regiment:reg,gradeDate:date});
+      if(ok!==nk){
+        const rg=loadReg();rg.forEach(r=>{if(keyOf(r)===ok&&!(medalOf(r.medal)||{}).unit){r.prenom=prenom;r.nom=nom;}});storeReg(rg);
+        storeProm(loadProm().map(p=>p.key===ok?Object.assign({},p,{key:nk}):p));
+      }
+      if(grade!==oldGrade&&date){const pr=loadProm();pr.push({id:uid(),key:nk,grade,date});storeProm(pr);}
+      if(!storeRoster(ro))return;
+      resetEffForm();msg("Militaire modifié.");renderPeople();renderDetail();
+    } else {
+      ro.push({id:uid(),prenom,nom,grade,fonction:fn,regiment:reg,gradeDate:date});
+      if(!storeRoster(ro))return;
+      resetEffForm();msg("Militaire ajouté.");
+    }
+    refreshRoster();
+  };
+  $("effView").addEventListener("click",e=>{
+    const b=e.target.closest("button[data-a]");if(!b||!isAdmin())return;
+    const id=b.dataset.id,ro=loadRoster(),m=ro.find(x=>x.id===id);if(!m)return;
+    if(b.dataset.a==="edm"){
+      effEditing=id;$("ad_prenom").value=m.prenom;$("ad_nom").value=m.nom;$("ad_grade").value=m.grade;$("ad_fn").value=m.fonction||"";
+      $("ad_reg").value=m.regiment;$("ad_date").value=m.gradeDate||"";
+      $("ad_btn").textContent="✔ Mettre à jour le militaire";$("ad_cancel").style.display="";$("ad_msg").textContent="Modification de "+memLabel(m)+".";
+      $("ad_btn").scrollIntoView({block:"center"});return;
+    }
+    if(b.dataset.a==="rmm"){
+      if(!confirm("Supprimer ce militaire (et ses demandes) ? Ses décorations restent dans le registre."))return;
+      storeRoster(ro.filter(x=>x.id!==id));storeReqs(loadReqs().filter(q=>q.member!==id));
+      if(effEditing===id)resetEffForm();
+      refreshRoster();
+    }
+  });
+  $("rq_send").onclick=()=>{
+    if(!canTab())return;
+    const msg=t=>{$("rq_msg").textContent=t;};
+    const m=loadRoster().find(x=>x.id===$("rq_mem").value);
+    if(!m){msg("Choisissez un militaire (demandez à l’état-major de l’ajouter dans l’onglet « Effectifs »).");return;}
+    const wp=$("rq_promo").checked,wm=$("rq_medalchk").checked;
+    if(!wp&&!wm){msg("Cochez une promotion et/ou une médaille.");return;}
+    const reason=$("rq_reason").value.trim(),by=$("rq_by").value.trim();
+    if(!reason){msg("Indiquez le motif de la demande.");return;}
+    if(!by){msg("Indiquez le demandeur.");return;}
+    if(wp&&!$("rq_tograde").value){msg("Ce militaire n'a pas de grade supérieur disponible.");return;}
+    const base={member:m.id,regiment:m.regiment,reason,date:$("rq_date").value,by,status:"pending",created:Date.now()};
+    const rq=loadReqs();
+    if(wp)rq.push(Object.assign({},base,{id:uid(),kind:"promo",fromGrade:m.grade,toGrade:$("rq_tograde").value}));
+    if(wm)rq.push(Object.assign({},base,{id:uid(),kind:"medal",medal:$("rq_medal").value,created:Date.now()+1}));
+    if(storeReqs(rq)){$("rq_reason").value="";msg("Demande envoyée"+(wp&&wm?" (deux demandes créées)":"")+".");renderReqs();renderBoard();}
+  };
+  $("reqItems").addEventListener("click",e=>{
+    const b=e.target.closest("button[data-a]");if(!b||!isAdmin())return;
+    const id=b.parentElement.dataset.id,rq=loadReqs(),r=rq.find(x=>x.id===id);if(!r)return;
+    const ro=loadRoster(),m=ro.find(x=>x.id===r.member);
+    const a=b.dataset.a;
+    if(a==="ok"){
+      r.status="approved";r.decidedAt=Date.now();
+      if(r.kind==="promo"&&m){
+        const date=r.date||todayIso();
+        m.grade=r.toGrade;m.gradeDate=date;storeRoster(ro);
+        const pr=loadProm();pr.push({id:uid(),key:memKey(m),grade:r.toGrade,date});storeProm(pr);
+      }
+      storeReqs(rq);
+    } else if(a==="no"){
+      const note=prompt("Motif du refus (facultatif) :");
+      if(note===null)return;
+      r.status="refused";r.note=note.trim();r.decidedAt=Date.now();storeReqs(rq);
+    } else if(a==="rm"){
+      if(!confirm("Supprimer cette demande ?"))return;
+      storeReqs(rq.filter(x=>x.id!==id));
+    } else if(a==="cert"&&m){
+      $("medal").value=r.medal;$("grade").value=m.grade;$("prenom").value=m.prenom;$("nom").value=m.nom;
+      $("unit").value=m.regiment;$("reason").value=r.reason;$("date").value=r.date||"1944-06-06";
+      $("extra").dataset.manual="";$("arrow").checked=false;$("devType").value="auto";editingId=null;updateSaveLabel();
+      syncGen();render();autoExtra();render();showTab("gen");return;
+    }
+    renderReqs();renderBoard();renderPeople();
+  });
+  $("boardView").addEventListener("click",e=>{
+    const b=e.target.closest("button[data-a=rmm]");if(!b||!isAdmin())return;
+    if(!confirm("Retirer ce militaire du tableau (et ses demandes) ?"))return;
+    const id=b.dataset.id;
+    storeRoster(loadRoster().filter(m=>m.id!==id));storeReqs(loadReqs().filter(q=>q.member!==id));
+    fillMembers();renderReqs();renderBoard();
+  });
+}
+
+/* --- export / import --- */
+$("exp").onclick=()=>{
+  if(!isAdmin())return;
+  const blob=new Blob([JSON.stringify({version:2,records:loadReg(),promotions:loadProm(),roster:loadRoster(),requests:loadReqs()},null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="registre-recipiendaires-1944.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+};
+$("imp").onclick=()=>{if(isAdmin())$("impf").click();};
+$("impf").onchange=e=>{
+  if(!isAdmin()){e.target.value="";return;}
+  const f=e.target.files[0];if(!f)return;
+  const fr=new FileReader();
+  fr.onload=()=>{try{
+    const raw=JSON.parse(fr.result);
+    const incR=Array.isArray(raw)?raw:(raw&&raw.records),incP=(raw&&!Array.isArray(raw)&&raw.promotions)||[];
+    if(!Array.isArray(incR))throw 0;
+    const reg=loadReg(),ids=new Set(reg.map(x=>x.id));let n=0;
+    incR.forEach(r=>{if(r&&r.id&&r.medal&&medalOf(r.medal)&&!ids.has(r.id)){reg.push(r);ids.add(r.id);n++;}});
+    const pr=loadProm(),pids=new Set(pr.map(x=>x.id));
+    (Array.isArray(incP)?incP:[]).forEach(p=>{if(p&&p.id&&p.key&&p.grade&&!pids.has(p.id)){pr.push(p);pids.add(p.id);}});
+    const ro=loadRoster(),rids=new Set(ro.map(x=>x.id));
+    ((raw&&raw.roster)||[]).forEach(m=>{if(m&&m.id&&m.nom&&REGS.includes(m.regiment)&&GRADES.includes(m.grade)&&!rids.has(m.id)){ro.push(m);rids.add(m.id);}});
+    const rq=loadReqs(),qids=new Set(rq.map(x=>x.id));
+    ((raw&&raw.requests)||[]).forEach(q=>{if(q&&q.id&&q.member&&q.kind&&!qids.has(q.id)){rq.push(q);qids.add(q.id);}});
+    storeRoster(ro);storeReqs(rq);
+    storeReg(reg);storeProm(pr);renderPeople();renderDetail();alert(n+" décoration(s) importée(s).");
+  }catch(err){alert("Fichier invalide.");}};
+  fr.readAsText(f);e.target.value="";
+};
+$("wipe").onclick=()=>{if(!isAdmin())return;if(confirm("Effacer TOUT le registre ? Cette action est définitive.")){storeReg([]);storeProm([]);selKey=null;renderPeople();renderDetail();}};
+updateCount();
+
+render();fit();
+try{admin=hasPw()&&sessionStorage.getItem("reg1944_admin")==="1";}catch(e){admin=false;}
+try{tabOk=sessionStorage.getItem("reg1944_tab")==="1";}catch(e){tabOk=false;}
+initTab();applyMode();showTab(isAdmin()?"gen":"reg");
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{render();fit();});
+</script>
+</body>
+</html>
