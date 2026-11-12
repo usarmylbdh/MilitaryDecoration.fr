@@ -1,0 +1,660 @@
+{
+ "format": "registre-mp",
+ "version": 1,
+ "config": {
+  "unite": "US Army Military Police — Company A"
+ },
+ "effectifs": {
+  "ex1": {
+   "datePromo": "2026-11-12",
+   "debut": "",
+   "fin": "",
+   "fonction": "Commandant de compagnie",
+   "grade": "cpl",
+   "matricule": "O-418223",
+   "motif": "",
+   "nom": "R. Harrington",
+   "statut": "assuree"
+  },
+  "ex2": {
+   "datePromo": "2026-11-12",
+   "debut": "",
+   "fin": "",
+   "fonction": "Chef de patrouille",
+   "grade": "ssgt",
+   "matricule": "32 145 778",
+   "motif": "Période d'examens, présent le week-end",
+   "nom": "J. Kowalski",
+   "statut": "assuree"
+  },
+  "ex3": {
+   "datePromo": "2026-11-01",
+   "debut": "2026-11-05",
+   "fin": "2026-11-10",
+   "fonction": "Patrouilleur",
+   "grade": "pfc",
+   "matricule": "35 662 019",
+   "motif": "Déplacement",
+   "nom": "T. Miller",
+   "statut": "justifiee"
+  }
+ },
+ "promotions": {
+  "1w73q85zdcje5j3yitt5": {
+   "a": "ssgt",
+   "cree": 1794502446193,
+   "date": "2026-11-12",
+   "de": "sgt",
+   "effectifId": "ex2",
+   "motif": "",
+   "nom": "J. Kowalski",
+   "par": "",
+   "type": "promotion"
+  },
+  "init-ex1": {
+   "a": "cpl",
+   "cree": 1,
+   "date": "2026-11-12",
+   "de": "",
+   "effectifId": "ex1",
+   "motif": "Reprise du registre",
+   "nom": "R. Harrington",
+   "par": "",
+   "type": "engagement"
+  },
+  "init-ex2": {
+   "a": "sgt",
+   "cree": 2,
+   "date": "2026-10-20",
+   "de": "",
+   "effectifId": "ex2",
+   "motif": "Reprise du registre",
+   "nom": "J. Kowalski",
+   "par": "",
+   "type": "engagement"
+  },
+  "init-ex3": {
+   "a": "pfc",
+   "cree": 3,
+   "date": "2026-11-01",
+   "de": "",
+   "effectifId": "ex3",
+   "motif": "Reprise du registre",
+   "nom": "T. Miller",
+   "par": "",
+   "type": "engagement"
+  }
+ },
+ "medailles": {
+  "medal-of-honor": {
+   "nom": "Medal of Honor",
+   "rang": 1,
+   "description": "Plus haute décoration militaire américaine. Bravoure au péril de sa vie, au-delà de ce qu'exige le devoir.",
+   "ruban": [
+    {
+     "c": "#5b9bd5",
+     "w": 1
+    }
+   ],
+   "etoiles": true,
+   "niveaux": [
+    "Attribution unique"
+   ]
+  },
+  "distinguished-service-cross": {
+   "nom": "Distinguished Service Cross",
+   "rang": 2,
+   "description": "Héroïsme extraordinaire au combat contre l'ennemi.",
+   "ruban": [
+    {
+     "c": "#b22234",
+     "w": 2
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#0b2a6b",
+     "w": 30
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 2
+    }
+   ],
+   "niveaux": [
+    "Première attribution",
+    "1 Oak Leaf Cluster (2e attribution)",
+    "2 Oak Leaf Clusters (3e attribution)",
+    "3 Oak Leaf Clusters (4e attribution)",
+    "4 Oak Leaf Clusters (5e attribution)",
+    "1 Silver Oak Leaf Cluster (6e attribution)"
+   ]
+  },
+  "distinguished-service-medal": {
+   "nom": "Distinguished Service Medal",
+   "rang": 3,
+   "description": "Service exceptionnellement méritoire envers le gouvernement dans un poste de grande responsabilité.",
+   "ruban": [
+    {
+     "c": "#c8102e",
+     "w": 5
+    },
+    {
+     "c": "#1f3f8f",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 10
+    },
+    {
+     "c": "#1f3f8f",
+     "w": 1
+    },
+    {
+     "c": "#c8102e",
+     "w": 5
+    }
+   ],
+   "niveaux": [
+    "Première attribution",
+    "1 Oak Leaf Cluster (2e attribution)",
+    "2 Oak Leaf Clusters (3e attribution)",
+    "3 Oak Leaf Clusters (4e attribution)",
+    "4 Oak Leaf Clusters (5e attribution)",
+    "1 Silver Oak Leaf Cluster (6e attribution)"
+   ]
+  },
+  "silver-star": {
+   "nom": "Silver Star",
+   "rang": 4,
+   "description": "Bravoure au combat contre un ennemi des États-Unis.",
+   "ruban": [
+    {
+     "c": "#0b2a6b",
+     "w": 5
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#0b2a6b",
+     "w": 5
+    },
+    {
+     "c": "#ffffff",
+     "w": 4
+    },
+    {
+     "c": "#b22234",
+     "w": 6
+    },
+    {
+     "c": "#ffffff",
+     "w": 4
+    },
+    {
+     "c": "#0b2a6b",
+     "w": 5
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#0b2a6b",
+     "w": 5
+    }
+   ],
+   "niveaux": [
+    "Première attribution",
+    "1 Oak Leaf Cluster (2e attribution)",
+    "2 Oak Leaf Clusters (3e attribution)",
+    "3 Oak Leaf Clusters (4e attribution)",
+    "4 Oak Leaf Clusters (5e attribution)",
+    "1 Silver Oak Leaf Cluster (6e attribution)"
+   ]
+  },
+  "legion-of-merit": {
+   "nom": "Legion of Merit",
+   "rang": 5,
+   "description": "Conduite exceptionnellement méritoire dans l'accomplissement de services remarquables. Décernée en 4 échelons selon le rang du récipiendaire.",
+   "ruban": [
+    {
+     "c": "#ffffff",
+     "w": 2
+    },
+    {
+     "c": "#8c1d40",
+     "w": 32
+    },
+    {
+     "c": "#ffffff",
+     "w": 2
+    }
+   ],
+   "niveaux": [
+    "Legionnaire (Chevalier)",
+    "Officer (Officier) — insigne de bronze",
+    "Commander (Commandeur) — insigne d'argent",
+    "Chief Commander (Commandeur en chef) — insigne d'or"
+   ]
+  },
+  "soldiers-medal": {
+   "nom": "Soldier's Medal",
+   "rang": 6,
+   "description": "Héroïsme hors combat, au risque de sa vie.",
+   "ruban": [
+    {
+     "c": "#0b2a6b",
+     "w": 10
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#0b2a6b",
+     "w": 10
+    }
+   ],
+   "niveaux": [
+    "Première attribution",
+    "1 Oak Leaf Cluster (2e attribution)",
+    "2 Oak Leaf Clusters (3e attribution)",
+    "3 Oak Leaf Clusters (4e attribution)",
+    "4 Oak Leaf Clusters (5e attribution)",
+    "1 Silver Oak Leaf Cluster (6e attribution)"
+   ]
+  },
+  "bronze-star": {
+   "nom": "Bronze Star Medal",
+   "rang": 7,
+   "description": "Acte de bravoure ou service méritoire en zone de combat.",
+   "ruban": [
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 15
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#0b2a6b",
+     "w": 2
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 15
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    }
+   ],
+   "niveaux": [
+    "Première attribution",
+    "1 Oak Leaf Cluster (2e attribution)",
+    "2 Oak Leaf Clusters (3e attribution)",
+    "3 Oak Leaf Clusters (4e attribution)",
+    "4 Oak Leaf Clusters (5e attribution)",
+    "1 Silver Oak Leaf Cluster (6e attribution)",
+    "« V » Device (Valor)",
+    "« V » + 1 Oak Leaf Cluster",
+    "« V » + 2 Oak Leaf Clusters",
+    "« V » + 3 Oak Leaf Clusters",
+    "« V » + 4 Oak Leaf Clusters"
+   ]
+  },
+  "purple-heart": {
+   "nom": "Purple Heart",
+   "rang": 8,
+   "description": "Décernée aux militaires blessés ou tués par l'action de l'ennemi.",
+   "ruban": [
+    {
+     "c": "#ffffff",
+     "w": 2
+    },
+    {
+     "c": "#5b2a6e",
+     "w": 32
+    },
+    {
+     "c": "#ffffff",
+     "w": 2
+    }
+   ],
+   "niveaux": [
+    "Première attribution",
+    "1 Oak Leaf Cluster (2e attribution)",
+    "2 Oak Leaf Clusters (3e attribution)",
+    "3 Oak Leaf Clusters (4e attribution)",
+    "4 Oak Leaf Clusters (5e attribution)",
+    "1 Silver Oak Leaf Cluster (6e attribution)"
+   ]
+  },
+  "citation-mp": {
+   "nom": "Citation d'honneur de la Police Militaire",
+   "rang": 9,
+   "description": "Décoration propre à l'unité : récompense un acte remarquable ou des services exemplaires au sein de la Military Police. Le niveau dépend de l'échelon qui cite.",
+   "ruban": [
+    {
+     "c": "#f2c300",
+     "w": 3
+    },
+    {
+     "c": "#1e5a32",
+     "w": 13
+    },
+    {
+     "c": "#f2c300",
+     "w": 4
+    },
+    {
+     "c": "#1e5a32",
+     "w": 13
+    },
+    {
+     "c": "#f2c300",
+     "w": 3
+    }
+   ],
+   "niveaux": [
+    "Citation à l'ordre de la compagnie (étoile de bronze)",
+    "Citation à l'ordre du bataillon (étoile d'argent)",
+    "Citation à l'ordre du régiment (étoile d'or)",
+    "Citation à l'ordre du Provost Marshal (2 étoiles d'or)"
+   ]
+  },
+  "good-conduct": {
+   "nom": "Army Good Conduct Medal",
+   "rang": 10,
+   "description": "Conduite exemplaire, efficacité et fidélité au service.",
+   "ruban": [
+    {
+     "c": "#c8102e",
+     "w": 3
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#c8102e",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#c8102e",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#c8102e",
+     "w": 20
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#c8102e",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#c8102e",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#c8102e",
+     "w": 3
+    }
+   ],
+   "niveaux": [
+    "Première attribution",
+    "Agrafe bronze 2 nœuds (2e attribution)",
+    "Agrafe bronze 3 nœuds (3e attribution)",
+    "Agrafe bronze 4 nœuds (4e attribution)",
+    "Agrafe bronze 5 nœuds (5e attribution)",
+    "Agrafe argent 1 nœud (6e attribution)",
+    "Agrafe argent 2 nœuds (7e attribution)",
+    "Agrafe argent 3 nœuds (8e attribution)"
+   ]
+  },
+  "american-campaign": {
+   "nom": "American Campaign Medal",
+   "rang": 11,
+   "description": "Service sur le théâtre américain pendant la guerre.",
+   "ruban": [
+    {
+     "c": "#4b9cd3",
+     "w": 7
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#111111",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#4b9cd3",
+     "w": 6
+    },
+    {
+     "c": "#0b2a6b",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#4b9cd3",
+     "w": 6
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#111111",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#4b9cd3",
+     "w": 7
+    }
+   ],
+   "niveaux": [
+    "Sans étoile",
+    "1 étoile de campagne"
+   ]
+  },
+  "eame-campaign": {
+   "nom": "European-African-Middle Eastern Campaign Medal",
+   "rang": 12,
+   "description": "Service sur le théâtre Europe / Afrique / Moyen-Orient. Étoiles de campagne pour chaque opération (Normandie, France du Nord…).",
+   "ruban": [
+    {
+     "c": "#6b4226",
+     "w": 3
+    },
+    {
+     "c": "#2e6b3a",
+     "w": 5
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#2e6b3a",
+     "w": 5
+    },
+    {
+     "c": "#0b2a6b",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#b22234",
+     "w": 1
+    },
+    {
+     "c": "#2e6b3a",
+     "w": 5
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#111111",
+     "w": 1
+    },
+    {
+     "c": "#ffffff",
+     "w": 1
+    },
+    {
+     "c": "#2e6b3a",
+     "w": 5
+    },
+    {
+     "c": "#6b4226",
+     "w": 3
+    }
+   ],
+   "niveaux": [
+    "Sans étoile",
+    "1 étoile de campagne",
+    "2 étoiles de campagne",
+    "3 étoiles de campagne",
+    "4 étoiles de campagne",
+    "1 étoile d'argent (5 campagnes)",
+    "Pointe de flèche + 1 étoile de campagne",
+    "Pointe de flèche + 2 étoiles de campagne",
+    "Pointe de flèche + 3 étoiles de campagne",
+    "Pointe de flèche + 4 étoiles de campagne",
+    "Pointe de flèche + 1 étoile d'argent (5 campagnes)"
+   ]
+  },
+  "combat-infantryman-badge": {
+   "nom": "Combat Infantryman Badge",
+   "rang": 20,
+   "forme": "cib",
+   "description": "Insigne (et non médaille) : fantassin ayant combattu au feu avec une unité d'infanterie. Créé en novembre 1943. Porté au-dessus des rubans.",
+   "niveaux": [
+    "1re attribution"
+   ]
+  }
+ },
+ "attributions": {}
+}

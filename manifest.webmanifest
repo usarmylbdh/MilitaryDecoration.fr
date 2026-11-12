@@ -1,0 +1,16 @@
+{
+  "name": "Registre US Military Police 1944",
+  "short_name": "Registre MP",
+  "description": "Effectifs, présences, promotions et décorations de la US Military Police (RP 1944).",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#2c3019",
+  "theme_color": "#4a5129",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

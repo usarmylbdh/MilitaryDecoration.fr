@@ -1,0 +1,48 @@
+rules_version = '2';
+
+// Règles de sécurité du registre MP.
+// - Tout le monde peut CONSULTER le registre, sans compte.
+// - Seuls le chef de la MP et l'état-major (liste config/admins) peuvent MODIFIER.
+// - Seul le chef de la MP peut changer la liste de l'état-major.
+//
+// ⚠ Remplace TON_ADRESSE@gmail.com par TON adresse Gmail (en minuscules).
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+    function myEmail() {
+      return request.auth.token.email.lower();
+    }
+    function isOwner() {
+      return signedIn() && myEmail() == 'TON_ADRESSE@gmail.com';
+    }
+    function isAdmin() {
+      return isOwner() || (
+        signedIn()
+        && exists(/databases/$(database)/documents/config/admins)
+        && myEmail() in get(/databases/$(database)/documents/config/admins).data.emails
+      );
+    }
+
+    // Liste de l'état-major : visible par l'état-major, modifiable par le chef uniquement.
+    match /config/admins {
+      allow read: if isAdmin();
+      allow write: if isOwner();
+    }
+
+    // Nom de l'unité.
+    match /config/registre {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Registre : effectifs, promotions, catalogue des décorations, attributions.
+    match /{collection}/{docId} {
+      allow read: if collection in ['effectifs', 'promotions', 'medailles', 'attributions'];
+      allow write: if isAdmin() && collection in ['effectifs', 'promotions', 'medailles', 'attributions'];
+    }
+  }
+}
