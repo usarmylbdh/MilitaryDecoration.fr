@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registre MP 1944</title>
+<meta name="theme-color" content="#4a5129">
+<meta name="description" content="Registre des effectifs, présences, promotions et décorations de la US Military Police (RP 1944).">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Registre MP">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Stardos+Stencil:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#ece3cb; --paper2:#e2d6b6; --ink:#2a2418; --ink2:#5d5339; --line:#b8a982;
+  --od:#4a5129; --od2:#373d1c; --od3:#626b37;
+  --green:#2f5a2b; --amber:#93630c; --blue:#2c4866; --red:#8a1c1c; --plum:#5a4466; --gold:#9a7a1e;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#2c3019;background-image:radial-gradient(circle at 20% 0%,rgba(255,255,255,.06),transparent 50%),radial-gradient(circle at 90% 100%,rgba(0,0,0,.35),transparent 60%);font-family:'Courier Prime',ui-monospace,Menlo,monospace;color:var(--ink);min-height:100vh}
+.wrap{max-width:1360px;margin:0 auto;padding:24px 20px 48px}
+.hdr{background:var(--od);color:#efe8cf;border:2px solid #20240d;box-shadow:inset 0 0 0 3px var(--od3);padding:18px 22px;display:flex;gap:22px;align-items:center}
+.brassard{flex:none;width:92px;height:66px;background:#141414;border:2px solid #000;display:grid;place-items:center;transform:rotate(-3deg);box-shadow:0 3px 0 rgba(0,0,0,.45)}
+.brassard span{font-family:'Stardos Stencil',Impact,sans-serif;font-weight:700;font-size:38px;color:#f4f1e6;letter-spacing:3px}
+.eyebrow{font-family:'Special Elite',monospace;font-size:12px;letter-spacing:.2em;opacity:.8}
+h1{font-family:'Stardos Stencil',Impact,sans-serif;font-weight:700;font-size:38px;margin:2px 0 4px;letter-spacing:.04em;text-transform:uppercase;line-height:1.05}
+.unit{font-family:'Special Elite',monospace;font-size:16px}
+.unit .link{background:none;border:none;color:#d8cfa9;text-decoration:underline;cursor:pointer;font:inherit;font-size:12px;padding:0 0 0 6px}
+.hdr-side{margin-left:auto;text-align:right;font-size:14px}
+.save{margin-top:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:inline-flex;gap:7px;align-items:center;padding:4px 9px;border:1px solid rgba(239,232,207,.4)}
+.save .dot{width:8px;height:8px;border-radius:50%;background:#9bc27a}
+.save.pending .dot{background:#e0b046}.save.err .dot{background:#e8705f}.save.ro .dot{background:#a9a9a9}
+.tabs{display:flex;gap:4px;margin-top:16px;border-bottom:3px solid var(--paper)}
+.tab{font-family:'Stardos Stencil',Impact,sans-serif;font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px 8px;background:#555b33;color:#d9d1b0;border:1px solid #20240d;border-bottom:none;cursor:pointer;text-decoration:none}
+.tab:hover{background:#626b37}
+.tab.on{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.tab .n{font-family:'Courier Prime',monospace;font-size:12px;opacity:.75;margin-left:6px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:16px 0}
+.stat{background:var(--paper);border:1px solid var(--line);border-left:7px solid var(--c,var(--od));padding:12px 14px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.stat:hover{background:#f2ead4}
+.stat.on{box-shadow:inset 0 0 0 2px var(--c,var(--od))}
+.stat .n{font-family:'Stardos Stencil',Impact,sans-serif;font-size:36px;font-weight:700;line-height:1;color:var(--c,var(--ink))}
+.stat .l{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink2);margin-top:6px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--paper2);border:1px solid var(--line);padding:10px}
+.tabbody>.toolbar:first-child,.tabbody>.sec:first-child{margin-top:16px}
+input,select,textarea{font:inherit;color:var(--ink);background:#f7f1de;border:1px solid var(--line);padding:7px 9px;border-radius:0}
+input[type=color]{padding:2px;height:36px;width:56px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--od);outline-offset:0}
+.q{flex:1 1 240px;min-width:180px}
+.spacer{flex:1}
+.btn{font-family:'Special Elite',monospace;font-size:14px;padding:8px 14px;border:1px solid var(--od2);cursor:pointer;background:transparent;color:var(--od2);text-transform:uppercase;letter-spacing:.05em}
+.btn.primary{background:var(--od);color:#f1ead2}
+.btn.danger{background:var(--red);border-color:var(--red);color:#fff}
+.btn:hover{filter:brightness(1.12)}
+.btn:disabled{opacity:.5;cursor:wait}
+.sheet{background:var(--paper);border:1px solid var(--line);margin-top:12px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;border-bottom:2px solid var(--ink);font-family:'Special Elite',monospace;font-size:13px;letter-spacing:.06em}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-family:'Special Elite',monospace;font-weight:400;text-transform:uppercase;font-size:12px;letter-spacing:.08em;text-align:left;padding:9px 10px;border-bottom:1px solid var(--ink);white-space:nowrap;color:var(--ink2)}
+td{padding:8px 10px;border-bottom:1px dashed var(--line);vertical-align:middle}
+tbody tr:hover td{background:rgba(74,81,41,.06)}
+tr.late td{background:rgba(138,28,28,.07)}
+.sub{font-size:12px;color:var(--ink2);margin-top:2px}
+.nom{font-weight:700;font-size:15px}
+a.nom,button.nom{background:none;border:none;padding:0;font:inherit;font-weight:700;font-size:15px;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;text-align:left}
+.gbadge{display:inline-flex;flex-direction:column;padding:3px 8px;border-left:4px solid var(--gc);background:rgba(0,0,0,.04);white-space:nowrap}
+.gbadge b{font-size:14px}.gbadge small{font-size:11px;color:var(--ink2)}
+.g-enl{--gc:#8a8a6a}.g-nco{--gc:var(--od)}.g-wo{--gc:#7a4e22}.g-off{--gc:var(--gold)}
+.sel-statut{font-family:'Special Elite',monospace;text-transform:uppercase;font-size:12px;letter-spacing:.05em;border:2px solid var(--c);color:var(--c);background:transparent;min-width:196px;font-weight:700}
+.stamp{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:12px;letter-spacing:.05em;border:2px solid var(--c);color:var(--c);padding:4px 8px;font-weight:700;white-space:nowrap}
+.st-assuree{--c:var(--green)}.st-limitee{--c:var(--amber)}.st-justifiee{--c:var(--blue)}.st-injustifiee{--c:var(--red)}.st-permission{--c:var(--plum)}
+.st-all{--c:var(--od)}.st-absents{--c:var(--blue)}.st-retard{--c:var(--red)}
+.st-promotion{--c:var(--green)}.st-retrogradation{--c:var(--red)}.st-engagement{--c:var(--ink2)}
+.tag{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:1px 6px;border:1px solid currentColor;margin-top:3px;font-weight:700}
+.tag.late{color:var(--red)}.tag.soon{color:var(--amber)}.tag.ok{color:var(--ink2)}
+.nowrap{white-space:nowrap}
+.actions{white-space:nowrap;text-align:right}
+.mini{font:inherit;font-size:12px;background:none;border:none;color:var(--od2);text-decoration:underline;cursor:pointer;padding:4px}
+.mini.danger{color:var(--red)}
+.mini.up{color:var(--green);font-weight:700}
+.empty{padding:40px 20px;text-align:center;font-family:'Special Elite',monospace;color:var(--ink2)}
+.rack{display:flex;flex-wrap:wrap;gap:2px;max-width:150px}
+.rib{display:block;box-shadow:0 1px 0 rgba(0,0,0,.25)}
+.ribwrap{position:relative;display:inline-block}
+.ribwrap .x{position:absolute;right:-3px;top:-6px;font-size:9px;background:var(--ink);color:#fff;padding:0 3px;line-height:12px}
+.sec{background:var(--paper);border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.sec-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 14px;border-bottom:2px solid var(--ink)}
+.sec-head h2{margin:0;font-family:'Stardos Stencil',Impact,sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:.04em}
+.medals{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;padding:14px}
+.medal{background:#f4ecd6;border:1px solid var(--line);padding:12px;text-align:left;font:inherit;color:inherit;cursor:pointer;display:flex;flex-direction:column;gap:8px;position:relative}
+.medal:hover{background:#f8f1de}
+.medal.on{box-shadow:inset 0 0 0 2px var(--od)}
+.medal .mn{font-weight:700;font-size:15px;line-height:1.2}
+.medal .md{font-size:12px;color:var(--ink2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.medal .mc{font-family:'Special Elite',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--od2);margin-top:auto}
+.medal .rank{position:absolute;right:10px;top:10px;font-size:11px;color:var(--ink2)}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--od);color:#f1ead2;padding:4px 8px;font-size:12px}
+.chip button{background:none;border:none;color:#f1ead2;cursor:pointer;font:inherit;padding:0 2px}
+.ro .edit-only{display:none!important}
+.layer{position:fixed;inset:0;background:rgba(18,20,8,.62);display:grid;place-items:center;padding:16px;z-index:20}
+.modal{background:var(--paper);border:2px solid var(--ink);width:min(680px,100%);max-height:92vh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.modal.wide{width:min(860px,100%)}
+.modal h2{margin:0;font-family:'Stardos Stencil',Impact,sans-serif;font-size:24px;padding:14px 18px;background:var(--od);color:#efe8cf;text-transform:uppercase;letter-spacing:.04em}
+.modal p{padding:0 18px;margin:16px 0}
+.form{padding:16px 18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form label{display:flex;flex-direction:column;gap:4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.form label.row{flex-direction:row;align-items:center;gap:8px}
+.form .full{grid-column:1/-1}
+.form fieldset{grid-column:1/-1;border:1px dashed var(--line);padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0}
+.form fieldset.colors{grid-template-columns:repeat(4,auto);align-items:end;justify-content:start}
+.form legend{font-family:'Special Elite',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;padding:0 6px}
+.form .info{grid-column:1/-1;font-size:13px;color:var(--ink2);background:rgba(0,0,0,.04);padding:8px 10px}
+.form-actions{display:flex;justify-content:flex-end;gap:8px;padding:0 18px 16px;flex-wrap:wrap}
+.ferr{color:var(--red);font-size:13px;grid-column:1/-1;min-height:1em}
+textarea.copy{width:calc(100% - 36px);margin:0 18px 12px;height:260px;font-size:13px}
+.dossier{padding:16px 18px;display:grid;gap:16px}
+.dossier .top{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.dossier dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:14px}
+.dossier dt{color:var(--ink2);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+.dossier dd{margin:0}
+.dossier h3{margin:0 0 6px;font-family:'Special Elite',monospace;font-size:14px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--ink);padding-bottom:4px}
+.notice{margin:16px 0;background:var(--paper);border:1px solid var(--line);border-left:7px solid var(--amber);padding:12px 14px;font-size:14px}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#141414;color:#f1ead2;padding:10px 16px;font-family:'Special Elite',monospace;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:30;border-left:5px solid var(--od3);max-width:90vw}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{color:#c9c1a0;font-size:12px;text-align:center;margin-top:18px;font-family:'Special Elite',monospace;letter-spacing:.05em}
+@media (max-width:900px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:28px}
+  .hdr{flex-wrap:wrap}
+  .hdr-side{margin-left:0;text-align:left}
+  .form,.form fieldset{grid-template-columns:1fr}
+  .tab{font-size:14px;padding:8px 10px 6px}
+}
+.auth{margin-top:8px;display:flex;gap:6px;justify-content:flex-end;align-items:center;flex-wrap:wrap;font-size:12px}
+.auth .who{opacity:.9}
+.auth button{font-family:'Special Elite',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.05em;background:#efe8cf;color:var(--od2);border:1px solid #20240d;padding:4px 9px;cursor:pointer}
+.auth button.ghost{background:transparent;color:#efe8cf;border-color:rgba(239,232,207,.5)}
+.adminlist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.adminlist li{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.04);padding:6px 10px}
+@media (max-width:900px){ .auth{justify-content:flex-start} }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+(function(){
+  var GRADES = [
+    {id:'pvt',abbr:'Pvt.',nom:'Private',cat:'enl'},
+    {id:'pfc',abbr:'PFC',nom:'Private First Class',cat:'enl'},
+    {id:'t5',abbr:'T/5',nom:'Technician Fifth Grade',cat:'nco'},
+    {id:'cpl',abbr:'Cpl.',nom:'Corporal',cat:'nco'},
+    {id:'t4',abbr:'T/4',nom:'Technician Fourth Grade',cat:'nco'},
+    {id:'sgt',abbr:'Sgt.',nom:'Sergeant',cat:'nco'},
+    {id:'t3',abbr:'T/3',nom:'Technician Third Grade',cat:'nco'},
+    {id:'ssgt',abbr:'S/Sgt.',nom:'Staff Sergeant',cat:'nco'},
+    {id:'tsgt',abbr:'T/Sgt.',nom:'Technical Sergeant',cat:'nco'},
+    {id:'1sgt',abbr:'1st Sgt.',nom:'First Sergeant',cat:'nco'},
+    {id:'msgt',abbr:'M/Sgt.',nom:'Master Sergeant',cat:'nco'},
+    {id:'wo',abbr:'WO',nom:'Warrant Officer',cat:'wo'},
+    {id:'2lt',abbr:'2nd Lt.',nom:'Second Lieutenant',cat:'off'},
+    {id:'1lt',abbr:'1st Lt.',nom:'First Lieutenant',cat:'off'},
+    {id:'capt',abbr:'Capt.',nom:'Captain',cat:'off'},
+    {id:'maj',abbr:'Maj.',nom:'Major',cat:'off'},
+    {id:'ltc',abbr:'Lt. Col.',nom:'Lieutenant Colonel',cat:'off'},
+    {id:'col',abbr:'Col.',nom:'Colonel',cat:'off'}
+  ];
+  var STATUTS = [
+    {id:'assuree',label:'Présence assurée',absent:false},
+    {id:'limitee',label:'Présence limitée',absent:false},
+    {id:'justifiee',label:'Absence justifiée',absent:true},
+    {id:'injustifiee',label:'Absence non justifiée',absent:true},
+    {id:'permission',label:'Permission',absent:true}
+  ];
+  var TYPES = {promotion:'Promotion', retrogradation:'Rétrogradation', engagement:'Incorporation'};
+  var gIndex = {}; GRADES.forEach(function(g,i){ gIndex[g.id]=i; });
+  var sById = {}; STATUTS.forEach(function(s){ sById[s.id]=s; });
+
+  var root = document.getElementById('root');
+  var db = null, auth = null, me = null, canWrite = false, admins = null, configOk = true, monPseudo = '';
+  var D = {effectifs:[], promotions:[], medailles:[], attributions:[], unite:''};
+  var loaded = {effectifs:false, promotions:false, medailles:false, attributions:false, config:false};
+  var phase = 'loading';   // loading | ready | slow | noaccess | error
+  var pending = 0;
+  var TABS = ['effectifs','promotions','decorations'];
+  var tab = TABS.indexOf(location.hash.slice(1))>=0 ? location.hash.slice(1) : 'effectifs';
+  var ui = {q:'', grade:'', statut:'', tri:'grade', pq:'', ptype:'', dq:'', medal:''};
+  try { var sv = JSON.parse(localStorage.getItem('mp-registre-ui2')||'{}'); for (var k in ui) if (typeof sv[k]==='string') ui[k]=sv[k]; } catch(e){}
+  function saveUi(){ try{ localStorage.setItem('mp-registre-ui2', JSON.stringify(ui)); }catch(e){} }
+
+  /* ---------- utilitaires ---------- */
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function str(v){ return typeof v==='string' ? v : ''; }
+  function todayISO(){ var d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  function isISO(s){ return /^\d{4}-\d{2}-\d{2}$/.test(s||''); }
+  function fmt(iso){ if(!isISO(iso)) return '—'; var p=iso.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
+  function fmtLong(iso){ var p=iso.split('-'); return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}); }
+  function days(a,b){ return Math.round((Date.parse(b+'T00:00:00Z')-Date.parse(a+'T00:00:00Z'))/86400000); }
+  function grade(id){ return GRADES[gIndex[id]] || {id:'?',abbr:'?',nom:'Grade inconnu',cat:'enl'}; }
+  function gBadge(id){ var g=grade(id); return '<span class="gbadge g-'+g.cat+'"><b>'+esc(g.abbr)+'</b><small>'+esc(g.nom)+'</small></span>'; }
+  function isLate(e){ return e.statut!=='assuree' && isISO(e.fin) && e.fin < todayISO(); }
+  function byId(list,id){ for (var i=0;i<list.length;i++) if (list[i].id===id) return list[i]; return null; }
+  function eff(id){ return byId(D.effectifs,id); }
+  function med(id){ return byId(D.medailles,id); }
+  function safeColor(c){ return /^#[0-9a-fA-F]{3,8}$/.test(c) ? c : '#888'; }
+  function medalSort(a,b){ return (+a.rang||999)-(+b.rang||999) || str(a.nom).localeCompare(str(b.nom),'fr'); }
+  function normEff(e){ return {id:e.id, nom:str(e.nom)||'(sans nom)', matricule:str(e.matricule), grade:gIndex[e.grade]!=null?e.grade:'pvt', fonction:str(e.fonction), datePromo:str(e.datePromo), statut:sById[e.statut]?e.statut:'assuree', debut:str(e.debut), fin:str(e.fin), motif:str(e.motif)}; }
+
+  var METAL = {bronze:'#a0702a', argent:'#d9d9d9', or:'#e2b53c'};
+  var DEFAULT_NIVEAUX = ['Première attribution','1 Oak Leaf Cluster (2e attribution)','2 Oak Leaf Clusters (3e attribution)','3 Oak Leaf Clusters (4e attribution)','4 Oak Leaf Clusters (5e attribution)','1 Silver Oak Leaf Cluster (6e attribution)'];
+  function niveauxOf(m){ var n = (m && Array.isArray(m.niveaux)) ? m.niveaux.filter(function(x){ return typeof x==='string' && x.trim(); }) : []; return n.length ? n : ['Standard']; }
+  function parseDevices(n){
+    n = str(n); var out = [];
+    if (!n) return out;
+    var mk = n.match(/(\d+)\s*nœuds?/i);
+    if (mk) return [{t:'clasp', n:Math.min(5,+mk[1]), metal:/argent/i.test(n)?'argent':/\bor\b/i.test(n)?'or':'bronze'}];
+    var ins = n.match(/insigne (de bronze|d'argent|d'or)/i); if (ins) out.push({t:'lom', metal:/bronze/i.test(ins[1])?'bronze':/argent/i.test(ins[1])?'argent':'or'});
+    if (/«\s*V\s*»|\bValor\b/i.test(n)) out.push({t:'v'});
+    var s = n.match(/(\d+)?\s*Silver Oak Leaf/i); if (s) out.push({t:'leaf', metal:'argent', n:+(s[1]||1)});
+    var b = n.replace(/(\d+)?\s*Silver Oak Leaf Clusters?/ig,'').match(/(\d+)?\s*Oak Leaf Clusters?/i); if (b) out.push({t:'leaf', metal:'bronze', n:+(b[1]||1)});
+    if (/Pointe de flèche|Arrowhead/i.test(n)) out.push({t:'arrow'});
+    var so = n.match(/(\d+)?\s*étoiles? d'or/i); if (so) out.push({t:'star', metal:'or', n:+(so[1]||1)});
+    var ss = n.match(/(\d+)?\s*étoiles? d'argent/i); if (ss) out.push({t:'star', metal:'argent', n:+(ss[1]||1)});
+    var bs = n.match(/(\d+)?\s*étoiles? (?:de )?(?:bronze|de campagne)/i); if (bs) out.push({t:'star', metal:'bronze', n:+(bs[1]||1)});
+    return out;
+  }
+  function drawDevices(niveau, w, h){
+    var dv = parseDevices(niveau); if (!dv.length) return '';
+    var o = '', sk = ' stroke="rgba(0,0,0,.55)" stroke-width="'+Math.max(.4,h*.04).toFixed(2)+'"';
+    if (dv[0].t==='clasp') {
+      var c = dv[0], bx = w*.12, bw = w*.76, by = h*.36, bh = h*.28;
+      o += '<rect x="'+bx.toFixed(1)+'" y="'+by.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+bh.toFixed(1)+'" fill="'+METAL[c.metal]+'"'+sk+'/>';
+      for (var i=0;i<c.n;i++){ var cx = bx + bw*(i+1)/(c.n+1); o += '<circle cx="'+cx.toFixed(1)+'" cy="'+(h/2).toFixed(1)+'" r="'+(h*.2).toFixed(1)+'" fill="none" stroke="'+METAL[c.metal]+'" stroke-width="'+(h*.09).toFixed(2)+'"/><circle cx="'+cx.toFixed(1)+'" cy="'+(h/2).toFixed(1)+'" r="'+(h*.2).toFixed(1)+'" fill="none" stroke="rgba(0,0,0,.4)" stroke-width="'+(h*.03).toFixed(2)+'"/>'; }
+      return o;
+    }
+    var icons = []; dv.forEach(function(d){ for (var i=0;i<(d.n||1);i++) icons.push(d); });
+    icons = icons.slice(0,5);
+    var u = h*.78, gap = u*.22, total = icons.length*u + (icons.length-1)*gap, x0 = (w-total)/2 + u/2, cy = h/2;
+    icons.forEach(function(d, i){
+      var cx = x0 + i*(u+gap);
+      if (d.t==='leaf') o += '<ellipse cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" rx="'+(u*.47).toFixed(1)+'" ry="'+(u*.27).toFixed(1)+'" fill="'+METAL[d.metal]+'"'+sk+'/><line x1="'+(cx-u*.4).toFixed(1)+'" y1="'+cy.toFixed(1)+'" x2="'+(cx+u*.4).toFixed(1)+'" y2="'+cy.toFixed(1)+'" stroke="rgba(0,0,0,.45)" stroke-width="'+(h*.035).toFixed(2)+'"/>';
+      else if (d.t==='v') o += '<path d="M'+(cx-u*.3).toFixed(1)+' '+(cy-u*.38).toFixed(1)+' L'+cx.toFixed(1)+' '+(cy+u*.38).toFixed(1)+' L'+(cx+u*.3).toFixed(1)+' '+(cy-u*.38).toFixed(1)+'" fill="none" stroke="'+METAL.or+'" stroke-width="'+(u*.2).toFixed(2)+'" stroke-linejoin="miter"/>';
+      else if (d.t==='lom') { o += '<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="'+(u*.48).toFixed(1)+'" fill="none" stroke="'+METAL[d.metal]+'" stroke-width="'+(u*.11).toFixed(2)+'"/>'; var lp=[]; for (var q=0;q<10;q++){ var lr=q%2?u*.16:u*.4, la=Math.PI/2+q*Math.PI/5; lp.push((cx+lr*Math.cos(la)).toFixed(1)+','+(cy+lr*Math.sin(la)).toFixed(1)); } o += '<polygon points="'+lp.join(' ')+'" fill="'+METAL[d.metal]+'"'+sk+'/>'; }
+      else if (d.t==='arrow') o += '<polygon points="'+cx.toFixed(1)+','+(cy-u*.45).toFixed(1)+' '+(cx+u*.32).toFixed(1)+','+(cy+u*.4).toFixed(1)+' '+cx.toFixed(1)+','+(cy+u*.18).toFixed(1)+' '+(cx-u*.32).toFixed(1)+','+(cy+u*.4).toFixed(1)+'" fill="'+METAL.bronze+'"'+sk+'/>';
+      else { var pts = []; for (var k=0;k<10;k++){ var r = k%2 ? u*.21 : u*.5, ang = -Math.PI/2 + k*Math.PI/5; pts.push((cx+r*Math.cos(ang)).toFixed(1)+','+(cy+r*Math.sin(ang)).toFixed(1)); } o += '<polygon points="'+pts.join(' ')+'" fill="'+METAL[d.metal]+'"'+sk+'/>'; }
+    });
+    return o;
+  }
+  function ribbon(m, w, h, niveau){
+    if (m && m.forme==='cib') {
+      var s = '<rect x="'+(w*.1).toFixed(1)+'" y="'+(h*.06).toFixed(1)+'" width="'+(w*.8).toFixed(1)+'" height="'+(h*.42).toFixed(1)+'" fill="#2a63b0" stroke="#c9c9c9" stroke-width="'+Math.max(.6,h*.06).toFixed(2)+'"/>'
+        + '<line x1="'+(w*.16).toFixed(1)+'" y1="'+(h*.27).toFixed(1)+'" x2="'+(w*.84).toFixed(1)+'" y2="'+(h*.27).toFixed(1)+'" stroke="#e6e6e6" stroke-width="'+Math.max(.6,h*.07).toFixed(2)+'"/>'
+        + '<path d="M'+(w*.12).toFixed(1)+' '+(h*.42).toFixed(1)+' Q'+(w*.5).toFixed(1)+' '+(h*1.15).toFixed(1)+' '+(w*.88).toFixed(1)+' '+(h*.42).toFixed(1)+'" fill="none" stroke="#c9c9c9" stroke-width="'+Math.max(1,h*.16).toFixed(2)+'" stroke-dasharray="'+(h*.22).toFixed(1)+' '+(h*.06).toFixed(1)+'"/>';
+      return '<svg class="rib" style="box-shadow:none" viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" aria-hidden="true">'+s+drawDevices(niveau,w,h)+'</svg>';
+    }
+    var segs = (m && Array.isArray(m.ruban) && m.ruban.length) ? m.ruban : [['#888',1]];
+    segs = segs.map(function(x){ return Array.isArray(x) ? x : [x && x.c, x && x.w]; });
+    var total = 0; segs.forEach(function(s){ total += Math.max(0.2, +((s||[])[1])||1); });
+    var x = 0, out = '';
+    segs.forEach(function(s){
+      var sw = Math.max(0.2, +((s||[])[1])||1) / total * w;
+      out += '<rect x="'+x.toFixed(2)+'" y="0" width="'+(sw+0.4).toFixed(2)+'" height="'+h+'" fill="'+safeColor((s||[])[0])+'"/>';
+      x += sw;
+    });
+    if (m && m.etoiles) { for (var i=0;i<5;i++){ var cx=w*(0.18+i*0.16), cy=h*(i%2?0.65:0.35); out+='<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="'+Math.max(0.9,h*0.09).toFixed(1)+'" fill="#fff"/>'; } }
+    return '<svg class="rib" viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" aria-hidden="true">'+out+drawDevices(niveau,w,h)+'<rect x=".5" y=".5" width="'+(w-1)+'" height="'+(h-1)+'" fill="none" stroke="rgba(0,0,0,.35)"/></svg>';
+  }
+  function genRuban(main, edge, center, hasCenter){
+    var r = hasCenter ? [[edge,3],[main,13],[center,4],[main,13],[edge,3]] : [[edge,3],[main,30],[edge,3]];
+    return r.map(function(x){ return {c:x[0], w:x[1]}; });
+  }
+  function rackFor(effId, w, h){
+    var latest = {};
+    D.attributions.forEach(function(a){ if (a.effectifId===effId && med(a.medailleId)) { var p = latest[a.medailleId]; if (!p || str(a.date)+(+a.cree||0) > str(p.date)+(+p.cree||0)) latest[a.medailleId] = a; } });
+    var ms = Object.keys(latest).map(med).sort(medalSort);
+    if (!ms.length) return '';
+    return '<div class="rack">'+ms.map(function(m){ var nv = str(latest[m.id].niveau); return '<span class="ribwrap" title="'+esc(m.nom+(nv?' — '+nv:''))+'">'+ribbon(m,w||32,h||10,nv)+'</span>'; }).join('')+'</div>';
+  }
+  function gradeOptions(sel){ return GRADES.map(function(g){ return '<option value="'+g.id+'"'+(g.id===sel?' selected':'')+'>'+esc(g.abbr+' · '+g.nom)+'</option>'; }).join(''); }
+  function statutOptions(sel){ return STATUTS.map(function(s){ return '<option value="'+s.id+'"'+(s.id===sel?' selected':'')+'>'+esc(s.label)+'</option>'; }).join(''); }
+  function uname(v){ return v ? '<span>'+esc(v)+'</span>' : '<span class="sub">—</span>'; }
+  function fillNames(){}
+  function myName(){ return monPseudo || (me ? (me.displayName || me.email || '') : ''); }
+  function loadPseudo(){
+    if (!me) { monPseudo = ''; return Promise.resolve(); }
+    var local = ''; try { local = localStorage.getItem('mp-pseudo-'+me.uid) || ''; } catch(e){}
+    return db.doc('profils/'+me.uid).get().then(function(s){ monPseudo = (s.exists && str((s.data()||{}).pseudo)) || local; }, function(){ monPseudo = local; });
+  }
+  function openPseudo(){
+    openModal('<h2>Mon pseudo RP</h2><form class="form" id="pseudo-form">'
+      + '<div class="info">Ce nom apparaît dans « Signé par » et « Décernée par » quand tu promeus ou décores quelqu\'un. Exemple : Capt. R. Harrington.</div>'
+      + '<label class="full">Pseudo<input name="pseudo" maxlength="60" value="'+esc(monPseudo)+'" placeholder="ex. Capt. R. Harrington" autofocus></label>'
+      + '<div class="ferr" id="ferr"></div></form>'
+      + '<div class="form-actions"><button class="btn" data-action="close">Annuler</button><button class="btn primary" data-action="save-pseudo">Enregistrer</button></div>');
+  }
+  function savePseudo(){
+    var v = (document.getElementById('pseudo-form').elements.pseudo.value||'').trim();
+    try { localStorage.setItem('mp-pseudo-'+me.uid, v); } catch(e){}
+    monPseudo = v;
+    db.doc('profils/'+me.uid).set({pseudo:v}).then(function(){ toast('Pseudo enregistré : '+(v||'—')); }, function(){ toast('Pseudo enregistré sur cet appareil (mets à jour les règles Firebase pour le retrouver partout).'); });
+    closeModal(); renderAll();
+  }
+
+  /* ---------- base de données ---------- */
+  function setPending(d){ pending += d; renderSave(); }
+  function write(promise, okMsg){
+    setPending(1);
+    return promise.then(function(){ setPending(-1); if (okMsg) toast(okMsg); return true; }, function(e){
+      setPending(-1);
+      var c = e && e.code;
+      if (c==='permission-denied') { canWrite = false; renderAll(); toast('Refusé : tu n\'as pas les droits de modification.'); }
+      else if (c==='resource-exhausted') toast('Quota Firebase atteint pour aujourd\'hui. Réessaie demain.');
+      else toast('Échec de l\'enregistrement. Réessaie dans un instant.');
+      return false;
+    });
+  }
+  function col(n){ return db.collection(n); }
+
+  var slowTimer, renderQueued = false;
+  function queueRender(){ if (renderQueued) return; renderQueued = true; requestAnimationFrame(function(){ renderQueued=false; renderData(); }); }
+  function checkLoaded(){
+    if (phase!=='ready' && loaded.effectifs && loaded.promotions && loaded.medailles && loaded.attributions && loaded.config) {
+      clearTimeout(slowTimer); var was = phase; phase = 'ready'; if (was!=='ready') renderAll();
+    }
+  }
+  function subscribe(){
+    ['effectifs','promotions','medailles','attributions'].forEach(function(n){
+      col(n).onSnapshot(function(s){
+        D[n] = s.docs.map(function(d){ var o = Object.assign({}, d.data()); o.id = d.id; return n==='effectifs' ? normEff(o) : o; });
+        if (!s.metadata.fromCache) loaded[n] = true;
+        checkLoaded(); queueRender();
+      }, onSubError);
+    });
+    db.doc('config/registre').onSnapshot(function(s){
+      D.unite = s.exists ? str((s.data()||{}).unite) : '';
+      if (!s.metadata.fromCache) loaded.config = true;
+      checkLoaded(); var u = document.getElementById('unit-name'); if (u) u.textContent = D.unite || 'US Army Military Police';
+    }, onSubError);
+    slowTimer = setTimeout(function(){ if (phase==='loading') { phase='slow'; renderAll(); } }, 10000);
+  }
+  function onSubError(e){ clearTimeout(slowTimer); phase = (e && e.code==='permission-denied') ? 'noaccess' : 'error'; renderAll(); }
+
+  function checkAdmin(){
+    if (!me) { admins = null; if (canWrite) { canWrite = false; renderAll(); } else renderSave(); return; }
+    db.doc('config/admins').get().then(function(s){
+      admins = s.exists ? ((s.data()||{}).emails || []) : [];
+      canWrite = true;
+      loadPseudo().then(function(){ renderAll(); if (!monPseudo) { openPseudo(); toast('Choisis ton pseudo RP pour signer tes décisions.'); } else toast('Connecté : '+monPseudo+'.'); });
+    }, function(){
+      admins = null; canWrite = false; renderAll();
+      toast('Connecté en tant que '+(me.email||'')+' — consultation seule (tu ne fais pas partie de l\'état-major).');
+    });
+  }
+  function login(){
+    var p = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(p).catch(function(e){
+      if (e && (e.code==='auth/popup-blocked' || e.code==='auth/operation-not-supported-in-this-environment')) auth.signInWithRedirect(p);
+      else if (e && e.code==='auth/unauthorized-domain') toast('Domaine non autorisé dans Firebase (voir le guide, étape 4).');
+      else if (e && e.code!=='auth/popup-closed-by-user' && e.code!=='auth/cancelled-popup-request') toast('Connexion impossible : '+(e.message||e.code));
+    });
+  }
+  function init(){
+    var cfg = window.FIREBASE_CONFIG;
+    if (!window.firebase || !cfg || !cfg.apiKey || /COLLE|XXX/.test(cfg.apiKey)) { configOk = !!window.firebase; phase = 'noaccess'; return renderAll(); }
+    try {
+      firebase.initializeApp(cfg);
+      var fs = firebase.firestore();
+      db = { collection:function(n){ return fs.collection(n); }, doc:function(p){ return fs.doc(p); }, batch:function(){ return fs.batch(); } };
+      auth = firebase.auth();
+    } catch(e) { phase = 'noaccess'; return renderAll(); }
+    auth.onAuthStateChanged(function(u){ me = u; checkAdmin(); });
+    renderAll(); subscribe();
+  }
+
+  /* ---------- état-major, import, sauvegarde ---------- */
+  function openAdmins(){
+    var list = (admins||[]).slice().sort();
+    openModal('<h2>État-major</h2><div class="form" id="admins-form">'
+      + '<div class="info">Les adresses Google listées ici peuvent modifier le registre. Tout le monde peut le consulter sans compte. Seul le chef de la MP (l\'adresse inscrite dans les règles Firebase) peut changer cette liste.</div>'
+      + '<ul class="adminlist full">'+(list.length?list.map(function(e){ return '<li><span>'+esc(e)+'</span><button class="mini danger" data-action="admin-del" data-v="'+esc(e)+'">Retirer</button></li>'; }).join(''):'<li><span class="sub">Aucun membre ajouté pour l\'instant.</span></li>')+'</ul>'
+      + '<label class="full">Ajouter une adresse Gmail<input id="admin-new" type="email" placeholder="prenom.nom@gmail.com" autofocus></label>'
+      + '<div class="ferr" id="ferr"></div></div>'
+      + '<div class="form-actions"><button class="btn" data-action="export">Exporter une sauvegarde</button><button class="btn" data-action="import-file">Importer un fichier…</button><div class="spacer"></div><button class="btn" data-action="close">Fermer</button><button class="btn primary" data-action="admin-add">Ajouter</button></div>'
+      + '<input type="file" id="import-input" accept=".json,application/json" hidden>');
+  }
+  function saveAdmins(next, msg){
+    write(db.doc('config/admins').set({emails:next}), msg).then(function(ok){
+      if (ok) { admins = next; openAdmins(); }
+      else { var f=document.getElementById('ferr'); if (f) f.textContent='Seul le chef de la MP peut modifier cette liste.'; }
+    });
+  }
+  function importData(obj){
+    if (!obj || obj.format!=='registre-mp') { toast('Fichier non reconnu.'); return; }
+    var ops = [];
+    if (obj.config) ops.push(['config/registre', obj.config]);
+    ['effectifs','promotions','medailles','attributions'].forEach(function(n){ var c = obj[n]||{}; Object.keys(c).forEach(function(id){ var d = Object.assign({}, c[id]); if (Array.isArray(d.ruban)) d.ruban = d.ruban.map(function(x){ return Array.isArray(x)?{c:x[0],w:x[1]}:x; }); ops.push([n+'/'+id, d]); }); });
+    var chunks = []; for (var i=0;i<ops.length;i+=400) chunks.push(ops.slice(i,i+400));
+    var run = chunks.reduce(function(p, ch){ return p.then(function(){ var b = db.batch(); ch.forEach(function(o){ b.set(db.doc(o[0]), o[1]); }); return b.commit(); }); }, Promise.resolve());
+    write(run, ops.length+' fiches importées.').then(function(ok){ if (ok) closeModal(); });
+  }
+  function exportData(){
+    var out = {format:'registre-mp', version:1, exporte:new Date().toISOString(), config:{unite:D.unite}, effectifs:{}, promotions:{}, medailles:{}, attributions:{}};
+    ['effectifs','promotions','medailles','attributions'].forEach(function(n){ D[n].forEach(function(x){ var o = Object.assign({}, x); delete o.id; out[n][x.id] = o; }); });
+    var blob = new Blob([JSON.stringify(out, null, 1)], {type:'application/json'});
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'registre-mp-sauvegarde-'+todayISO()+'.json';
+    document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  }
+
+  /* ---------- rendu général ---------- */
+  function renderAll(){
+    document.body.classList.toggle('ro', !canWrite);
+    root.innerHTML =
+      '<div class="wrap">'
+      + '<header class="hdr"><div class="brassard"><span>MP</span></div>'
+      + '<div><div class="eyebrow">ARMY OF THE UNITED STATES · 1944</div><h1>Registre des effectifs</h1>'
+      + '<div class="unit"><span id="unit-name">'+esc(D.unite||'US Army Military Police')+'</span><button class="link edit-only" data-action="edit-unit">modifier</button></div></div>'
+      + '<div class="hdr-side"><div>Situation au <b>'+esc(fmtLong(todayISO()))+'</b></div><div id="save" class="save"></div>'
+      + '<div class="auth">'+(me ? '<span class="who">'+esc(canWrite ? myName() : (me.displayName||me.email||''))+'</span>'+(canWrite?'<button data-action="pseudo">Mon pseudo</button><button data-action="admins">État-major</button>':'')+'<button class="ghost" data-action="logout">Déconnexion</button>' : (db?'<button data-action="login">Connexion état-major</button>':''))+'</div>'
+      + '</div></header>'
+      + '<nav class="tabs" id="tabs"></nav>'
+      + '<div id="tabbody" class="tabbody"></div>'
+      + '<footer>Registre partagé — les modifications de l\'état-major apparaissent en direct pour tout le monde.</footer>'
+      + '</div><div id="modal-layer"></div><div id="toast"></div>';
+    renderSave(); renderTabs(); renderTab();
+  }
+  function renderSave(){
+    var el = document.getElementById('save'); if (!el) return;
+    var cls='', txt='';
+    if (phase==='noaccess') { cls='err'; txt='Accès indisponible'; }
+    else if (phase==='error') { cls='err'; txt='Connexion perdue — recharge la page'; }
+    else if (phase==='loading') { cls='pending'; txt='Chargement…'; }
+    else if (phase==='slow') { cls='err'; txt='Base injoignable pour l\'instant'; }
+    else if (pending>0) { cls='pending'; txt='Enregistrement…'; }
+    else if (!canWrite) { cls='ro'; txt='Consultation seule'; }
+    else { txt='En direct · modification autorisée'; }
+    el.className = 'save '+cls; el.innerHTML = '<span class="dot"></span><span>'+txt+'</span>';
+  }
+  function renderTabs(){
+    var el = document.getElementById('tabs'); if (!el) return;
+    var n = {effectifs:D.effectifs.length, promotions:D.promotions.length, decorations:D.attributions.length};
+    var lbl = {effectifs:'Effectifs & présences', promotions:'Promotions', decorations:'Décorations'};
+    el.innerHTML = TABS.map(function(t){ return '<a class="tab'+(t===tab?' on':'')+'" href="#'+t+'" data-action="tab" data-v="'+t+'">'+lbl[t]+(phase==='ready'?'<span class="n">'+n[t]+'</span>':'')+'</a>'; }).join('');
+  }
+  function renderTab(){
+    var b = document.getElementById('tabbody'); if (!b) return;
+    if (phase==='noaccess') { b.innerHTML = '<div class="notice"><b>Registre inaccessible.</b> '+(configOk ? 'La configuration Firebase est manquante ou incorrecte : vérifie le fichier <code>firebase-config.js</code> (guide, étape 3).' : 'Les scripts Firebase n\'ont pas pu se charger. Vérifie ta connexion internet puis recharge la page.')+'</div>'; return; }
+    if (phase==='error') { b.innerHTML = '<div class="notice"><b>La connexion à la base a été interrompue.</b> Recharge la page pour retrouver le registre.</div>'; return; }
+    if (tab==='effectifs') skelEffectifs(b);
+    else if (tab==='promotions') skelPromotions(b);
+    else skelDecorations(b);
+    if (phase==='slow') b.insertAdjacentHTML('afterbegin','<div class="notice">La base de données ne répond pas encore. Le registre s\'affichera dès qu\'elle sera joignable.</div>');
+    renderData();
+  }
+  function renderData(){
+    renderTabs();
+    if (phase!=='ready' && phase!=='loading' && phase!=='slow') return;
+    if (tab==='effectifs') dataEffectifs();
+    else if (tab==='promotions') dataPromotions();
+    else dataDecorations();
+    var mod = document.querySelector('.modal[data-dossier]'); if (mod) renderDossier(mod.getAttribute('data-dossier'), true);
+    fillNames();
+  }
+  function loadingRow(cols){ return '<tr><td colspan="'+cols+'" class="empty">Chargement du registre…</td></tr>'; }
+
+  /* ---------- onglet Effectifs ---------- */
+  function skelEffectifs(b){
+    b.innerHTML =
+      '<section id="stats" class="stats"></section>'
+      + '<section class="toolbar">'
+      + '<input id="q" class="q" type="search" placeholder="Rechercher un nom, un matricule, une fonction…" value="'+esc(ui.q)+'">'
+      + '<select id="f-grade"><option value="">Tous les grades</option>'+gradeOptions(ui.grade)+'</select>'
+      + '<select id="f-statut"><option value="">Tous les statuts</option>'+statutOptions(ui.statut)
+      +   '<option value="absents"'+(ui.statut==='absents'?' selected':'')+'>Tous les absents</option>'
+      +   '<option value="retard"'+(ui.statut==='retard'?' selected':'')+'>Retours dépassés</option></select>'
+      + '<select id="f-tri">'+[['grade','Trier par grade'],['nom','Trier par nom'],['promo','Trier par ancienneté de promotion'],['statut','Trier par statut']].map(function(o){return '<option value="'+o[0]+'"'+(ui.tri===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join('')+'</select>'
+      + '<div class="spacer"></div>'
+      + '<button class="btn" data-action="copy-report">Copier le rapport</button>'
+      + '<button class="btn" data-action="copy-csv">Copier en CSV</button>'
+      + '<button class="btn primary edit-only" data-action="add">+ Ajouter un effectif</button>'
+      + '</section>'
+      + '<section class="sheet"><div class="sheet-head"><span>ÉTAT NOMINATIF DES EFFECTIFS — PRÉSENCES &amp; ABSENCES</span><span id="count"></span></div>'
+      + '<div class="table-wrap"><table><thead><tr><th>Grade</th><th>Nom</th><th>Fonction</th><th>Dernière promotion</th><th>Présence / absence</th><th>Période &amp; motif</th><th>Décorations</th><th class="edit-only"></th></tr></thead>'
+      + '<tbody id="tbody">'+loadingRow(8)+'</tbody></table></div><div id="empty"></div></section>';
+  }
+  function sortEff(list, tri){
+    return list.slice().sort(function(a,b){
+      if (tri==='nom') return a.nom.localeCompare(b.nom,'fr');
+      if (tri==='promo') return (a.datePromo||'9999').localeCompare(b.datePromo||'9999') || a.nom.localeCompare(b.nom,'fr');
+      if (tri==='statut') { var sa=STATUTS.indexOf(sById[a.statut]), sb=STATUTS.indexOf(sById[b.statut]); if (sa!==sb) return sa-sb; }
+      return (gIndex[b.grade]||0)-(gIndex[a.grade]||0) || a.nom.localeCompare(b.nom,'fr');
+    });
+  }
+  function filteredEff(){
+    var q = ui.q.trim().toLowerCase();
+    return sortEff(D.effectifs.filter(function(e){
+      if (ui.grade && e.grade!==ui.grade) return false;
+      if (ui.statut==='absents' && !sById[e.statut].absent) return false;
+      if (ui.statut==='retard' && !isLate(e)) return false;
+      if (sById[ui.statut] && e.statut!==ui.statut) return false;
+      if (q) { var g=grade(e.grade); if ((e.nom+' '+e.matricule+' '+e.fonction+' '+e.motif+' '+g.abbr+' '+g.nom).toLowerCase().indexOf(q)<0) return false; }
+      return true;
+    }), ui.tri);
+  }
+  function counts(){
+    var c={total:D.effectifs.length,assuree:0,limitee:0,absents:0,retard:0};
+    D.effectifs.forEach(function(e){ if (e.statut==='assuree') c.assuree++; else if (e.statut==='limitee') c.limitee++; if (sById[e.statut].absent) c.absents++; if (isLate(e)) c.retard++; });
+    return c;
+  }
+  function periodCell(e){
+    var motif = e.motif ? '<div class="sub">'+esc(e.motif)+'</div>' : '';
+    if (e.statut==='assuree') return (motif||'<span class="sub">—</span>');
+    if (!isISO(e.debut) && !isISO(e.fin)) return '<span class="sub">Période non précisée</span>'+motif;
+    var txt;
+    if (isISO(e.debut) && isISO(e.fin)) txt = 'du '+fmt(e.debut)+' au '+fmt(e.fin);
+    else if (isISO(e.debut)) txt = 'depuis le '+fmt(e.debut);
+    else txt = 'jusqu\'au '+fmt(e.fin);
+    var tag = '';
+    if (isISO(e.fin)) {
+      var d = days(todayISO(), e.fin);
+      if (d < 0) tag = '<span class="tag late">Retour dépassé de '+(-d)+' j</span>';
+      else if (d === 0) tag = '<span class="tag soon">Retour aujourd\'hui</span>';
+      else tag = '<span class="tag '+(d<=3?'soon':'ok')+'">Retour dans '+d+' j</span>';
+    }
+    return '<div class="nowrap">'+txt+'</div>'+tag+motif;
+  }
+  function dataEffectifs(){
+    var tb = document.getElementById('tbody'); if (!tb) return;
+    var c = counts();
+    var cards = [['','st-all',c.total,'Effectif total'],['assuree','st-assuree',c.assuree,'Présence assurée'],['limitee','st-limitee',c.limitee,'Présence limitée'],['absents','st-absents',c.absents,'Absents en cours'],['retard','st-retard',c.retard,'Retours dépassés']];
+    document.getElementById('stats').innerHTML = cards.map(function(k){ return '<button class="stat '+k[1]+(ui.statut===k[0]?' on':'')+'" data-action="filter" data-v="'+k[0]+'"><div class="n">'+(phase==='ready'?k[2]:'–')+'</div><div class="l">'+k[3]+'</div></button>'; }).join('');
+    if (phase!=='ready') return;
+    var list = filteredEff();
+    document.getElementById('count').textContent = list.length+' / '+D.effectifs.length+' affiché(s)';
+    tb.innerHTML = list.map(function(e){
+      var promo = isISO(e.datePromo) ? fmt(e.datePromo)+'<div class="sub">il y a '+Math.max(0,days(e.datePromo,todayISO()))+' j</div>' : '<span class="sub">—</span>';
+      var st = canWrite ? '<select class="sel-statut st-'+e.statut+'" data-id="'+esc(e.id)+'" aria-label="Présence ou absence">'+statutOptions(e.statut)+'</select>'
+                        : '<span class="stamp st-'+e.statut+'">'+esc(sById[e.statut].label)+'</span>';
+      return '<tr class="'+(isLate(e)?'late':'')+'">'
+        + '<td>'+gBadge(e.grade)+'</td>'
+        + '<td><button class="nom" data-action="dossier" data-id="'+esc(e.id)+'">'+esc(e.nom)+'</button>'+(e.matricule?'<div class="sub">ASN '+esc(e.matricule)+'</div>':'')+'</td>'
+        + '<td>'+(esc(e.fonction)||'<span class="sub">—</span>')+'</td>'
+        + '<td class="nowrap">'+promo+'</td>'
+        + '<td>'+st+'</td>'
+        + '<td style="max-width:280px">'+periodCell(e)+'</td>'
+        + '<td>'+(rackFor(e.id)||'<span class="sub">—</span>')+'</td>'
+        + '<td class="actions edit-only"><button class="mini up" data-action="promote" data-id="'+esc(e.id)+'">▲ Promouvoir</button><button class="mini" data-action="award" data-id="'+esc(e.id)+'">Décorer</button><button class="mini" data-action="edit" data-id="'+esc(e.id)+'">Modifier</button><button class="mini danger" data-action="del" data-id="'+esc(e.id)+'">Retirer</button></td>'
+        + '</tr>';
+    }).join('');
+    var empty = document.getElementById('empty');
+    if (!D.effectifs.length) empty.innerHTML = '<div class="empty">Aucun effectif inscrit au registre.'+(canWrite?'<br><br><button class="btn primary" data-action="add">+ Ajouter le premier effectif</button>'+(!D.medailles.length?' <button class="btn" data-action="import-initial">Importer les données de départ</button>':''):'')+'</div>';
+    else if (!list.length) empty.innerHTML = '<div class="empty">Aucun effectif ne correspond aux filtres. <button class="mini" data-action="reset">Effacer les filtres</button></div>';
+    else empty.innerHTML = '';
+  }
+
+  /* ---------- onglet Promotions ---------- */
+  function skelPromotions(b){
+    b.innerHTML =
+      '<section class="toolbar">'
+      + '<input id="pq" class="q" type="search" placeholder="Rechercher un nom, un grade, un motif…" value="'+esc(ui.pq)+'">'
+      + '<select id="f-ptype"><option value="">Tous les mouvements</option>'+Object.keys(TYPES).map(function(t){ return '<option value="'+t+'"'+(ui.ptype===t?' selected':'')+'>'+TYPES[t]+'s</option>'; }).join('')+'</select>'
+      + '<div class="spacer"></div>'
+      + '<button class="btn primary edit-only" data-action="promote">▲ Nouvelle promotion</button>'
+      + '</section>'
+      + '<section class="sheet"><div class="sheet-head"><span>JOURNAL DES PROMOTIONS ET MOUVEMENTS DE GRADE</span><span id="pcount"></span></div>'
+      + '<div class="table-wrap"><table><thead><tr><th>Date</th><th>Effectif</th><th>Mouvement</th><th>Ancien grade</th><th>Nouveau grade</th><th>Motif / décision</th><th>Signé par</th><th class="edit-only"></th></tr></thead>'
+      + '<tbody id="ptbody">'+loadingRow(8)+'</tbody></table></div><div id="pempty"></div></section>';
+  }
+  function sortedPromos(list){ return list.slice().sort(function(a,b){ return str(b.date).localeCompare(str(a.date)) || (+b.cree||0)-(+a.cree||0); }); }
+  function effLabel(id, snap){ var e = eff(id); return e ? '<button class="nom" data-action="dossier" data-id="'+esc(e.id)+'">'+esc(e.nom)+'</button>' : '<span class="nom">'+esc(str(snap)||'Inconnu')+'</span> <span class="sub">(radié)</span>'; }
+  function dataPromotions(){
+    var tb = document.getElementById('ptbody'); if (!tb || phase!=='ready') return;
+    var q = ui.pq.trim().toLowerCase();
+    var list = sortedPromos(D.promotions.filter(function(p){
+      if (ui.ptype && p.type!==ui.ptype) return false;
+      if (q) { var e = eff(p.effectifId); var hay = ((e?e.nom:str(p.nom))+' '+grade(p.de).nom+' '+grade(p.de).abbr+' '+grade(p.a).nom+' '+grade(p.a).abbr+' '+str(p.motif)).toLowerCase(); if (hay.indexOf(q)<0) return false; }
+      return true;
+    }));
+    document.getElementById('pcount').textContent = list.length+' mouvement(s)';
+    tb.innerHTML = list.map(function(p){
+      var t = TYPES[p.type] ? p.type : 'promotion';
+      return '<tr><td class="nowrap">'+fmt(p.date)+'</td>'
+        + '<td>'+effLabel(p.effectifId, p.nom)+'</td>'
+        + '<td><span class="stamp st-'+t+'">'+TYPES[t]+'</span></td>'
+        + '<td>'+(p.de && gIndex[p.de]!=null ? gBadge(p.de) : '<span class="sub">—</span>')+'</td>'
+        + '<td>'+gBadge(p.a)+'</td>'
+        + '<td style="max-width:280px">'+(esc(str(p.motif))||'<span class="sub">—</span>')+'</td>'
+        + '<td>'+uname(str(p.par))+'</td>'
+        + '<td class="actions edit-only"><button class="mini danger" data-action="del-promo" data-id="'+esc(p.id)+'">Supprimer</button></td></tr>';
+    }).join('');
+    document.getElementById('pempty').innerHTML = list.length ? '' : '<div class="empty">'+(D.promotions.length?'Aucun mouvement ne correspond à la recherche.':'Aucune promotion enregistrée pour le moment.')+'</div>';
+  }
+
+  /* ---------- onglet Décorations ---------- */
+  function skelDecorations(b){
+    b.innerHTML =
+      '<section class="sec"><div class="sec-head"><h2>Catalogue des décorations</h2><span class="sub">Clique sur une décoration pour voir ses récipiendaires.</span><div class="spacer"></div>'
+      + '<button class="btn edit-only" data-action="new-medal">+ Nouvelle décoration</button>'
+      + '<button class="btn primary edit-only" data-action="award">★ Décerner une décoration</button></div>'
+      + '<div id="medals" class="medals"><div class="empty">Chargement…</div></div></section>'
+      + '<section class="sheet" style="margin-top:16px"><div class="sheet-head"><span>REGISTRE DES ATTRIBUTIONS</span><span id="dfilter"></span></div>'
+      + '<div class="toolbar" style="border:none;border-bottom:1px solid var(--line)"><input id="dq" class="q" type="search" placeholder="Rechercher un récipiendaire, une citation…" value="'+esc(ui.dq)+'"></div>'
+      + '<div class="table-wrap"><table><thead><tr><th>Date</th><th>Décoration</th><th>Récipiendaire</th><th>Citation / motif</th><th>Décernée par</th><th class="edit-only"></th></tr></thead>'
+      + '<tbody id="dtbody">'+loadingRow(6)+'</tbody></table></div><div id="dempty"></div></section>';
+  }
+  function dataDecorations(){
+    var grid = document.getElementById('medals'); if (!grid || phase!=='ready') return;
+    var ms = D.medailles.slice().sort(medalSort);
+    var n = {}; D.attributions.forEach(function(a){ n[a.medailleId]=(n[a.medailleId]||0)+1; });
+    if (ui.medal && !med(ui.medal)) ui.medal = '';
+    grid.innerHTML = ms.length ? ms.map(function(m){
+      return '<div class="medal'+(ui.medal===m.id?' on':'')+'" role="button" tabindex="0" data-action="pick-medal" data-id="'+esc(m.id)+'">'
+        + (m.rang?'<span class="rank">#'+esc(m.rang)+'</span>':'')
+        + ribbon(m, 96, 28)
+        + '<div class="mn">'+esc(m.nom)+'</div>'
+        + (m.description?'<div class="md">'+esc(m.description)+'</div>':'')
+        + '<div class="mc">'+(n[m.id]||0)+' récipiendaire'+((n[m.id]||0)>1?'s':'')+' · '+niveauxOf(m).length+' niveau'+(niveauxOf(m).length>1?'x':'')+'</div>'
+        + '<div class="edit-only"><button class="mini" data-action="edit-medal" data-id="'+esc(m.id)+'">Modifier</button><button class="mini danger" data-action="del-medal" data-id="'+esc(m.id)+'">Supprimer</button></div>'
+        + '</div>';
+    }).join('') : '<div class="empty" style="grid-column:1/-1">Aucune décoration au catalogue.'+(canWrite?'<br><br><button class="btn primary" data-action="new-medal">+ Ajouter une décoration</button>':'')+'</div>';
+    var fm = med(ui.medal);
+    document.getElementById('dfilter').innerHTML = fm ? '<span class="chip">Filtre : '+esc(fm.nom)+' <button data-action="pick-medal" data-id="'+esc(fm.id)+'" aria-label="Retirer le filtre">✕</button></span>' : '';
+    var q = ui.dq.trim().toLowerCase();
+    var list = D.attributions.filter(function(a){
+      if (ui.medal && a.medailleId!==ui.medal) return false;
+      if (q) { var e=eff(a.effectifId), m=med(a.medailleId); if (((e?e.nom:str(a.nom))+' '+str(a.motif)+' '+(m?m.nom:'')).toLowerCase().indexOf(q)<0) return false; }
+      return true;
+    }).sort(function(a,b){ return str(b.date).localeCompare(str(a.date)) || (+b.cree||0)-(+a.cree||0); });
+    document.getElementById('dtbody').innerHTML = list.map(function(a){
+      var m = med(a.medailleId), e = eff(a.effectifId);
+      return '<tr><td class="nowrap">'+fmt(a.date)+'</td>'
+        + '<td><div style="display:flex;gap:8px;align-items:center">'+(m?ribbon(m,44,13,a.niveau)+'<div><div>'+esc(m.nom)+'</div>'+(a.niveau?'<div class="sub">'+esc(str(a.niveau))+'</div>':'')+'</div>':'<span class="sub">Décoration supprimée</span>')+'</div></td>'
+        + '<td>'+(e?gBadge(e.grade)+' ':'')+effLabel(a.effectifId, a.nom)+'</td>'
+        + '<td style="max-width:320px">'+(esc(str(a.motif))||'<span class="sub">—</span>')+'</td>'
+        + '<td>'+uname(str(a.par))+'</td>'
+        + '<td class="actions edit-only"><button class="mini" data-action="edit-award" data-id="'+esc(a.id)+'">Modifier</button><button class="mini danger" data-action="del-award" data-id="'+esc(a.id)+'">Retirer</button></td></tr>';
+    }).join('');
+    document.getElementById('dempty').innerHTML = list.length ? '' : '<div class="empty">'+(D.attributions.length?'Aucune attribution ne correspond.':'Aucune décoration décernée pour le moment.')+'</div>';
+  }
+
+  /* ---------- fenêtres ---------- */
+  function closeModal(){ var l=document.getElementById('modal-layer'); if (l) l.innerHTML=''; }
+  function openModal(html, cls, attrs){
+    var layer = document.getElementById('modal-layer');
+    layer.innerHTML = '<div class="layer" data-action="backdrop"><div class="modal '+(cls||'')+'" role="dialog" aria-modal="true" '+(attrs||'')+'>'+html+'</div></div>';
+    var f = layer.querySelector('[autofocus]'); if (f) f.focus();
+  }
+  function busy(on){ document.querySelectorAll('.modal .form-actions .btn').forEach(function(b){ b.disabled = on; }); }
+
+  function openForm(id){
+    var e = id ? eff(id) : null;
+    var v = e || {nom:'',matricule:'',grade:'pvt',fonction:'',datePromo:todayISO(),statut:'assuree',debut:'',fin:'',motif:''};
+    openModal('<h2>'+(e?'Modifier la fiche':'Nouvel effectif')+'</h2>'
+      + '<form class="form" id="fiche" data-id="'+esc(e?e.id:'')+'">'
+      + '<label class="full">Nom (RP) *<input name="nom" required maxlength="80" value="'+esc(v.nom)+'" autofocus></label>'
+      + (e ? '<div class="info">Grade actuel : <b>'+esc(grade(v.grade).abbr+' · '+grade(v.grade).nom)+'</b>. Pour changer de grade, utilise « Promouvoir » : le mouvement sera inscrit au journal des promotions.</div>'
+           : '<label>Grade d\'incorporation<select name="grade">'+gradeOptions(v.grade)+'</select></label><label>Date d\'incorporation au grade<input type="date" name="datePromo" value="'+esc(v.datePromo)+'"></label>')
+      + '<label>Matricule (ASN)<input name="matricule" maxlength="30" value="'+esc(v.matricule)+'" placeholder="ex. 32 145 778"></label>'
+      + '<label>Fonction / poste<input name="fonction" maxlength="80" value="'+esc(v.fonction)+'" placeholder="ex. Patrouilleur"></label>'
+      + '<label class="full">Type de présence / absence<select name="statut" id="f-st">'+statutOptions(v.statut)+'</select></label>'
+      + '<fieldset id="periode"><legend>Période concernée</legend><label>Du<input type="date" name="debut" value="'+esc(v.debut)+'"></label><label>Au (retour prévu)<input type="date" name="fin" value="'+esc(v.fin)+'"></label></fieldset>'
+      + '<label class="full">Motif / remarque<textarea name="motif" rows="3" maxlength="300">'+esc(v.motif)+'</textarea></label>'
+      + '<div class="ferr" id="ferr"></div></form>'
+      + '<div class="form-actions"><button class="btn" data-action="close">Annuler</button><button class="btn primary" data-action="submit-fiche">Enregistrer</button></div>');
+    togglePeriode();
+  }
+  function togglePeriode(){ var st=document.getElementById('f-st'), p=document.getElementById('periode'); if (st&&p) p.style.display = st.value==='assuree'?'none':''; }
+  function submitFiche(){
+    var f = document.getElementById('fiche'); if (!f) return;
+    var g = function(n){ return f.elements[n] ? (f.elements[n].value||'').trim() : ''; };
+    var err = document.getElementById('ferr');
+    var d = {nom:g('nom'), matricule:g('matricule'), fonction:g('fonction'), statut:g('statut'), debut:g('debut'), fin:g('fin'), motif:g('motif')};
+    if (!d.nom) { err.textContent='Le nom est obligatoire.'; f.elements.nom.focus(); return; }
+    if (d.statut==='assuree') { d.debut=''; d.fin=''; }
+    if (d.debut && d.fin && d.fin < d.debut) { err.textContent='La date de retour doit être après la date de début.'; return; }
+    var id = f.getAttribute('data-id');
+    busy(true);
+    if (id) {
+      write(col('effectifs').doc(id).update(d), 'Fiche de '+d.nom+' mise à jour.').then(function(ok){ busy(false); if (ok) closeModal(); });
+    } else {
+      d.grade = g('grade'); d.datePromo = g('datePromo') || todayISO();
+      var ref = col('effectifs').doc();
+      write(ref.set(d)).then(function(ok){
+        busy(false); if (!ok) return;
+        closeModal(); toast(d.nom+' inscrit au registre.');
+        write(col('promotions').doc().set({effectifId:ref.id, nom:d.nom, type:'engagement', de:'', a:d.grade, date:d.datePromo, motif:'Incorporation à la Military Police', par:myName(), cree:Date.now()}));
+      });
+    }
+  }
+
+  function openPromote(id){
+    var list = sortEff(D.effectifs,'grade');
+    if (!list.length) { toast('Ajoute d\'abord un effectif.'); return; }
+    var e = id ? eff(id) : null;
+    var next = e ? GRADES[Math.min(GRADES.length-1, gIndex[e.grade]+1)].id : '';
+    openModal('<h2>Promotion / changement de grade</h2>'
+      + '<form class="form" id="promo">'
+      + '<label class="full">Effectif<select name="effectifId" id="pr-eff">'+(e?'':'<option value="">— Choisir un effectif —</option>')+list.map(function(x){ return '<option value="'+esc(x.id)+'"'+(e&&x.id===e.id?' selected':'')+'>'+esc(grade(x.grade).abbr+' '+x.nom)+'</option>'; }).join('')+'</select></label>'
+      + '<div class="info" id="pr-info"></div>'
+      + '<label>Nouveau grade<select name="a" id="pr-a">'+gradeOptions(next)+'</select></label>'
+      + '<label>Date d\'effet<input type="date" name="date" value="'+todayISO()+'"></label>'
+      + '<label class="full">Motif / décision<textarea name="motif" rows="3" maxlength="300" placeholder="ex. Conduite exemplaire lors de l\'opération du 10/11"></textarea></label>'
+      + '<label class="full">Signé par<input name="par" maxlength="60" value="'+esc(myName())+'"></label>'
+      + '<div class="ferr" id="ferr"></div></form>'
+      + '<div class="form-actions"><button class="btn" data-action="close">Annuler</button><button class="btn primary" data-action="submit-promo" id="pr-btn">Valider la promotion</button></div>');
+    promoInfo();
+  }
+  function promoInfo(){
+    var f = document.getElementById('promo'); if (!f) return;
+    var e = eff(f.elements.effectifId.value), info = document.getElementById('pr-info'), btn = document.getElementById('pr-btn');
+    if (!e) { info.textContent = 'Choisis l\'effectif concerné.'; return; }
+    var a = f.elements.a.value, diff = gIndex[a]-gIndex[e.grade];
+    info.innerHTML = 'Grade actuel : <b>'+esc(grade(e.grade).abbr+' · '+grade(e.grade).nom)+'</b>'+(isISO(e.datePromo)?' depuis le '+fmt(e.datePromo):'')+' → '
+      + (diff>0?'<b style="color:var(--green)">Promotion</b>':diff<0?'<b style="color:var(--red)">Rétrogradation</b>':'<b>Grade identique</b>');
+    btn.textContent = diff<0 ? 'Valider la rétrogradation' : 'Valider la promotion';
+  }
+  function submitPromo(){
+    var f = document.getElementById('promo'); if (!f) return;
+    var err = document.getElementById('ferr');
+    var e = eff(f.elements.effectifId.value);
+    if (!e) { err.textContent='Choisis un effectif.'; return; }
+    var a = f.elements.a.value, date = f.elements.date.value || todayISO(), motif = f.elements.motif.value.trim();
+    if (a===e.grade) { err.textContent='Le nouveau grade est identique au grade actuel.'; return; }
+    var type = gIndex[a] > gIndex[e.grade] ? 'promotion' : 'retrogradation';
+    var upd = {grade:a};
+    if (type==='promotion' && (!isISO(e.datePromo) || date >= e.datePromo)) upd.datePromo = date;
+    busy(true);
+    var rec = {effectifId:e.id, nom:e.nom, type:type, de:e.grade, a:a, date:date, motif:motif, par:(f.elements.par.value||'').trim(), cree:Date.now()};
+    write(col('effectifs').doc(e.id).update(upd)).then(function(ok){
+      if (!ok) { busy(false); return; }
+      return write(col('promotions').doc().set(rec), (type==='promotion'?'Promotion : ':'Rétrogradation : ')+grade(a).abbr+' '+e.nom).then(function(){ busy(false); closeModal(); });
+    });
+  }
+
+  function openAward(effId, medId, attrId){
+    if (!D.effectifs.length) { toast('Ajoute d\'abord un effectif.'); return; }
+    if (!D.medailles.length) { toast('Ajoute d\'abord une décoration au catalogue.'); return; }
+    var ex = attrId ? byId(D.attributions, attrId) : null;
+    if (ex) { effId = ex.effectifId; medId = ex.medailleId; }
+    var ms = D.medailles.slice().sort(medalSort);
+    medId = medId || ui.medal || '';
+    // niveau suggéré : celui qui suit la dernière attribution de cette décoration
+    openModal('<h2>'+(ex?'Modifier l\'attribution':'Décerner une décoration')+'</h2>'
+      + '<form class="form" id="award" data-id="'+esc(ex?ex.id:'')+'">'
+      + '<label class="full">Récipiendaire<select name="effectifId" id="aw-e">'+(effId?'':'<option value="">— Choisir un effectif —</option>')+sortEff(D.effectifs,'grade').map(function(x){ return '<option value="'+esc(x.id)+'"'+(x.id===effId?' selected':'')+'>'+esc(grade(x.grade).abbr+' '+x.nom)+'</option>'; }).join('')+'</select></label>'
+      + '<label class="full">Décoration<select name="medailleId" id="aw-m">'+(medId?'':'<option value="">— Choisir une décoration —</option>')+ms.map(function(m){ return '<option value="'+esc(m.id)+'"'+(m.id===medId?' selected':'')+'>'+esc(m.nom)+'</option>'; }).join('')+'</select></label>'
+      + '<label class="full">Niveau / dispositif<select name="niveau" id="aw-n"></select></label>'
+      + '<div class="full" id="aw-prev"></div>'
+      + '<label>Date<input type="date" name="date" value="'+esc(ex&&isISO(ex.date)?ex.date:todayISO())+'"></label><div></div>'
+      + '<label class="full">Citation / motif<textarea name="motif" rows="4" maxlength="600" placeholder="ex. Pour bravoure lors de l\'interpellation du 08/11/1944…">'+esc(ex?str(ex.motif):'')+'</textarea></label>'
+      + '<label class="full">Décernée par<input name="par" maxlength="60" value="'+esc(ex?str(ex.par):myName())+'"></label>'
+      + '<div class="ferr" id="ferr"></div></form>'
+      + '<div class="form-actions"><button class="btn" data-action="close">Annuler</button><button class="btn primary" data-action="submit-award">'+(ex?'Enregistrer':'Décerner')+'</button></div>');
+    awardLevels(ex ? str(ex.niveau) : null);
+  }
+  function awardLevels(keep){
+    var f = document.getElementById('award'); if (!f) return;
+    var m = med(f.elements.medailleId.value), sel = document.getElementById('aw-n');
+    var opts = m ? niveauxOf(m).slice() : [];
+    var pick = keep;
+    if (pick && opts.indexOf(pick)<0) opts.unshift(pick);
+    if (pick==null && m) {
+      // propose automatiquement le niveau suivant si le soldat possède déjà cette décoration
+      var effId = f.elements.effectifId.value, prev = null;
+      D.attributions.forEach(function(a){ if (a.effectifId===effId && a.medailleId===m.id && (!prev || str(a.date)+(+a.cree||0) > str(prev.date)+(+prev.cree||0))) prev = a; });
+      var i = prev ? opts.indexOf(str(prev.niveau)) : -1;
+      pick = prev ? opts[Math.min(opts.length-1, i+1)] : opts[0];
+    }
+    sel.innerHTML = opts.map(function(o){ return '<option'+(o===pick?' selected':'')+'>'+esc(o)+'</option>'; }).join('');
+    sel.disabled = !m;
+    awardPrev();
+  }
+  function awardPrev(){ var s=document.getElementById('aw-m'), n=document.getElementById('aw-n'), p=document.getElementById('aw-prev'); if (!s||!p) return; var m=med(s.value); p.innerHTML = m ? ribbon(m,140,40,n?n.value:'')+(m.description?'<div class="sub" style="margin-top:6px">'+esc(m.description)+'</div>':'') : ''; }
+  function submitAward(){
+    var f = document.getElementById('award'); if (!f) return;
+    var err = document.getElementById('ferr');
+    var e = eff(f.elements.effectifId.value), m = med(f.elements.medailleId.value);
+    if (!e) { err.textContent='Choisis le récipiendaire.'; return; }
+    if (!m) { err.textContent='Choisis la décoration.'; return; }
+    var body = {effectifId:e.id, nom:e.nom, medailleId:m.id, niveau:f.elements.niveau.value||'', date:f.elements.date.value||todayISO(), motif:f.elements.motif.value.trim(), par:(f.elements.par.value||'').trim()};
+    var id = f.getAttribute('data-id');
+    busy(true);
+    var p = id ? col('attributions').doc(id).update(body) : col('attributions').doc().set(Object.assign(body, {cree:Date.now()}));
+    write(p, id ? 'Attribution mise à jour.' : m.nom+(body.niveau&&body.niveau!=='Première attribution'?' ('+body.niveau+')':'')+' décernée à '+e.nom+'.')
+      .then(function(ok){ busy(false); if (ok) closeModal(); });
+  }
+
+  function openMedalForm(id){
+    var m = id ? med(id) : null;
+    var v = m || {nom:'',abbr:'',rang:'',description:''};
+    openModal('<h2>'+(m?'Modifier la décoration':'Nouvelle décoration')+'</h2>'
+      + '<form class="form" id="medalf" data-id="'+esc(m?m.id:'')+'">'
+      + '<label class="full">Nom *<input name="nom" maxlength="100" value="'+esc(v.nom)+'" autofocus placeholder="ex. Military Police Merit Medal"></label>'
+      + '<label>Ordre de préséance<input type="number" name="rang" min="1" max="999" value="'+esc(v.rang)+'" placeholder="1 = la plus haute"></label><div></div>'
+      + '<label class="full">Description / conditions d\'attribution<textarea name="description" rows="3" maxlength="500">'+esc(v.description)+'</textarea></label>'
+      + '<label class="full">Niveaux / dispositifs (un par ligne, dans l\'ordre)<textarea name="niveaux" rows="6" maxlength="2000">'+esc((m?niveauxOf(m):DEFAULT_NIVEAUX).join('\n'))+'</textarea></label>'
+      + '<div class="info">Le dispositif est dessiné sur le ruban si le libellé contient : « Oak Leaf Cluster » / « Silver Oak Leaf Cluster », « V », « étoile(s) de bronze / d\'argent / d\'or / de campagne », « Pointe de flèche », « insigne de bronze / d\'argent / d\'or » ou « Agrafe … nœuds ».</div>'
+      + (m?'<label class="row full"><input type="checkbox" id="mf-redraw"> Redessiner le ruban avec les couleurs ci-dessous</label>':'')
+      + '<fieldset class="colors"><legend>Ruban</legend>'
+      + '<label>Fond<input type="color" name="c1" value="#8a1c1c"></label><label>Liserés<input type="color" name="c2" value="#ffffff"></label>'
+      + '<label>Bande centrale<input type="color" name="c3" value="#2c4866"></label><label class="row"><input type="checkbox" name="hc" checked> Avec bande</label></fieldset>'
+      + '<div class="full" id="mf-prev"></div>'
+      + '<div class="ferr" id="ferr"></div></form>'
+      + '<div class="form-actions"><button class="btn" data-action="close">Annuler</button><button class="btn primary" data-action="submit-medal">Enregistrer</button></div>');
+    medalPrev();
+  }
+  function medalFormRuban(f){ return genRuban(f.elements.c1.value, f.elements.c2.value, f.elements.c3.value, f.elements.hc.checked); }
+  function medalPrev(){
+    var f = document.getElementById('medalf'); if (!f) return;
+    var id = f.getAttribute('data-id'), m = id ? med(id) : null, redraw = document.getElementById('mf-redraw');
+    var r = (m && !(redraw && redraw.checked)) ? m : {ruban:medalFormRuban(f)};
+    document.getElementById('mf-prev').innerHTML = '<div class="sub" style="margin-bottom:4px">Aperçu</div>'+ribbon(r,120,34);
+  }
+  function submitMedal(){
+    var f = document.getElementById('medalf'); if (!f) return;
+    var err = document.getElementById('ferr'), nom = f.elements.nom.value.trim();
+    if (!nom) { err.textContent='Le nom est obligatoire.'; return; }
+    var rang = parseInt(f.elements.rang.value,10);
+    var nv = f.elements.niveaux.value.split('\n').map(function(x){ return x.trim(); }).filter(Boolean).slice(0,30);
+    var d = {nom:nom, rang:isNaN(rang)?999:rang, description:f.elements.description.value.trim(), niveaux:nv.length?nv:['Standard']};
+    var id = f.getAttribute('data-id'), redraw = document.getElementById('mf-redraw');
+    if (!id || (redraw && redraw.checked)) { d.ruban = medalFormRuban(f); d.etoiles = false; d.forme = ''; }
+    busy(true);
+    var p = id ? col('medailles').doc(id).update(d) : col('medailles').doc().set(d);
+    write(p, id?'Décoration mise à jour.':nom+' ajoutée au catalogue.').then(function(ok){ busy(false); if (ok) closeModal(); });
+  }
+
+  function renderDossier(id, refresh){
+    var e = eff(id);
+    if (!e) { if (refresh) closeModal(); return; }
+    var promos = sortedPromos(D.promotions.filter(function(p){ return p.effectifId===id; }));
+    var awards = D.attributions.filter(function(a){ return a.effectifId===id; }).sort(function(a,b){ return str(b.date).localeCompare(str(a.date)); });
+    var html = '<h2>Dossier individuel</h2><div class="dossier">'
+      + '<div class="top">'+gBadge(e.grade)+'<div><div class="nom" style="font-size:20px">'+esc(e.nom)+'</div>'+(e.fonction?'<div class="sub">'+esc(e.fonction)+'</div>':'')+'</div><div class="spacer"></div>'+rackFor(e.id,40,12)+'</div>'
+      + '<dl><dt>Matricule</dt><dd>'+(esc(e.matricule)||'—')+'</dd><dt>Dernière promotion</dt><dd>'+fmt(e.datePromo)+'</dd>'
+      + '<dt>Situation</dt><dd><span class="stamp st-'+e.statut+'">'+esc(sById[e.statut].label)+'</span></dd>'
+      + (e.statut!=='assuree'||e.motif?'<dt>Période / motif</dt><dd>'+periodCell(e)+'</dd>':'')+'</dl>'
+      + '<div><h3>Historique des grades</h3>'+(promos.length?'<table><tbody>'+promos.map(function(p){ var t=TYPES[p.type]?p.type:'promotion'; return '<tr><td class="nowrap">'+fmt(p.date)+'</td><td><span class="stamp st-'+t+'">'+TYPES[t]+'</span></td><td>'+gBadge(p.a)+'</td><td class="sub">'+esc(str(p.motif))+'</td></tr>'; }).join('')+'</tbody></table>':'<div class="sub">Aucun mouvement enregistré.</div>')+'</div>'
+      + '<div><h3>Décorations</h3>'+(awards.length?'<table><tbody>'+awards.map(function(a){ var m=med(a.medailleId); return '<tr><td class="nowrap">'+fmt(a.date)+'</td><td>'+(m?ribbon(m,44,13,a.niveau):'')+'</td><td><b>'+esc(m?m.nom:'Décoration supprimée')+'</b>'+(a.niveau?' <span class="sub">— '+esc(str(a.niveau))+'</span>':'')+(a.motif?'<div class="sub">'+esc(a.motif)+'</div>':'')+'</td></tr>'; }).join('')+'</tbody></table>':'<div class="sub">Aucune décoration.</div>')+'</div>'
+      + '</div><div class="form-actions"><button class="btn" data-action="close">Fermer</button>'
+      + '<button class="btn edit-only" data-action="edit" data-id="'+esc(e.id)+'">Modifier la fiche</button>'
+      + '<button class="btn edit-only" data-action="award" data-id="'+esc(e.id)+'">★ Décorer</button>'
+      + '<button class="btn primary edit-only" data-action="promote" data-id="'+esc(e.id)+'">▲ Promouvoir</button></div>';
+    if (refresh) { var mod = document.querySelector('.modal[data-dossier]'); if (mod) mod.innerHTML = html; }
+    else openModal(html, 'wide', 'data-dossier="'+esc(id)+'"');
+  }
+
+  function confirmBox(title, text, action, id, label){
+    openModal('<h2>'+esc(title)+'</h2><p>'+text+'</p><div class="form-actions"><button class="btn" data-action="close">Annuler</button><button class="btn danger" data-action="'+action+'" data-id="'+esc(id)+'">'+esc(label)+'</button></div>');
+  }
+
+  /* ---------- exports ---------- */
+  function copyText(text, title){
+    var done = function(){ toast(title+' copié dans le presse-papiers.'); };
+    var fallback = function(){
+      openModal('<h2>'+esc(title)+'</h2><p>Sélectionne le texte puis copie-le (Ctrl+C).</p><textarea class="copy" readonly>'+esc(text)+'</textarea><div class="form-actions"><button class="btn primary" data-action="close">Fermer</button></div>');
+      var t = document.querySelector('textarea.copy'); if (t) { t.focus(); t.select(); }
+    };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch(e){ fallback(); }
+  }
+  function reportText(){
+    var c = counts(), L = [];
+    L.push('**REGISTRE DES PRÉSENCES — '+(D.unite||'US Army Military Police').toUpperCase()+'**');
+    L.push('Situation au '+fmtLong(todayISO()));
+    L.push('Effectif : '+c.total+' | Présence assurée : '+c.assuree+' | Présence limitée : '+c.limitee+' | Absents : '+c.absents+(c.retard?' | Retours dépassés : '+c.retard:''));
+    STATUTS.forEach(function(s){
+      var m = sortEff(D.effectifs.filter(function(e){ return e.statut===s.id; }),'grade');
+      if (!m.length) return;
+      L.push(''); L.push('__'+s.label+' ('+m.length+')__');
+      m.forEach(function(e){
+        var line = '- '+grade(e.grade).abbr+' '+e.nom;
+        if (s.id!=='assuree') {
+          if (isISO(e.debut) && isISO(e.fin)) line += ' — du '+fmt(e.debut)+' au '+fmt(e.fin);
+          else if (isISO(e.fin)) line += ' — jusqu\'au '+fmt(e.fin);
+          else if (isISO(e.debut)) line += ' — depuis le '+fmt(e.debut);
+          if (isLate(e)) line += ' ⚠ retour dépassé';
+          if (e.motif) line += ' ('+e.motif+')';
+        }
+        L.push(line);
+      });
+    });
+    return L.join('\n');
+  }
+  function csvText(){
+    var q = function(v){ v = String(v==null?'':v); return /[;"\n]/.test(v) ? '"'+v.replace(/"/g,'""')+'"' : v; };
+    var rows = [['Grade','Nom','Matricule','Fonction','Dernière promotion','Statut','Du','Au','Motif','Décorations']];
+    sortEff(D.effectifs,'grade').forEach(function(e){
+      var ms = D.attributions.filter(function(a){ return a.effectifId===e.id && med(a.medailleId); }).map(function(a){ return med(a.medailleId).nom; }).join(', ');
+      rows.push([grade(e.grade).abbr+' '+grade(e.grade).nom, e.nom, e.matricule, e.fonction, isISO(e.datePromo)?fmt(e.datePromo):'', sById[e.statut].label, isISO(e.debut)?fmt(e.debut):'', isISO(e.fin)?fmt(e.fin):'', e.motif, ms]);
+    });
+    return rows.map(function(r){ return r.map(q).join(';'); }).join('\n');
+  }
+  var toastTimer;
+  function toast(msg){ var t=document.getElementById('toast'); if (!t) return; t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(function(){ t.classList.remove('show'); },2800); }
+
+  /* ---------- événements ---------- */
+  function setTab(t){ if (TABS.indexOf(t)<0 || t===tab) return; tab = t; closeModal(); renderTabs(); renderTab(); }
+  window.addEventListener('hashchange', function(){ setTab(location.hash.slice(1)); });
+
+  root.addEventListener('click', function(ev){
+    var b = ev.target.closest('[data-action]'); if (!b) return;
+    var a = b.getAttribute('data-action'), id = b.getAttribute('data-id');
+    if (a==='backdrop') { if (ev.target===b) closeModal(); return; }
+    if (a==='tab') { ev.preventDefault(); var t=b.getAttribute('data-v'); try { history.replaceState(null,'','#'+t); } catch(e){ location.hash = t; } setTab(t); return; }
+    ev.preventDefault();
+    if (a==='filter') { var v=b.getAttribute('data-v'); ui.statut=(ui.statut===v?'':v); saveUi(); var fs=document.getElementById('f-statut'); if (fs) fs.value=ui.statut; dataEffectifs(); }
+    else if (a==='reset') { ui.q=''; ui.grade=''; ui.statut=''; saveUi(); renderTab(); }
+    else if (a==='dossier') renderDossier(id, false);
+    else if (a==='close') closeModal();
+    else if (a==='copy-report') copyText(reportText(), 'Rapport');
+    else if (a==='copy-csv') copyText(csvText(), 'CSV');
+    else if (a==='login') login();
+    else if (a==='logout') auth.signOut();
+    else if (a==='pick-medal') { if (ev.target.closest('.edit-only') && ev.target.closest('.medal')) return; ui.medal = (ui.medal===id?'':id); saveUi(); dataDecorations(); }
+    if (!canWrite) return;
+    if (a==='admins') openAdmins();
+    else if (a==='pseudo') openPseudo();
+    else if (a==='save-pseudo') savePseudo();
+    else if (a==='admin-add') { var v=(document.getElementById('admin-new').value||'').trim().toLowerCase(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) { document.getElementById('ferr').textContent='Adresse invalide.'; return; } var cur=(admins||[]).slice(); if (cur.indexOf(v)<0) cur.push(v); saveAdmins(cur, v+' ajouté à l\'état-major.'); }
+    else if (a==='admin-del') { var dv=b.getAttribute('data-v'); saveAdmins((admins||[]).filter(function(x){ return x!==dv; }), dv+' retiré de l\'état-major.'); }
+    else if (a==='export') exportData();
+    else if (a==='import-file') document.getElementById('import-input').click();
+    else if (a==='import-initial') fetch('donnees-initiales.json').then(function(r){ return r.json(); }).then(importData, function(){ toast('Fichier donnees-initiales.json introuvable.'); });
+    else if (a==='add') openForm(null);
+    else if (a==='edit') openForm(id);
+    else if (a==='submit-fiche') submitFiche();
+    else if (a==='promote') openPromote(id);
+    else if (a==='submit-promo') submitPromo();
+    else if (a==='award') openAward(id, null);
+    else if (a==='edit-award') openAward(null, null, id);
+    else if (a==='submit-award') submitAward();
+    else if (a==='new-medal') openMedalForm(null);
+    else if (a==='edit-medal') { ev.stopPropagation(); openMedalForm(id); }
+    else if (a==='submit-medal') submitMedal();
+    else if (a==='del') { var e=eff(id); if (e) confirmBox('Retirer du registre', 'Retirer <b>'+esc(grade(e.grade).abbr+' '+e.nom)+'</b> du registre ? Ses promotions et décorations restent dans les journaux, marquées « radié ».', 'confirm-del', id, 'Retirer'); }
+    else if (a==='confirm-del') { var e2=eff(id); write(col('effectifs').doc(id).delete(), e2?e2.nom+' retiré du registre.':'').then(closeModal); }
+    else if (a==='del-promo') confirmBox('Supprimer ce mouvement', 'Supprimer cette ligne du journal des promotions ? Le grade actuel de l\'effectif ne change pas.', 'confirm-del-promo', id, 'Supprimer');
+    else if (a==='confirm-del-promo') write(col('promotions').doc(id).delete(), 'Mouvement supprimé du journal.').then(closeModal);
+    else if (a==='del-award') confirmBox('Retirer la décoration', 'Retirer cette attribution du registre des décorations ?', 'confirm-del-award', id, 'Retirer');
+    else if (a==='confirm-del-award') write(col('attributions').doc(id).delete(), 'Attribution retirée.').then(closeModal);
+    else if (a==='del-medal') { var m=med(id); if (m) { var n=D.attributions.filter(function(x){ return x.medailleId===id; }).length; confirmBox('Supprimer la décoration', 'Supprimer <b>'+esc(m.nom)+'</b> du catalogue ?'+(n?' Elle a été décernée '+n+' fois : ces attributions resteront au registre sous « Décoration supprimée ».':''), 'confirm-del-medal', id, 'Supprimer'); } }
+    else if (a==='confirm-del-medal') write(col('medailles').doc(id).delete(), 'Décoration supprimée.').then(closeModal);
+    else if (a==='edit-unit') openModal('<h2>Nom de l\'unité</h2><form class="form" id="unit-form"><label class="full">Unité<input name="unite" maxlength="100" value="'+esc(D.unite)+'" autofocus></label></form><div class="form-actions"><button class="btn" data-action="close">Annuler</button><button class="btn primary" data-action="save-unit">Enregistrer</button></div>');
+    else if (a==='save-unit') { var u=document.getElementById('unit-form').elements.unite.value.trim(); if (u) write(db.doc('config/registre').set({unite:u}), 'Nom de l\'unité mis à jour.').then(closeModal); }
+  });
+  root.addEventListener('keydown', function(ev){ if ((ev.key==='Enter'||ev.key===' ') && ev.target.classList && ev.target.classList.contains('medal')) { ev.preventDefault(); ev.target.click(); } });
+  root.addEventListener('submit', function(ev){ ev.preventDefault(); var map={'pseudo-form':'save-pseudo',fiche:'submit-fiche',promo:'submit-promo',award:'submit-award',medalf:'submit-medal','unit-form':'save-unit'}; var act=map[ev.target.id]; if (act) { var btn=root.querySelector('[data-action="'+act+'"]'); if (btn) btn.click(); } });
+  root.addEventListener('input', function(ev){
+    var t = ev.target;
+    if (t.id==='q') { ui.q=t.value; saveUi(); dataEffectifs(); fillNames(); }
+    else if (t.id==='pq') { ui.pq=t.value; saveUi(); dataPromotions(); fillNames(); }
+    else if (t.id==='dq') { ui.dq=t.value; saveUi(); dataDecorations(); fillNames(); }
+    else if (t.closest && t.closest('#medalf')) medalPrev();
+  });
+  root.addEventListener('change', function(ev){
+    var t = ev.target;
+    if (t.id==='import-input') { var fl = t.files && t.files[0]; if (!fl) return; var rd = new FileReader(); rd.onload = function(){ try { importData(JSON.parse(rd.result)); } catch(e){ toast('Fichier JSON invalide.'); } }; rd.readAsText(fl); return; }
+    if (t.id==='f-grade') { ui.grade=t.value; saveUi(); dataEffectifs(); }
+    else if (t.id==='f-statut') { ui.statut=t.value; saveUi(); dataEffectifs(); }
+    else if (t.id==='f-tri') { ui.tri=t.value; saveUi(); dataEffectifs(); }
+    else if (t.id==='f-ptype') { ui.ptype=t.value; saveUi(); dataPromotions(); fillNames(); }
+    else if (t.id==='f-st') togglePeriode();
+    else if (t.id==='pr-eff' || t.id==='pr-a') {
+      if (t.id==='pr-eff') { var e=eff(t.value); if (e) document.getElementById('pr-a').value = GRADES[Math.min(GRADES.length-1,gIndex[e.grade]+1)].id; }
+      promoInfo();
+    }
+    else if (t.id==='aw-m' || t.id==='aw-e') { var af=document.getElementById('award'); awardLevels(af && af.getAttribute('data-id') && t.id==='aw-e' ? document.getElementById('aw-n').value : null); }
+    else if (t.id==='aw-n') awardPrev();
+    else if (t.closest && t.closest('#medalf')) medalPrev();
+    else if (t.classList.contains('sel-statut') && canWrite) {
+      var e3 = eff(t.getAttribute('data-id')); if (!e3) return;
+      var d = {statut:t.value};
+      if (t.value==='assuree') { d.debut=''; d.fin=''; } else if (!isISO(e3.debut)) d.debut = todayISO();
+      t.className = 'sel-statut st-'+t.value;
+      write(col('effectifs').doc(e3.id).update(d), e3.nom+' : '+sById[t.value].label+(t.value!=='assuree'&&!isISO(e3.fin)?' — pense à indiquer la date de retour via « Modifier ».':''));
+    }
+  });
+  document.addEventListener('keydown', function(ev){ if (ev.key==='Escape') closeModal(); });
+
+  renderAll();
+  init();
+  if ('serviceWorker' in navigator && location.protocol==='https:') navigator.serviceWorker.register('sw.js').catch(function(){});
+})();
+</script>
+</body>
+</html>
